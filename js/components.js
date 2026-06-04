@@ -494,8 +494,11 @@
       // than multipart/form-data from the browser.)
       const payload = {};
       new FormData(form).forEach((value, key) => {
-        // Collapse the honeypot out of the payload unless a bot checked it.
-        payload[key] = value;
+        const v = typeof value === 'string' ? value.trim() : value;
+        // Skip empty optional fields so the email isn't cluttered with blanks.
+        if (v === '' || v == null) return;
+        // Aggregate same-named fields (e.g. a group of checkboxes) into one line.
+        payload[key] = payload[key] !== undefined ? payload[key] + ', ' + v : v;
       });
       payload.access_key = accessKey;
       payload.subject = form.getAttribute('data-form-subject') || 'Website Form Submission';
