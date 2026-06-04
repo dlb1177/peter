@@ -25,13 +25,14 @@
       {
         label: 'Sacraments',
         submenu: [
-          { label: 'Baptism', href: 'pages/sacraments.html#baptism' },
-          { label: 'First Reconciliation', href: 'pages/sacraments.html#reconciliation' },
-          { label: 'First Communion', href: 'pages/sacraments.html#communion' },
-          { label: 'Confirmation', href: 'pages/sacraments.html#confirmation' },
-          { label: 'Marriage', href: 'pages/sacraments.html#marriage' },
-          { label: 'Anointing of the Sick', href: 'pages/sacraments.html#anointing' },
-          { label: 'RCIA', href: 'pages/sacraments.html#rcia' }
+          { label: 'All Sacraments', href: 'pages/sacraments.html' },
+          { label: 'Baptism', href: 'pages/sacrament-baptism.html' },
+          { label: 'First Reconciliation', href: 'pages/sacrament-reconciliation.html' },
+          { label: 'First Communion', href: 'pages/sacrament-communion.html' },
+          { label: 'Confirmation', href: 'pages/sacrament-confirmation.html' },
+          { label: 'Marriage', href: 'pages/sacrament-marriage.html' },
+          { label: 'Anointing of the Sick', href: 'pages/sacrament-anointing.html' },
+          { label: 'RCIA / OCIA', href: 'pages/sacrament-rcia.html' }
         ]
       },
       {
@@ -61,7 +62,7 @@
         submenu: [
           { label: 'Events Calendar', href: 'pages/events.html' },
           { label: 'Bulletins & Newsletters', href: 'pages/bulletins.html' },
-          { label: 'Uganda Mission', href: 'pages/bulletins.html#uganda' }
+          { label: 'Uganda Mission', href: 'pages/uganda-mission.html' }
         ]
       }
     ],

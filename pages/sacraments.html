@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sacraments | Church of St. Peter - Mendota, MN</title>
-    <meta name="description" content="Learn about the seven sacraments at the Church of St. Peter. Find information on Baptism, Reconciliation, Communion, Confirmation, Marriage, and more.">
+    <title>The Sacraments | Church of St. Peter - Mendota, MN</title>
+    <meta name="description" content="The seven sacraments at the Church of St. Peter in Mendota, MN. Learn about Baptism, Reconciliation, Communion, Confirmation, Marriage, Anointing of the Sick, and becoming Catholic.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -25,11 +25,6 @@
                         'serif': ['"Playfair Display"', 'serif'],
                         'display': ['"Cinzel"', 'serif'],
                         'sans': ['"Inter"', 'sans-serif'],
-                    },
-                    backgroundImage: {
-                        'hero-pattern': "linear-gradient(to bottom, rgba(13, 33, 42, 0.7), rgba(13, 33, 42, 0.5)), url('../assets/watercolor_sanctuary.png')",
-                        'stained-glass': "linear-gradient(to right, rgba(13, 33, 42, 0.95), rgba(13, 33, 42, 0.9)), url('../assets/watercolor_glass.png')",
-                        'altar': "linear-gradient(to bottom, rgba(13, 33, 42, 0.3), rgba(13, 33, 42, 0.8)), url('../assets/watercolor_altar.png')"
                     }
                 }
             }
@@ -37,151 +32,193 @@
     </script>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/animations.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: #0d212a; background-color: #f9f7f2; line-height: 1.6; }
+        main { flex: 1; }
+
+        .sac-hero {
+            background: linear-gradient(135deg, #0d212a 0%, #1a3a4a 100%);
+            border-bottom: 4px solid #c5a059;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+        .sac-hero .eyebrow {
+            color: #deb872;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            margin-bottom: 1rem;
+        }
+        .sac-hero h1 {
+            font-family: 'Cinzel', serif;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            margin-bottom: 1.25rem;
+        }
+        .sac-hero p.intro {
+            color: rgba(255, 255, 255, 0.88);
+            font-size: 1.1rem;
+            max-width: 50rem;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .container { max-width: 72rem; margin: 0 auto; padding: 0 1rem; }
+
+        .sac-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.75rem;
+            margin: 3.5rem 0 3rem;
+        }
+
+        .sac-card {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-top: 4px solid #c5a059;
+            border-radius: 0.4rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            padding: 2rem 1.75rem;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .sac-card:nth-child(even) { border-top-color: #0d212a; }
+        .sac-card:hover { transform: translateY(-4px); box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12); }
+
+        .sac-card .icon { font-size: 1.9rem; color: #c5a059; margin-bottom: 1rem; }
+        .sac-card .tag {
+            display: inline-block;
+            align-self: flex-start;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #8a6d2f;
+            background: #f4ecdc;
+            padding: 0.2rem 0.6rem;
+            border-radius: 1rem;
+            margin-bottom: 0.85rem;
+        }
+        .sac-card h2 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: #0d212a; margin-bottom: 0.6rem; }
+        .sac-card p { color: #4c4c4c; font-size: 0.95rem; line-height: 1.6; flex: 1; margin-bottom: 1.1rem; }
+        .sac-card .more { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #c5a059; }
+        .sac-card:hover .more { color: #0d212a; }
+
+        .vocation-banner {
+            background: linear-gradient(135deg, #0d212a 0%, #1a3a4a 100%);
+            border-radius: 0.5rem;
+            padding: 2.5rem 2rem;
+            margin: 1rem 0 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .vocation-banner .vb-text { flex: 1; min-width: 16rem; }
+        .vocation-banner h2 { font-family: 'Cinzel', serif; color: #fff; font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .vocation-banner p { color: rgba(255, 255, 255, 0.85); font-size: 1rem; }
+        .vocation-banner a {
+            display: inline-block;
+            background: #c5a059;
+            color: #0d212a;
+            font-weight: 700;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.85rem 1.75rem;
+            border-radius: 0.25rem;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+        .vocation-banner a:hover { background: #fff; }
+
+        [data-animate] { opacity: 0; transform: translateY(20px); animation: fadeInUp 0.6s ease-out forwards; }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+    </style>
 </head>
 <body>
     <div id="site-navigation"></div>
-    <main class="flex-grow relative">
-        <section class="py-16 bg-church-cream">
-            <div class="max-w-4xl mx-auto px-4 text-center mb-12" data-animate="fade-in-up">
-                <h1 class="font-display text-4xl text-church-navy mb-4">The Sacraments</h1>
-                <p class="text-gray-600 text-lg">As a visible sign of an invisible grace, sacraments are an opportunity to encounter Christ in a new and life-changing way. See below for more information on sacramental preparation at the Church of St. Peter.</p>
+    <main>
+        <header class="sac-hero" data-animate="fade-in-up">
+            <p class="eyebrow">The Seven Sacraments</p>
+            <h1>The Sacraments</h1>
+            <p class="intro">As a visible sign of an invisible grace, the sacraments are an opportunity to encounter Christ in a new and life-changing way. Choose a sacrament below to learn more about its meaning and how to prepare at the Church of St. Peter.</p>
+        </header>
+
+        <div class="container">
+            <div class="sac-cards" data-animate="fade-in-up">
+                <a class="sac-card" href="sacrament-baptism.html">
+                    <div class="icon"><i class="fa-solid fa-hands-praying"></i></div>
+                    <span class="tag">Initiation</span>
+                    <h2>Baptism</h2>
+                    <p>The door to the sacraments and the beginning of a new life in Christ.</p>
+                    <span class="more">Learn More &rarr;</span>
+                </a>
+
+                <a class="sac-card" href="sacrament-reconciliation.html">
+                    <div class="icon"><i class="fa-solid fa-dove"></i></div>
+                    <span class="tag">Healing</span>
+                    <h2>First Reconciliation</h2>
+                    <p>Encounter God's mercy and the restoration of His friendship after sin.</p>
+                    <span class="more">Learn More &rarr;</span>
+                </a>
+
+                <a class="sac-card" href="sacrament-communion.html">
+                    <div class="icon"><i class="fa-solid fa-wheat-awn"></i></div>
+                    <span class="tag">Initiation</span>
+                    <h2>First Communion</h2>
+                    <p>Receive the Body and Blood of Christ — the source and summit of our faith.</p>
+                    <span class="more">Learn More &rarr;</span>
+                </a>
+
+                <a class="sac-card" href="sacrament-confirmation.html">
+                    <div class="icon"><i class="fa-solid fa-fire"></i></div>
+                    <span class="tag">Initiation</span>
+                    <h2>Confirmation</h2>
+                    <p>Sealed with the gifts of the Holy Spirit for an active life of faith.</p>
+                    <span class="more">Learn More &rarr;</span>
+                </a>
+
+                <a class="sac-card" href="sacrament-marriage.html">
+                    <div class="icon"><i class="fa-solid fa-ring"></i></div>
+                    <span class="tag">Vocation</span>
+                    <h2>Marriage</h2>
+                    <p>A covenant of life and love that signs Christ's love for His Church.</p>
+                    <span class="more">Learn More &rarr;</span>
+                </a>
+
+                <a class="sac-card" href="sacrament-anointing.html">
+                    <div class="icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                    <span class="tag">Healing</span>
+                    <h2>Anointing of the Sick</h2>
+                    <p>Healing, comfort, and strength for those who are seriously ill.</p>
+                    <span class="more">Learn More &rarr;</span>
+                </a>
+
+                <a class="sac-card" href="sacrament-rcia.html">
+                    <div class="icon"><i class="fa-solid fa-church"></i></div>
+                    <span class="tag">Becoming Catholic</span>
+                    <h2>Christian Initiation</h2>
+                    <p>For adults seeking baptism or full communion with the Catholic Church (RCIA / OCIA).</p>
+                    <span class="more">Learn More &rarr;</span>
+                </a>
             </div>
 
-            <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-8 grid-flow-row-dense">
-
-                <div class="bg-white shadow-lg overflow-hidden border-t-4 border-church-gold flex flex-col h-full" data-animate="fade-in-up">
-                    <div class="p-8 flex-1 flex flex-col">
-                        <h2 class="font-display text-2xl text-church-navy mb-4">Baptism</h2>
-                        <div class="text-gray-600 space-y-4 mb-6 flex-1">
-                            <p>Baptism is the first of seven sacraments and the "door" which opens a person to the other sacraments. It is the first sacrament of forgiveness because it unites us with Christ, who died for our sins and rose to give us new life.</p>
-                            <p>Baptism, Confirmation, and Eucharist constitute the "sacraments of initiation" by which a believer begins a new life in Christ and the Holy Spirit, and is incorporated into the Church, the body of Christ. The rite of Baptism consists in immersing the candidate in water, or pouring water on the head, while pronouncing the invocation of the Most Holy Trinity: the Father, the Son, and the Holy Spirit.</p>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
-                            <p class="text-church-navy font-bold mb-1">Contact Lynn Kelley: (651) 905-4309</p>
-                            <p class="text-sm text-gray-500 mb-4">Call to make arrangements or register for a baptism class.</p>
-                            <a href="baptism-registration.html" class="w-full block text-center bg-church-navy text-white px-4 py-3 text-sm font-bold uppercase tracking-widest hover:bg-church-gold transition-colors rounded">
-                                Baptism Registration Form
-                            </a>
-                        </div>
-                    </div>
+            <div class="vocation-banner" data-animate="fade-in-up">
+                <div class="vb-text">
+                    <h2>Holy Orders &amp; Vocations</h2>
+                    <p>Are you feeling called to the priesthood or religious life? Discover where the Lord may be leading you.</p>
                 </div>
-
-                <div class="bg-white shadow-lg overflow-hidden border-t-4 border-church-navy flex flex-col h-full" data-animate="fade-in-up">
-                    <div class="p-8 flex-1 flex flex-col">
-                        <h2 class="font-display text-2xl text-church-navy mb-4">First Reconciliation</h2>
-                        <div class="text-gray-600 space-y-4 mb-6 flex-1">
-                            <p>At Baptism, we become a part of God's family, the Church, and receive sanctifying grace. Through sin, we can dim or even lose that life within us. Jesus gave us this sacrament to restore our friendship with Him (Matthew 16:19).</p>
-                            <p>When celebrating the Sacrament of Reconciliation, the priest acts in the person of Jesus Christ. Through the words of absolution, we are reconciled to God and the Church. Three requirements are necessary for forgiveness: contrition (sorrow), confession of sins to a priest, and penance. The sacramental seal means the priest must keep your confession private without exception.</p>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-100 mt-auto">
-                            <h4 class="font-bold text-church-navy text-sm uppercase tracking-wide mb-2">Requirements</h4>
-                            <ul class="list-disc list-inside text-sm text-gray-600 mb-4 space-y-1">
-                                <li><strong>Baptismal Record:</strong> If not baptized at St. Peter's, request verification from the church of Baptism.</li>
-                                <li><strong>Registration:</strong> Family must be registered parishioners (or provide a permission letter from your pastor).</li>
-                            </ul>
-                            <p class="text-sm text-gray-600 mb-1">Registration begins in April/May of the previous school year (Grade 2).</p>
-                            <p class="text-church-navy font-bold">Contact Bridgette Adler: (651) 905-4314</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white shadow-lg overflow-hidden border-t-4 border-church-gold flex flex-col h-full" data-animate="fade-in-up">
-                    <div class="p-8 flex-1 flex flex-col">
-                        <h2 class="font-display text-2xl text-church-navy mb-4">First Communion</h2>
-                        <div class="text-gray-600 space-y-4 mb-6 flex-1">
-                            <p>The Eucharist is the "source and summit of the Christian life" (CCC 1324). It sustains the life of the Church. At the Last Supper, Jesus instituted the Eucharist to remain with us.</p>
-                            <p>We call this sacrament "Holy Communion" because by it, we are intimately united to Christ. Jesus tells us: "He who eats my flesh and drinks my blood abides in me, and I in him" (John 6:56). When we receive the Eucharist, we receive a taste of heaven. This sacrament separates us from sin and unites us more closely to the Body of Christ.</p>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-100 mt-auto">
-                            <h4 class="font-bold text-church-navy text-sm uppercase tracking-wide mb-2">Requirements</h4>
-                            <ul class="list-disc list-inside text-sm text-gray-600 mb-4 space-y-1">
-                                <li><strong>Baptismal Record:</strong> Required if not baptized at St. Peter's.</li>
-                                <li><strong>Registration:</strong> Must be registered parishioners (or provide pastor letter).</li>
-                            </ul>
-                            <p class="text-sm text-gray-600 mb-1">To register (Grade 2), click on Faith Formation Registration.</p>
-                            <p class="text-church-navy font-bold">Contact Bridgette Adler: (651) 905-4314</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white shadow-lg overflow-hidden border-t-4 border-church-navy flex flex-col h-full" data-animate="fade-in-up">
-                    <div class="p-8 flex-1 flex flex-col">
-                        <h2 class="font-display text-2xl text-church-navy mb-4">Confirmation</h2>
-                        <div class="text-gray-600 space-y-4 mb-6 flex-1">
-                            <p>Confirmation completes the grace of Baptism by a special outpouring of the Gifts of the Holy Spirit, which seal or "confirm" the baptized in union with Christ and empowers them for active participation in the Church.</p>
-                            <p>The goal of St. Peter's Confirmation program is to assist young people in their preparation. Because candidates are being confirmed into a faith community, they must belong to and worship with this community. The candidate's sponsor plays a major role and is expected to attend specific events.</p>
-                            <p class="italic">Those preparing for Confirmation are required to fully participate in <strong>Perissos</strong> (Wednesday nights).</p>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-100 mt-auto">
-                            <h4 class="font-bold text-church-navy text-sm uppercase tracking-wide mb-2">Requirements</h4>
-                            <ul class="list-disc list-inside text-sm text-gray-600 mb-4 space-y-1">
-                                <li><strong>Baptismal Record</strong></li>
-                                <li><strong>Parish Registration:</strong> Or letter of permission from your pastor.</li>
-                            </ul>
-                            <p class="text-church-navy font-bold mt-2">Contact Elizabeth McCanna: (651) 905-4312</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white shadow-lg overflow-hidden border-t-4 border-church-gold flex flex-col h-full" data-animate="fade-in-up">
-                    <div class="p-8 flex-1 flex flex-col">
-                        <h2 class="font-display text-2xl text-church-navy mb-4">Marriage</h2>
-                        <div class="text-gray-600 space-y-4 mb-6 flex-1">
-                            <p>Marriage is a covenant or partnership of life and a commitment between a man and woman, ordered to the unity of love of the spouses and to the procreation and upbringing of children. When validly celebrated between two baptized people, marriage is a sacrament.</p>
-                            <p>Information about getting married at St. Peter's is available in our online wedding guidelines. There you will learn who is eligible, what our preparation requirements are, and how to begin planning.</p>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-100 mt-auto">
-                            <p class="text-sm text-church-navy font-bold mb-2">PLEASE NOTE: Arrange with the priest or pastoral associate at least 6 months in advance.</p>
-                            <p class="text-church-navy font-bold mb-4">Contact Lisa Fontecha: (651) 905-4304</p>
-                            <a href="https://irp.cdn-website.com/51d19b9a/files/uploaded/Website%20Wedding%20Guide%20update%202023.pdf" target="_blank" class="block text-center w-full border-2 border-church-gold text-church-navy px-4 py-2 text-xs font-bold uppercase tracking-widest hover:bg-church-gold hover:text-white transition-colors rounded">
-                                Download Wedding Guide
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white shadow-lg overflow-hidden border-t-4 border-church-navy flex flex-col h-full" data-animate="fade-in-up">
-                    <div class="p-8 flex-1 flex flex-col">
-                        <h2 class="font-display text-2xl text-church-navy mb-4">Anointing of the Sick</h2>
-                        <div class="text-gray-600 space-y-4 mb-6 flex-1">
-                            <p>The Rite of Anointing tells us there is no need to wait until a person is at the point of death in order to receive the Sacrament. A careful judgment about the serious nature of the illness is sufficient.</p>
-                            <p>The Sacrament may be repeated if the sick person recovers after the anointing but then becomes ill once again, or, if during the same illness, the person's condition becomes more serious. A person should be anointed before surgery when a dangerous illness is the reason for the intervention.</p>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-100 mt-auto">
-                            <p class="text-sm text-gray-600 mb-2">If you or a loved one would like to receive the Sacrament, please contact the parish.</p>
-                            <p class="text-church-navy font-bold text-lg">Call: (651) 905-4305</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white shadow-lg overflow-hidden border-t-4 border-church-gold flex flex-col h-full" data-animate="fade-in-up">
-                    <div class="p-8 flex-1 flex flex-col">
-                        <h2 class="font-display text-2xl text-church-navy mb-4">Christian Initiation (RCIA/OCIA)</h2>
-                        <div class="text-gray-600 space-y-4 mb-6 flex-1">
-                            <p>If you or someone you know is interested in taking the steps to become a full member of the Catholic church or learn more about it, please contact us.</p>
-                            <p>Because everyone who approaches the Church comes to us from their own unique circumstances, we encourage you to meet with the pastor or pastoral associate for a conversation regarding your own experiences and hopes.</p>
-                            <p>Our process encourages prayer, participation in community events, and group/individual learning. We customize instruction for both the baptized and unbaptized.</p>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-100 mt-auto">
-                            <p class="text-church-navy font-bold">Dcn. Tim Hennessey: (651) 905-4301</p>
-                            <p class="text-church-navy font-bold">Lisa Fontecha: (651) 905-4304</p>
-                            <p class="text-sm text-gray-500 mt-1">Email: lfontecha@stpetersmendota.org</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white shadow-lg overflow-hidden border-t-4 border-church-navy flex flex-col h-full" data-animate="fade-in-up">
-                    <div class="p-8 flex-1 flex flex-col justify-center text-center">
-                        <h2 class="font-display text-2xl text-church-navy mb-4">Holy Orders</h2>
-                        <p class="text-gray-600 mb-6 text-lg">Are you feeling called to the priesthood or religious life?</p>
-                        <a href="http://www.10000vocations.org/" target="_blank" class="inline-block bg-church-navy text-white px-6 py-3 rounded text-sm font-bold uppercase tracking-widest hover:bg-church-gold transition-colors">
-                            More Information on Vocations
-                        </a>
-                    </div>
-                </div>
-
+                <a href="http://www.10000vocations.org/" target="_blank" rel="noopener">Explore Vocations</a>
             </div>
-        </section>
+        </div>
     </main>
     <div id="site-footer"></div>
     <script src="../js/config.js"></script>

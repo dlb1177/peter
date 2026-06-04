@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Communion | Church of St. Peter - Mendota, MN</title>
+    <meta name="description" content="First Holy Communion at the Church of St. Peter — the Eucharist, source and summit of the Christian life, and how children prepare to receive it.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'church-navy': '#0d212a',
+                        'church-gold': '#c5a059',
+                        'church-gold-light': '#deb872',
+                        'church-cream': '#f9f7f2',
+                        'church-gray': '#4c4c4c',
+                    },
+                    fontFamily: {
+                        'serif': ['"Playfair Display"', 'serif'],
+                        'display': ['"Cinzel"', 'serif'],
+                        'sans': ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: #0d212a; background-color: #f9f7f2; line-height: 1.6; }
+        main { flex: 1; }
+
+        .sac-hero {
+            background: linear-gradient(135deg, #0d212a 0%, #1a3a4a 100%);
+            border-bottom: 4px solid #c5a059;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+        .sac-hero .eyebrow {
+            color: #deb872;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            margin-bottom: 1rem;
+        }
+        .sac-hero h1 {
+            font-family: 'Cinzel', serif;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            margin-bottom: 1.25rem;
+        }
+        .sac-hero .scripture {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #deb872;
+            font-size: 1.15rem;
+            max-width: 44rem;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        .sac-hero .scripture cite {
+            display: block;
+            font-style: normal;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 0.85rem;
+        }
+
+        .container { max-width: 70rem; margin: 0 auto; padding: 0 1rem; }
+
+        .lead {
+            font-size: 1.2rem;
+            color: #4c4c4c;
+            max-width: 48rem;
+            margin: 3rem auto 1rem;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .sac-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 2.5rem;
+            margin: 2.5rem 0 3rem;
+            align-items: start;
+        }
+        @media (max-width: 860px) {
+            .sac-grid { grid-template-columns: 1fr; }
+        }
+
+        .prose h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: #0d212a;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #deb872;
+        }
+        .prose p { color: #4c4c4c; margin-bottom: 1rem; line-height: 1.85; }
+        .prose p.note { font-style: italic; }
+        .prose strong { color: #0d212a; }
+
+        .info-card {
+            background: white;
+            border-top: 4px solid #c5a059;
+            border-radius: 0.4rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+            padding: 1.75rem;
+            position: sticky;
+            top: 6rem;
+        }
+        .info-card h3 { font-family: 'Cinzel', serif; font-size: 1.15rem; color: #0d212a; margin-bottom: 0.75rem; }
+        .info-card h4 {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #999;
+            font-weight: 600;
+            margin: 1.25rem 0 0.6rem;
+        }
+        .info-card ul { list-style: none; }
+        .info-card li {
+            font-size: 0.9rem;
+            color: #4c4c4c;
+            margin-bottom: 0.6rem;
+            padding-left: 1.2rem;
+            position: relative;
+            line-height: 1.5;
+        }
+        .info-card li::before { content: '\2022'; color: #c5a059; font-weight: 700; position: absolute; left: 0; }
+        .info-card .contact-name { font-weight: 700; color: #0d212a; margin-bottom: 0.2rem; }
+        .info-card .contact-line { font-size: 0.9rem; color: #4c4c4c; margin-bottom: 0.35rem; }
+        .info-card a.email { color: #0d212a; font-weight: 600; text-decoration: none; word-break: break-word; }
+        .info-card a.email:hover { color: #c5a059; }
+
+        .btn-primary {
+            display: block;
+            text-align: center;
+            background: #0d212a;
+            color: white;
+            padding: 0.8rem 1rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            margin-top: 1.25rem;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { background: #c5a059; }
+        .btn-outline {
+            display: block;
+            text-align: center;
+            border: 2px solid #c5a059;
+            color: #0d212a;
+            padding: 0.7rem 1rem;
+            border-radius: 0.25rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover { background: #c5a059; color: white; }
+
+        .callout {
+            background: #f9f7f2;
+            border: 1px solid #deb872;
+            border-radius: 0.4rem;
+            padding: 1rem 1.25rem;
+            font-size: 0.9rem;
+            color: #4c4c4c;
+            margin-top: 1rem;
+        }
+        .callout strong { color: #0d212a; }
+
+        .related {
+            border-top: 1px solid #e5e0d5;
+            padding: 2.5rem 0 3.5rem;
+            text-align: center;
+        }
+        .related h3 { font-family: 'Cinzel', serif; font-size: 1.2rem; color: #0d212a; margin-bottom: 1.25rem; }
+        .related .pills { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin-bottom: 1.5rem; }
+        .related .pills a {
+            display: inline-block;
+            padding: 0.5rem 1.1rem;
+            border: 1px solid #c5a059;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #0d212a;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .related .pills a:hover { background: #0d212a; color: white; border-color: #0d212a; }
+        .related .all-link { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #c5a059; text-decoration: none; }
+        .related .all-link:hover { color: #0d212a; }
+
+        [data-animate] { opacity: 0; transform: translateY(20px); animation: fadeInUp 0.6s ease-out forwards; }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        [data-animate]:nth-child(1) { animation-delay: 0.05s; }
+        [data-animate]:nth-child(2) { animation-delay: 0.15s; }
+        [data-animate]:nth-child(3) { animation-delay: 0.25s; }
+    </style>
+</head>
+<body>
+    <div id="site-navigation"></div>
+    <main>
+        <header class="sac-hero" data-animate="fade-in-up">
+            <p class="eyebrow">Sacrament of Initiation</p>
+            <h1>First Communion</h1>
+            <p class="scripture">
+                "I am the living bread that came down from heaven."
+                <cite>John 6:51</cite>
+            </p>
+        </header>
+
+        <div class="container">
+            <p class="lead">The Eucharist is the source and summit of the Christian life — in Holy Communion we are united most intimately with Christ Himself.</p>
+
+            <div class="sac-grid" data-animate="fade-in-up">
+                <div class="prose">
+                    <h2>About this Sacrament</h2>
+                    <p>The Eucharist is the "source and summit of the Christian life" (CCC 1324). It sustains the life of the Church. At the Last Supper, Jesus instituted the Eucharist to remain with us.</p>
+                    <p>We call this sacrament "Holy Communion" because by it, we are intimately united to Christ. Jesus tells us: "He who eats my flesh and drinks my blood abides in me, and I in him" (John 6:56). When we receive the Eucharist, we receive a taste of heaven. This sacrament separates us from sin and unites us more closely to the Body of Christ.</p>
+                </div>
+
+                <aside class="info-card">
+                    <h3>Preparing Your Child</h3>
+                    <h4>Requirements</h4>
+                    <ul>
+                        <li><strong>Baptismal Record:</strong> Required if not baptized at St. Peter's.</li>
+                        <li><strong>Registration:</strong> Must be registered parishioners (or provide a pastor letter).</li>
+                    </ul>
+                    <div class="callout">To register your child (Grade 2), see <strong>Faith Formation</strong>.</div>
+                    <h4>Contact</h4>
+                    <p class="contact-name">Bridgette Adler</p>
+                    <p class="contact-line">(651) 905-4314</p>
+                    <a class="btn-outline" href="catechesis-good-shepherd.html">Faith Formation (CGS)</a>
+                </aside>
+            </div>
+
+            <div class="related" data-animate="fade-in-up">
+                <h3>The Other Sacraments</h3>
+                <div class="pills">
+                    <a href="sacrament-baptism.html">Baptism</a>
+                    <a href="sacrament-reconciliation.html">First Reconciliation</a>
+                    <a href="sacrament-confirmation.html">Confirmation</a>
+                    <a href="sacrament-marriage.html">Marriage</a>
+                    <a href="sacrament-anointing.html">Anointing of the Sick</a>
+                    <a href="sacrament-rcia.html">Christian Initiation</a>
+                </div>
+                <a class="all-link" href="sacraments.html">&larr; View All Sacraments</a>
+            </div>
+        </div>
+    </main>
+    <div id="site-footer"></div>
+    <script src="../js/config.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/calendar.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>

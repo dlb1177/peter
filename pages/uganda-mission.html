@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uganda Mission | Church of St. Peter - Mendota, MN</title>
+    <meta name="description" content="The Uganda Mission of the Church of St. Peter in Mendota, MN. A dedicated page is coming soon — in the meantime, read our Uganda mission newsletters.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'church-navy': '#0d212a',
+                        'church-gold': '#c5a059',
+                        'church-gold-light': '#deb872',
+                        'church-cream': '#f9f7f2',
+                        'church-gray': '#4c4c4c',
+                    },
+                    fontFamily: {
+                        'serif': ['"Playfair Display"', 'serif'],
+                        'display': ['"Cinzel"', 'serif'],
+                        'sans': ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: #0d212a; background-color: #f9f7f2; line-height: 1.6; }
+        main { flex: 1; }
+
+        .coming-soon {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 5rem 1.5rem;
+            background: linear-gradient(135deg, #0d212a 0%, #1a3a4a 100%);
+            border-bottom: 4px solid #c5a059;
+        }
+
+        .coming-soon .inner { max-width: 42rem; }
+
+        .coming-soon .globe {
+            font-size: 3rem;
+            color: #deb872;
+            margin-bottom: 1.5rem;
+        }
+
+        .coming-soon .eyebrow {
+            color: #deb872;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+        }
+
+        .coming-soon h1 {
+            font-family: 'Cinzel', serif;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: clamp(2.25rem, 6vw, 3.5rem);
+            margin-bottom: 1.25rem;
+        }
+
+        .coming-soon .badge {
+            display: inline-block;
+            background: rgba(197, 160, 89, 0.18);
+            border: 1px solid #c5a059;
+            color: #deb872;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            padding: 0.4rem 1.1rem;
+            border-radius: 2rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .coming-soon p {
+            color: rgba(255, 255, 255, 0.88);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .cs-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        .cs-actions a {
+            display: inline-block;
+            padding: 0.8rem 1.75rem;
+            border-radius: 0.25rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cs-actions .primary { background: #c5a059; color: #0d212a; }
+        .cs-actions .primary:hover { background: #ffffff; }
+        .cs-actions .ghost { border: 2px solid rgba(255, 255, 255, 0.5); color: #ffffff; }
+        .cs-actions .ghost:hover { border-color: #c5a059; color: #deb872; }
+
+        [data-animate] { opacity: 0; transform: translateY(20px); animation: fadeInUp 0.6s ease-out forwards; }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <div id="site-navigation"></div>
+    <main>
+        <section class="coming-soon">
+            <div class="inner" data-animate="fade-in-up">
+                <div class="globe"><i class="fa-solid fa-earth-africa"></i></div>
+                <p class="eyebrow">Church of St. Peter</p>
+                <h1>Uganda Mission</h1>
+                <div class="badge">Coming Soon</div>
+                <p>
+                    We are building a home for the story of our Uganda Mission &mdash; the partnership, the people, and the work your generosity supports. Please check back soon for the full page.
+                </p>
+                <div class="cs-actions">
+                    <a class="primary" href="bulletins.html#uganda-newsletters">Read Mission Newsletters</a>
+                    <a class="ghost" href="../index.html">Return Home</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="site-footer"></div>
+    <script src="../js/config.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/calendar.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>

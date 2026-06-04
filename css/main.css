@@ -247,6 +247,20 @@ h6 {
   font-size: var(--font-size-lg);
 }
 
+/*
+ * Hero/banner headings should follow the text color set on their container
+ * rather than the global navy heading color above. Without this, a hero that
+ * sets `color: white` on its wrapper still renders a navy <h1> (the element
+ * rule beats inherited color), leaving the title invisible on a dark hero.
+ * Pages that want a navy hero heading set it directly on the heading, which
+ * is defined later in their own <style> and therefore still wins.
+ */
+.hero-banner h1, .hero-banner h2, .hero-banner h3,
+.hero-section h1, .hero-section h2, .hero-section h3,
+.hero h1, .hero h2, .hero h3 {
+  color: inherit;
+}
+
 /* Paragraphs */
 p {
   margin-bottom: var(--spacing-4);
