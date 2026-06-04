@@ -269,7 +269,6 @@
         'index.html': 'initHome',
         'mass-prayer.html': 'initMassPrayer',
         'sacraments.html': 'initSacraments',
-        'faith-formation.html': 'initFaithFormation',
         'events.html': 'initEvents',
         'donations.html': 'initDonations'
       };

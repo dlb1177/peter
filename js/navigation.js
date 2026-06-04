@@ -37,9 +37,10 @@
       {
         label: 'Faith Life',
         submenu: [
-          { label: 'Faith Formation (CGS)', href: 'pages/faith-formation.html' },
-          { label: 'Youth Ministry', href: 'pages/faith-formation.html#youth' },
-          { label: 'Adult Small Groups', href: 'pages/small-groups.html' },
+          { label: 'Catechesis of the Good Shepherd', href: 'pages/catechesis-good-shepherd.html' },
+          { label: 'Youth Formation', href: 'pages/youth-formation.html' },
+          { label: 'Adult Formation', href: 'pages/adult-formation.html' },
+          { label: 'Small Groups', href: 'pages/small-groups.html' },
           { label: 'Alpha', href: 'pages/alpha.html' },
           { label: 'Faith Enrichment Resources', href: 'pages/faith-enrichment.html' }
         ]
@@ -107,12 +108,18 @@
         }
 
         const submenuId = `desktop-sub-${index}`;
+        // Dropdown visibility is driven purely by CSS `group-hover` on the
+        // wrapper below. Because the submenu (including its `pt-2` bridge) is a
+        // DOM descendant of `.group`, hovering either the button or the menu
+        // keeps it open, and leaving the wrapper in any direction hides it.
+        // (Earlier inline JS toggled `hidden` on the button's mouseenter, which
+        // left the menu stuck open when the cursor left the button sideways.)
         return `
           <div class="relative group" style="z-index:50;">
             <button
+              type="button"
               class="px-3 py-2 text-xs font-bold uppercase tracking-widest text-white hover:text-church-gold flex items-center gap-1 transition-colors"
-              onclick="document.getElementById('${submenuId}').classList.toggle('hidden')"
-              onmouseenter="document.getElementById('${submenuId}').classList.remove('hidden')"
+              aria-haspopup="true"
             >
               ${item.label}
               <i class="fa-solid fa-chevron-down text-[8px] opacity-50 group-hover:opacity-100 transition-opacity"></i>
@@ -121,7 +128,6 @@
               id="${submenuId}"
               class="absolute left-0 top-full pt-2 w-56 hidden group-hover:block"
               style="z-index:999;"
-              onmouseleave="this.classList.add('hidden')"
             >
               <div class="bg-white text-church-navy shadow-2xl rounded-sm py-2 border-t-4 border-church-gold">
                 ${item.submenu.map(sub => `
@@ -283,9 +289,9 @@
               <!-- Community Links -->
               <div class="space-y-2 text-sm text-gray-400">
                 <h4 class="text-white font-display font-bold uppercase text-xs tracking-widest mb-3">Community</h4>
-                <p><a href="${this.basePath}pages/faith-formation.html" class="hover:text-church-gold transition-colors" style="text-decoration:none;color:inherit;">Faith Formation</a></p>
-                <p><a href="${this.basePath}pages/faith-formation.html#youth" class="hover:text-church-gold transition-colors" style="text-decoration:none;color:inherit;">Youth Ministry</a></p>
-                <p><a href="${this.basePath}pages/small-groups.html" class="hover:text-church-gold transition-colors" style="text-decoration:none;color:inherit;">Small Groups</a></p>
+                <p><a href="${this.basePath}pages/catechesis-good-shepherd.html" class="hover:text-church-gold transition-colors" style="text-decoration:none;color:inherit;">Children's Formation</a></p>
+                <p><a href="${this.basePath}pages/youth-formation.html" class="hover:text-church-gold transition-colors" style="text-decoration:none;color:inherit;">Youth Formation</a></p>
+                <p><a href="${this.basePath}pages/adult-formation.html" class="hover:text-church-gold transition-colors" style="text-decoration:none;color:inherit;">Adult Formation</a></p>
                 <p><a href="${this.basePath}pages/sacraments.html" class="hover:text-church-gold transition-colors" style="text-decoration:none;color:inherit;">Sacraments</a></p>
               </div>
 
