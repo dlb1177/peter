@@ -489,27 +489,38 @@
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…';
       }
 
-      // Build the payload from the form fields plus Web3Forms control fields.
-      const formData = new FormData(form);
-      formData.append('access_key', accessKey);
-      formData.append('subject', form.getAttribute('data-form-subject') || 'Website Form Submission');
-      formData.append('from_name', 'Church of St. Peter Website');
+      // Build a JSON payload from the form fields plus Web3Forms control fields.
+      // (Web3Forms' JSON API returns proper CORS headers; this is more reliable
+      // than multipart/form-data from the browser.)
+      const payload = {};
+      new FormData(form).forEach((value, key) => {
+        // Collapse the honeypot out of the payload unless a bot checked it.
+        payload[key] = value;
+      });
+      payload.access_key = accessKey;
+      payload.subject = form.getAttribute('data-form-subject') || 'Website Form Submission';
+      payload.from_name = 'Church of St. Peter Website';
 
       // Reply directly to the person who submitted, if they gave an email.
       const emailField = form.querySelector('input[type="email"], input[name="email"]');
       if (emailField && emailField.value) {
-        formData.append('replyto', emailField.value);
+        payload.replyto = emailField.value;
       }
 
-      // CC the configured recipient list (active on Web3Forms PRO; harmless otherwise).
+      // CC the configured recipient list — PRO only. Sending ccemail on a free
+      // plan makes Web3Forms reject the whole submission, so gate it on proPlan.
       const recipients = Array.isArray(cfg.recipients) ? cfg.recipients.filter(Boolean) : [];
-      if (recipients.length) {
-        formData.append('ccemail', recipients.join(';'));
+      if (cfg.proPlan && recipients.length) {
+        payload.ccemail = recipients.join(';');
       }
 
       fetch(this.WEB3FORMS_ENDPOINT, {
         method: 'POST',
-        body: formData
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify(payload)
       })
         .then((res) => res.json())
         .then((data) => {
@@ -519,7 +530,9 @@
             throw new Error((data && data.message) || 'Submission failed');
           }
         })
-        .catch(() => {
+        .catch((err) => {
+          // Surface the real reason in the console to make future debugging easy.
+          console.error('[Parish form] submission failed:', err && err.message);
           if (submitBtn) {
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalBtnHtml;

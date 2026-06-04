@@ -51,8 +51,12 @@ without touching page markup:
   delivers form submissions (contact, new-parishioner, baptism registration).
   Until it is set, the forms show a friendly "not set up yet" message and point
   visitors to the office phone/email — they never fail silently.
+- **`forms.proPlan`** — set to `true` only if the Web3Forms account is on a paid
+  plan. CC'ing extra recipients is a PRO feature; on the free plan, sending the CC
+  list makes Web3Forms reject the whole submission, so the CC list is only sent
+  when this is `true`. Leave `false` on the free plan.
 - **`forms.recipients`** — additional addresses copied (CC) on each submission;
-  editable here on the fly.
+  editable here on the fly. Only used when `proPlan` is `true`.
 
 ### Setting up form delivery (one-time)
 

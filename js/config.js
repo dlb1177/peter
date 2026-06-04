@@ -44,19 +44,25 @@
      *               configured" message instead of failing silently — they
      *               never lose a submission quietly.
      *
-     *   recipients  Additional email addresses to copy on every submission.
-     *               These are sent as CC and can be edited here on the fly.
-     *               NOTE: CC to extra addresses is a Web3Forms PRO feature; on
-     *               the free plan only the access-key email receives mail.
+     *   proPlan     Set to true ONLY if this Web3Forms account is on a paid
+     *               (PRO) plan. CC'ing extra recipients is a PRO feature — if
+     *               you send the CC list on a FREE plan, Web3Forms REJECTS the
+     *               whole submission. So we only send the CC list when this is
+     *               true. Leave false on the free plan.
      *
-     *   TIP — editable recipient list for FREE: sign up for the access key
-     *   using a shared parish distribution list / Google Group address (e.g.
-     *   "web-inquiries@stpetersmendota.org"). Then office staff can add or
-     *   remove who gets the emails from their email admin — no code changes,
-     *   no PRO plan needed.
+     *   recipients  Additional email addresses to copy (CC) on every
+     *               submission. Editable here on the fly. ONLY used when
+     *               proPlan is true (see above).
+     *
+     *   TIP — editable recipient list for FREE (no PRO needed): sign up for the
+     *   access key using a shared parish distribution list / Google Group
+     *   address (e.g. "web-inquiries@stpetersmendota.org"). Then office staff
+     *   add or remove who gets the emails from their email admin — no code
+     *   changes. On the free plan, mail goes only to the access-key address.
      */
     forms: {
       accessKey: '27774fac-c991-4367-a91e-f737d3ed0ffa',
+      proPlan: false,
       recipients: [
         'church@stpetersmendota.org'
       ]
