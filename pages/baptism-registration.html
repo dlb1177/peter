@@ -27,9 +27,9 @@
                         'sans': ['"Inter"', 'sans-serif'],
                     },
                     backgroundImage: {
-                        'hero-pattern': "linear-gradient(to bottom, rgba(13, 33, 42, 0.7), rgba(13, 33, 42, 0.5)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_sanctuary.png')",
-                        'stained-glass': "linear-gradient(to right, rgba(13, 33, 42, 0.95), rgba(13, 33, 42, 0.9)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_glass.png')",
-                        'altar': "linear-gradient(to bottom, rgba(13, 33, 42, 0.3), rgba(13, 33, 42, 0.8)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_altar.png')"
+                        'hero-pattern': "linear-gradient(to bottom, rgba(13, 33, 42, 0.7), rgba(13, 33, 42, 0.5)), url('../assets/watercolor_sanctuary.png')",
+                        'stained-glass': "linear-gradient(to right, rgba(13, 33, 42, 0.95), rgba(13, 33, 42, 0.9)), url('../assets/watercolor_glass.png')",
+                        'altar': "linear-gradient(to bottom, rgba(13, 33, 42, 0.3), rgba(13, 33, 42, 0.8)), url('../assets/watercolor_altar.png')"
                     }
                 }
             }
@@ -61,30 +61,30 @@
                     </div>
                 </div>
 
-                <form class="bg-white shadow-xl rounded-lg p-8 md:p-10 space-y-8 border-t-4 border-church-navy">
+                <form data-parish-form data-form-subject="Baptism Registration" class="bg-white shadow-xl rounded-lg p-8 md:p-10 space-y-8 border-t-4 border-church-navy">
 
                     <div>
                         <h3 class="text-xl font-display text-church-navy mb-4 border-b pb-2">Family Information</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="md:col-span-2">
                                 <label class="block text-sm font-bold text-gray-800 mb-1">Family Name</label>
-                                <input type="text" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200" placeholder="e.g. The Smith Family">
+                                <input type="text" name="family_name" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200" placeholder="e.g. The Smith Family">
                             </div>
                             <div class="md:col-span-2">
                                 <label class="block text-sm font-bold text-gray-800 mb-1">Address</label>
-                                <textarea class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200" rows="2"></textarea>
+                                <textarea name="address" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200" rows="2"></textarea>
                             </div>
                             <div>
                                 <label class="block text-sm font-bold text-gray-800 mb-1">Primary Phone</label>
-                                <input type="tel" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                <input type="tel" name="primary_phone" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
                             </div>
                             <div>
                                 <label class="block text-sm font-bold text-gray-800 mb-1">Primary Email</label>
-                                <input type="email" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                <input type="email" name="primary_email" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
                             </div>
                             <div>
                                 <label class="block text-sm font-bold text-gray-800 mb-1">Today's Date</label>
-                                <input type="date" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                <input type="date" name="form_date" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
                             </div>
                             <div class="flex flex-col justify-center bg-gray-50 p-3 rounded border border-gray-200">
                                 <label class="block text-sm font-bold text-church-navy mb-2">Are you a registered parishioner of St. Peter's?</label>
@@ -107,24 +107,24 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-bold text-gray-800 mb-1">Father's Birth Name</label>
-                                <input type="text" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                <input type="text" name="father_name" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
                             </div>
                             <div>
                                 <label class="block text-sm font-bold text-gray-800 mb-1">Father's Religion</label>
-                                <input type="text" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                <input type="text" name="father_religion" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
                             </div>
 
                             <div>
                                 <label class="block text-sm font-bold text-gray-800 mb-1">Mother's Birth Name (Maiden)</label>
-                                <input type="text" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                <input type="text" name="mother_maiden_name" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
                             </div>
                             <div>
                                 <label class="block text-sm font-bold text-gray-800 mb-1">Mother's Present Name</label>
-                                <input type="text" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                <input type="text" name="mother_present_name" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
                             </div>
                             <div class="md:col-span-2">
                                 <label class="block text-sm font-bold text-gray-800 mb-1">Mother's Religion</label>
-                                <input type="text" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                <input type="text" name="mother_religion" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
                             </div>
                         </div>
                     </div>
@@ -148,15 +148,15 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="md:col-span-2">
                                     <label class="block text-sm font-bold text-gray-800 mb-1">Name of church or institution where married</label>
-                                    <input type="text" class="w-full bg-white border border-gray-400 rounded p-3 focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                    <input type="text" name="marriage_location" class="w-full bg-white border border-gray-400 rounded p-3 focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-bold text-gray-800 mb-1">City, State of church/institution</label>
-                                    <input type="text" class="w-full bg-white border border-gray-400 rounded p-3 focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                    <input type="text" name="marriage_city_state" class="w-full bg-white border border-gray-400 rounded p-3 focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-bold text-gray-800 mb-1">Name of officiant at your wedding</label>
-                                    <input type="text" class="w-full bg-white border border-gray-400 rounded p-3 focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                    <input type="text" name="marriage_officiant" class="w-full bg-white border border-gray-400 rounded p-3 focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
                                 </div>
                             </div>
                         </div>
@@ -182,19 +182,19 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <label class="block text-sm font-bold text-gray-800 mb-1">If no, what is the due date?</label>
-                                    <input type="date" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                    <input type="date" name="due_date" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-bold text-gray-800 mb-1">Child's Name (First, Middle, Last)</label>
-                                    <input type="text" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                    <input type="text" name="child_name" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-bold text-gray-800 mb-1">Child's Birthdate</label>
-                                    <input type="date" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                    <input type="date" name="child_birthdate" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-bold text-gray-800 mb-1">City of Birth</label>
-                                    <input type="text" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                    <input type="text" name="child_birth_city" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
                                 </div>
                                 <div class="bg-gray-50 p-3 rounded border border-gray-200">
                                     <label class="block text-sm font-bold text-gray-800 mb-2">Child's Sex</label>
@@ -211,7 +211,7 @@
                                 </div>
                                 <div>
                                     <label class="block text-sm font-bold text-gray-800 mb-1">What number child is this for you?</label>
-                                    <input type="number" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200" min="1">
+                                    <input type="number" name="child_number" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200" min="1">
                                 </div>
                             </div>
                         </div>
@@ -234,7 +234,7 @@
                             </div>
                             <div class="md:col-span-2">
                                 <label class="block text-sm font-bold text-gray-800 mb-1">If yes, where?</label>
-                                <input type="text" class="w-full bg-white border border-gray-400 rounded p-3 focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                <input type="text" name="class_location" class="w-full bg-white border border-gray-400 rounded p-3 focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
                             </div>
                         </div>
                     </div>
@@ -254,6 +254,7 @@
         </section>
     </main>
     <div id="site-footer"></div>
+    <script src="../js/config.js"></script>
     <script src="../js/navigation.js"></script>
     <script src="../js/calendar.js"></script>
     <script src="../js/animations.js"></script>

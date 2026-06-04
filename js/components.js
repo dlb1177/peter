@@ -23,6 +23,7 @@
       this.initBackToTop();
       this.initLightbox();
       this.initForms();
+      this.initParishForms();
     },
 
     /**
@@ -425,6 +426,156 @@
       const div = document.createElement('div');
       div.textContent = text;
       return div.innerHTML;
+    },
+
+    /**
+     * PARISH FORMS — Web3Forms submission
+     * --------------------------------------------------------------------
+     * Wires up every <form data-parish-form> to submit through Web3Forms
+     * using the settings in js/config.js (SITE_CONFIG.forms). No backend or
+     * mail server required. Falls back to a friendly message (never a silent
+     * failure) when no access key is configured yet.
+     */
+    WEB3FORMS_ENDPOINT: 'https://api.web3forms.com/submit',
+
+    initParishForms: function() {
+      const forms = document.querySelectorAll('form[data-parish-form]');
+      forms.forEach((form) => {
+        // Honeypot field for basic spam protection (bots fill hidden fields).
+        if (!form.querySelector('input[name="botcheck"]')) {
+          const honeypot = document.createElement('input');
+          honeypot.type = 'checkbox';
+          honeypot.name = 'botcheck';
+          honeypot.tabIndex = -1;
+          honeypot.setAttribute('autocomplete', 'off');
+          honeypot.setAttribute('aria-hidden', 'true');
+          honeypot.style.display = 'none';
+          form.appendChild(honeypot);
+        }
+
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          this.handleParishFormSubmit(form);
+        });
+      });
+    },
+
+    handleParishFormSubmit: function(form) {
+      // Run the built-in field validation first.
+      if (!this.validateForm(form)) {
+        this.toast('Please complete the required fields highlighted above.', 'warning');
+        return;
+      }
+
+      const cfg = (window.SITE_CONFIG && window.SITE_CONFIG.forms) || {};
+      const accessKey = (cfg.accessKey || '').trim();
+
+      // Not configured yet — tell the user how to reach us instead of failing silently.
+      if (!accessKey) {
+        this.showFormNotice(
+          form,
+          'info',
+          'Online form submissions aren’t set up just yet.',
+          'Please call the parish office at (651) 452-4550 or email ' +
+            'church@stpetersmendota.org and we’ll be glad to help.'
+        );
+        return;
+      }
+
+      const submitBtn = form.querySelector('[type="submit"]');
+      const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…';
+      }
+
+      // Build the payload from the form fields plus Web3Forms control fields.
+      const formData = new FormData(form);
+      formData.append('access_key', accessKey);
+      formData.append('subject', form.getAttribute('data-form-subject') || 'Website Form Submission');
+      formData.append('from_name', 'Church of St. Peter Website');
+
+      // Reply directly to the person who submitted, if they gave an email.
+      const emailField = form.querySelector('input[type="email"], input[name="email"]');
+      if (emailField && emailField.value) {
+        formData.append('replyto', emailField.value);
+      }
+
+      // CC the configured recipient list (active on Web3Forms PRO; harmless otherwise).
+      const recipients = Array.isArray(cfg.recipients) ? cfg.recipients.filter(Boolean) : [];
+      if (recipients.length) {
+        formData.append('ccemail', recipients.join(';'));
+      }
+
+      fetch(this.WEB3FORMS_ENDPOINT, {
+        method: 'POST',
+        body: formData
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data && data.success) {
+            this.showFormSuccess(form);
+          } else {
+            throw new Error((data && data.message) || 'Submission failed');
+          }
+        })
+        .catch(() => {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnHtml;
+          }
+          this.toast(
+            'Sorry, something went wrong sending your message. Please try again, ' +
+              'or call the parish office at (651) 452-4550.',
+            'error',
+            7000
+          );
+        });
+    },
+
+    /**
+     * Replace a submitted form with a styled thank-you panel.
+     */
+    showFormSuccess: function(form) {
+      this.toast('Thank you! Your message has been sent.', 'success');
+      const panel = document.createElement('div');
+      panel.className = 'parish-form-success';
+      panel.setAttribute('role', 'status');
+      panel.style.cssText =
+        'text-align:center;padding:3rem 1.5rem;border:1px solid #d8d2c2;border-radius:12px;background:#fff;';
+      panel.innerHTML =
+        '<div style="width:64px;height:64px;border-radius:9999px;background:#e8f5e9;color:#228b22;' +
+        'display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-size:1.6rem;">' +
+        '<i class="fas fa-check"></i></div>' +
+        '<h3 style="font-family:\'Cinzel\',serif;color:#0d212a;font-size:1.5rem;margin-bottom:.5rem;">Thank You!</h3>' +
+        '<p style="color:#4c4c4c;max-width:32rem;margin:0 auto;line-height:1.6;">' +
+        'Your message has been received. A member of our parish staff will be in touch soon.</p>';
+      form.replaceWith(panel);
+      panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    },
+
+    /**
+     * Show a non-error inline notice above a form (e.g. "not set up yet").
+     */
+    showFormNotice: function(form, type, title, body) {
+      let notice = form.querySelector('.parish-form-notice');
+      if (!notice) {
+        notice = document.createElement('div');
+        notice.className = 'parish-form-notice';
+        notice.setAttribute('role', 'status');
+        notice.style.cssText =
+          'margin-bottom:1.25rem;padding:1rem 1.25rem;border-left:4px solid #c5a059;' +
+          'background:#f9f6ed;border-radius:6px;';
+        form.insertBefore(notice, form.firstChild);
+      }
+      notice.innerHTML =
+        '<p style="color:#0d212a;font-weight:700;margin-bottom:.25rem;">' +
+        this.escapeHtml(title) +
+        '</p>' +
+        '<p style="color:#4c4c4c;font-size:.9rem;line-height:1.5;">' +
+        this.escapeHtml(body) +
+        '</p>';
+      notice.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   };
 

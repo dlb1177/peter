@@ -313,7 +313,6 @@
               <p>&copy; ${new Date().getFullYear()} Church of St. Peter. All rights reserved.</p>
               <div class="flex gap-4">
                 <a href="${this.basePath}pages/safe-environment.html" class="hover:text-church-gold transition-colors" style="text-decoration:none;color:inherit;">Safe Environment</a>
-                <a href="${this.basePath}pages/admin.html" class="hover:text-church-gold transition-colors" style="text-decoration:none;color:inherit;">Admin</a>
               </div>
             </div>
           </div>

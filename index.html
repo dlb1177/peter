@@ -27,9 +27,9 @@
                         'sans': ['"Inter"', 'sans-serif'],
                     },
                     backgroundImage: {
-                        'hero-pattern': "linear-gradient(to bottom, rgba(13, 33, 42, 0.7), rgba(13, 33, 42, 0.5)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_sanctuary.png')",
-                        'stained-glass': "linear-gradient(to right, rgba(13, 33, 42, 0.95), rgba(13, 33, 42, 0.9)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_glass.png')",
-                        'altar': "linear-gradient(to bottom, rgba(13, 33, 42, 0.3), rgba(13, 33, 42, 0.8)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_altar.png')"
+                        'hero-pattern': "linear-gradient(to bottom, rgba(13, 33, 42, 0.7), rgba(13, 33, 42, 0.5)), url('assets/watercolor_sanctuary.png')",
+                        'stained-glass': "linear-gradient(to right, rgba(13, 33, 42, 0.95), rgba(13, 33, 42, 0.9)), url('assets/watercolor_glass.png')",
+                        'altar': "linear-gradient(to bottom, rgba(13, 33, 42, 0.3), rgba(13, 33, 42, 0.8)), url('assets/watercolor_altar.png')"
                     }
                 }
             }
@@ -45,7 +45,7 @@
 
             <div class="absolute inset-0 w-full h-full z-0">
                 <div class="absolute inset-0 bg-gradient-to-b from-[#0d212a]/70 to-[#0d212a]/50 z-10"></div>
-                <img src="https://www.dylanbrowncpa.com/st-peter/watercolor_sanctuary.png"
+                <img src="assets/watercolor_sanctuary.png"
                     class="w-full h-full object-cover object-center"
                     alt="St. Peter Sanctuary">
             </div>
@@ -165,80 +165,16 @@
                     </a>
                 </div>
 
-                <div id="home-upcoming-feed">
-                    <!-- Populated by JS -->
-                </div>
-
-                <div id="home-upcoming-empty" class="hidden text-center py-16">
-                    <i class="fa-regular fa-calendar text-5xl text-gray-300 mb-4"></i>
-                    <p class="text-church-gray text-lg font-semibold">No events scheduled this week</p>
-                    <p class="text-gray-400 text-sm mt-1">Check back soon or view the <a href="pages/events.html" class="text-church-gold hover:underline">full calendar</a></p>
-                </div>
+                <!-- Parish calendar (ParishSoft embed or placeholder) injected by js/calendar.js -->
+                <div id="home-upcoming-calendar"></div>
             </div>
         </section>
 
         <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var cal = (typeof getCalendarSystem === 'function') ? getCalendarSystem() : null;
-            var feed = document.getElementById('home-upcoming-feed');
-            var empty = document.getElementById('home-upcoming-empty');
-            if (!cal || !feed) return;
-
-            var events = cal.getUpcomingEvents(7);
-            if (!events || events.length === 0) {
-                feed.classList.add('hidden');
-                empty.classList.remove('hidden');
-                return;
+            if (window.CalendarEmbed) {
+                window.CalendarEmbed.renderUpcoming('home-upcoming-calendar');
             }
-
-            // Group events by date
-            var grouped = {};
-            events.forEach(function(evt) {
-                if (!grouped[evt.date]) grouped[evt.date] = [];
-                grouped[evt.date].push(evt);
-            });
-
-            var html = '';
-            var dates = Object.keys(grouped).sort();
-
-            dates.forEach(function(dateStr) {
-                var dayEvents = grouped[dateStr];
-                var isToday = cal.isToday(dateStr);
-                var displayDate = cal.formatDateDisplay(dateStr);
-
-                html += '<div class="mb-6">';
-                html += '<div class="flex items-center gap-3 mb-3">';
-                if (isToday) {
-                    html += '<span class="bg-church-gold text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Today</span>';
-                }
-                html += '<h3 class="font-display text-lg text-church-navy">' + displayDate + '</h3>';
-                html += '<div class="flex-1 border-b border-gray-200"></div>';
-                html += '</div>';
-
-                html += '<div class="grid grid-cols-1 md:grid-cols-2 gap-3">';
-                dayEvents.forEach(function(evt) {
-                    var cat = cal.categories[evt.category] || { color: '#4c4c4c', bgColor: '#f0f0f0', name: 'Event', icon: 'fa-calendar' };
-                    var timeStr = evt.startTime ? cal.formatTime(evt.startTime) : '';
-                    if (evt.endTime) timeStr += ' - ' + cal.formatTime(evt.endTime);
-
-                    html += '<div class="flex items-stretch bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden">';
-                    html += '<div class="w-1.5 flex-shrink-0" style="background-color:' + cat.color + ';"></div>';
-                    html += '<div class="flex-1 p-4 min-w-0">';
-                    html += '<div class="flex items-center gap-2 mb-1">';
-                    html += '<span class="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full" style="background-color:' + cat.bgColor + ';color:' + cat.color + ';"><i class="fa-solid ' + cat.icon + '"></i> ' + cat.name + '</span>';
-                    if (evt.isRecurring) html += '<i class="fa-solid fa-rotate text-gray-400 text-[10px]" title="Recurring"></i>';
-                    html += '</div>';
-                    html += '<p class="font-semibold text-church-navy truncate">' + evt.title + '</p>';
-                    html += '<div class="flex items-center gap-3 text-xs text-church-gray mt-1">';
-                    if (timeStr) html += '<span><i class="fa-regular fa-clock mr-1"></i>' + timeStr + '</span>';
-                    if (evt.location) html += '<span class="truncate"><i class="fa-solid fa-location-dot mr-1"></i>' + evt.location + '</span>';
-                    html += '</div>';
-                    html += '</div></div>';
-                });
-                html += '</div></div>';
-            });
-
-            feed.innerHTML = html;
         });
         </script>
 
@@ -257,6 +193,7 @@
         </section>
     </main>
     <div id="site-footer"></div>
+    <script src="js/config.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/calendar.js"></script>
     <script src="js/animations.js"></script>
