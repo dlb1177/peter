@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faith Enrichment | Church of St. Peter - Mendota, MN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'church-navy': '#0d212a',
+                        'church-gold': '#c5a059',
+                        'church-gold-light': '#deb872',
+                        'church-cream': '#f9f7f2',
+                        'church-gray': '#4c4c4c',
+                    },
+                    fontFamily: {
+                        'serif': ['"Playfair Display"', 'serif'],
+                        'display': ['"Cinzel"', 'serif'],
+                        'sans': ['"Inter"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to bottom, rgba(13, 33, 42, 0.7), rgba(13, 33, 42, 0.5)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_sanctuary.png')",
+                        'stained-glass': "linear-gradient(to right, rgba(13, 33, 42, 0.95), rgba(13, 33, 42, 0.9)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_glass.png')",
+                        'altar': "linear-gradient(to bottom, rgba(13, 33, 42, 0.3), rgba(13, 33, 42, 0.8)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_altar.png')"
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #0d212a;
+            background-color: #f9f7f2;
+            line-height: 1.6;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        .hero-section {
+            background: white;
+            padding: 4rem 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero-section h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: #0d212a;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-section p {
+            font-size: 1rem;
+            color: #4c4c4c;
+            max-width: 55rem;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 75rem;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-top: 3px solid #c5a059;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-card:nth-child(2) {
+            border-top-color: #0d212a;
+        }
+
+        .resource-card:nth-child(3) {
+            border-top-color: #c5a059;
+        }
+
+        .resource-card:nth-child(4) {
+            border-top-color: #0d212a;
+        }
+
+        .resource-card:nth-child(5) {
+            border-top-color: #c5a059;
+        }
+
+        .resource-card:nth-child(6) {
+            background: #0d212a;
+            color: white;
+            border-top-color: #c5a059;
+        }
+
+        .resource-card-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: inherit;
+        }
+
+        .resource-card p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            flex: 1;
+            color: inherit;
+            opacity: 0.95;
+        }
+
+        .resource-card .links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .resource-card a {
+            display: block;
+            padding: 0.6rem;
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 0.25rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: #0d212a;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:nth-child(6) a {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #c5a059;
+            color: #c5a059;
+        }
+
+        .resource-card a:hover {
+            background: #f0e8d8;
+            border-color: #c5a059;
+            color: #0d212a;
+        }
+
+        .resource-card:nth-child(6) a:hover {
+            background: #c5a059;
+            color: white;
+        }
+
+        .homilies-section {
+            background: #f9f7f2;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .homilies-section h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.75rem;
+            color: #0d212a;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .homilies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            max-width: 55rem;
+            margin: 0 auto;
+        }
+
+        .homily-link {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 1rem;
+            border-radius: 0.25rem;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .homily-link:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-left-color: #c5a059;
+        }
+
+        .homily-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: #0d212a;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .homily-link:hover .homily-icon {
+            background: #c5a059;
+        }
+
+        .homily-text h4 {
+            font-weight: 600;
+            color: #0d212a;
+            margin-bottom: 0.25rem;
+        }
+
+        .homily-text p {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        [data-animate]:nth-child(1) { animation-delay: 0.1s; }
+        [data-animate]:nth-child(2) { animation-delay: 0.2s; }
+        [data-animate]:nth-child(3) { animation-delay: 0.3s; }
+        [data-animate]:nth-child(4) { animation-delay: 0.4s; }
+        [data-animate]:nth-child(5) { animation-delay: 0.5s; }
+        [data-animate]:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <div id="site-navigation"></div>
+    <main>
+        <div class="hero-section" data-animate="fade-in-up">
+            <h1>Faith Enrichment Resources</h1>
+            <p>St. Peter's is here to encourage you on your journey of faith. Explore our library of recorded talks, homilies, and video series below.</p>
+        </div>
+
+        <div class="container">
+            <section data-animate="fade-in-up">
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <div class="resource-card-content">
+                            <h3>Prayer of the Heart</h3>
+                            <p>A video series presented by Fr. Steven dedicated to deepening your personal prayer life and connection with God.</p>
+                            <div class="links">
+                                <a href="https://www.youtube.com/watch?v=kM_Dw70XU5U&t=33s" target="_blank">▶ Watch Part 1</a>
+                                <a href="https://www.youtube.com/watch?v=NpH3_R_AnH4" target="_blank">▶ Watch Part 2</a>
+                                <a href="https://www.youtube.com/watch?v=q9b7hqfyadU" target="_blank">▶ Watch Part 3</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-card-content">
+                            <h3>Discerning God's Will</h3>
+                            <p>A three-part audio series presented by Fr. Steven exploring how to listen to God's voice in your daily life choices.</p>
+                            <div class="links">
+                                <a href="https://soundcloud.com/user-724916332/sets/discerning-gods-will?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank">🎙 Part 1: Basic Foundations</a>
+                                <a href="https://soundcloud.com/user-724916332/discerning-gods-will-part-3-st?in=user-724916332/sets/discerning-gods-will&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank">🎙 Part 2: St. Ignatius Rules 1-3</a>
+                                <a href="https://soundcloud.com/user-724916332/discerning-gods-will-part-1-1?in=user-724916332/sets/discerning-gods-will&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank">🎙 Part 3: St. Ignatius Rules 4-9</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-card-content">
+                            <h3>Agape Love (Lent 2022)</h3>
+                            <p>Fr. Steven Hoffman discusses receiving and growing in the sacrificial, unconditional love of God.</p>
+                            <div class="links">
+                                <a href="https://soundcloud.com/user-724916332/2022-lenten-series-fr-steven-hoffman-receiving-agape-love" target="_blank">🎙 Receiving Agape Love</a>
+                                <a href="https://soundcloud.com/user-724916332/2022-lenten-series-fr-steven-hoffman-growing-in-agape-love" target="_blank">🎙 Growing in Agape Love</a>
+                                <a href="https://soundcloud.com/user-724916332/2022-lenten-series-fr-steven-hoffman-hope-in-agape-love" target="_blank">🎙 Hope in Agape Love</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-card-content">
+                            <h3>Lenten Series 2023</h3>
+                            <p>Reflections with Fr. Steven on the three pillars of Lent.</p>
+                            <div class="links">
+                                <a href="https://soundcloud.com/user-724916332/lenten-series-i-confession" target="_blank">🎙 Part 1: Confession</a>
+                                <a href="https://soundcloud.com/user-724916332/lenten-series-ii-prayer" target="_blank">🎙 Part 2: Prayer</a>
+                                <a href="https://soundcloud.com/user-724916332/lenten-series-iii-fasting-and" target="_blank">🎙 Part 3: Fasting and Almsgiving</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-card-content">
+                            <h3>Lenten Series 2025</h3>
+                            <p>Our newest series with Fr. Steven exploring God's beauty in the world around us.</p>
+                            <div class="links">
+                                <a href="https://open.spotify.com/episode/3RFwXeV091rXjzeRPb3eit?si=ROoClV9HSn-XrJZprHOlhg" target="_blank">🎙 Part 1: Adoration</a>
+                                <a href="https://open.spotify.com/episode/7geCc8qQfZnVjvcgK7b5Ud?si=_fOj9Sj_SqmRApzQoB2leg" target="_blank">🎙 Part 2: Confession</a>
+                                <a href="https://open.spotify.com/episode/3E2fkDHNWiHgk7HXHgGtyx?si=l6NY04etRpaZi681Aa0iaA" target="_blank">🎙 Part 3: The Mass</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-card-content">
+                            <h3>Fr. Mike Schmitz Resources</h3>
+                            <p>Deepen your understanding of scripture and tradition with these world-renowned podcasts.</p>
+                            <div class="links">
+                                <a href="https://ascensionpress.com/pages/biy-registration" target="_blank">Bible in a Year</a>
+                                <a href="https://irp.cdn-website.com/51d19b9a/files/uploaded/Fr.%20Mike%20Schmitz%20Cathechism%20in%20a%20Year.pdf" target="_blank">Catechism in a Year</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section data-animate="fade-in-up">
+                <div class="homilies-section">
+                    <h2>Updated Weekly: Homilies & Talks</h2>
+                    <div class="homilies-grid">
+                        <a href="https://open.spotify.com/show/6JR3MoIV5c5ASpTf6ZE7Qe?go=1&sp_cid=4be1d9a57bb7e58c579a19425330b178&utm_source=embed_player_p&utm_medium=desktop&nd=1" target="_blank" class="homily-link">
+                            <div class="homily-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
+                            </div>
+                            <div class="homily-text">
+                                <h4>Past Homilies from the Church of St. Peter</h4>
+                                <p>Listen on Spotify - Updated Weekly</p>
+                            </div>
+                        </a>
+
+                        <a href="https://open.spotify.com/episode/3Eb0oqCahAek6eMxvJbrtM?si=9V20StuIR1uSY2h9ByCnPw" target="_blank" class="homily-link">
+                            <div class="homily-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
+                            </div>
+                            <div class="homily-text">
+                                <h4>Fr. Steven's Wisdom and Trust Homily</h4>
+                                <p>Listen on Spotify (August 9, 2020)</p>
+                            </div>
+                        </a>
+
+                        <a href="https://soundcloud.com/user-724916332/sets/the-year-of-the-eucharist" target="_blank" class="homily-link">
+                            <div class="homily-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
+                            </div>
+                            <div class="homily-text">
+                                <h4>Year of the Eucharist Homilies</h4>
+                                <p>Listen on Spotify (January - November, 2019)</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <div id="site-footer"></div>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/calendar.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>

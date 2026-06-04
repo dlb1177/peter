@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Church of St. Peter - Mendota, MN</title>
+    <meta name="description" content="Welcome to Church of St. Peter in Mendota, Minnesota. Join us for Mass and grow in your relationship with Jesus Christ.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'church-navy': '#0d212a',
+                        'church-gold': '#c5a059',
+                        'church-gold-light': '#deb872',
+                        'church-cream': '#f9f7f2',
+                        'church-gray': '#4c4c4c',
+                    },
+                    fontFamily: {
+                        'serif': ['"Playfair Display"', 'serif'],
+                        'display': ['"Cinzel"', 'serif'],
+                        'sans': ['"Inter"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to bottom, rgba(13, 33, 42, 0.7), rgba(13, 33, 42, 0.5)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_sanctuary.png')",
+                        'stained-glass': "linear-gradient(to right, rgba(13, 33, 42, 0.95), rgba(13, 33, 42, 0.9)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_glass.png')",
+                        'altar': "linear-gradient(to bottom, rgba(13, 33, 42, 0.3), rgba(13, 33, 42, 0.8)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_altar.png')"
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <div id="site-navigation"></div>
+    <main class="flex-grow relative">
+        <header class="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+
+            <div class="absolute inset-0 w-full h-full z-0">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#0d212a]/70 to-[#0d212a]/50 z-10"></div>
+                <img src="https://www.dylanbrowncpa.com/st-peter/watercolor_sanctuary.png"
+                    class="w-full h-full object-cover object-center"
+                    alt="St. Peter Sanctuary">
+            </div>
+
+            <div class="relative z-20 text-center px-4 max-w-5xl mx-auto" data-animate="fade-in-up">
+                <p class="text-church-gold font-sans font-bold tracking-[0.3em] uppercase mb-6 text-sm md:text-base animate-pulse">Church of St. Peter &bull; Mendota, MN</p>
+
+                <h1 class="font-display font-bold text-4xl md:text-6xl lg:text-7xl text-white mb-8 leading-tight drop-shadow-lg">
+                    Bringing the good news of the <br/><span class="italic font-serif font-normal text-church-gold-light">Gospel to All</span>
+                </h1>
+
+                <div class="max-w-3xl mx-auto bg-church-navy/60 backdrop-blur-md p-6 md:p-8 rounded-sm border border-white/10 mb-10 shadow-2xl">
+                    <h2 class="text-church-gold font-bold uppercase text-xs tracking-widest mb-3">Mission Statement</h2>
+                    <p class="text-white text-lg md:text-xl font-light leading-relaxed font-serif italic">
+                        "St. Peter's is here to bring the good news of the Gospel to all, so that every person can have a personal, life changing, life giving relationship with Jesus Christ."
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <section class="relative -mt-16 z-20 px-4 mb-16" data-animate="fade-in-up">
+            <div class="max-w-7xl mx-auto bg-white shadow-2xl border-t-4 border-church-gold p-8 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+                    <div class="text-center px-4 pt-4 md:pt-0">
+                        <h3 class="font-display text-2xl text-church-navy mb-2">Weekend Masses</h3>
+                        <span class="text-[10px] uppercase tracking-widest text-church-gold font-bold block mb-4">Main Church</span>
+                        <p class="text-church-gray mb-1"><strong>Saturday:</strong> 5:00 PM</p>
+                        <p class="text-church-gray mb-3"><strong>Sunday:</strong> 8:30 AM & 10:30 AM*</p>
+                        <a href="https://www.youtube.com/channel/UC_fywJlEasDKZOZLPd3cIWA" target="_blank" class="text-xs font-bold text-red-700 hover:text-church-navy transition-colors">
+                            <i class="fa-brands fa-youtube mr-1"></i> *10:30 AM Livestream
+                        </a>
+                    </div>
+
+                    <div class="text-center px-4 pt-8 md:pt-0">
+                        <h3 class="font-display text-2xl text-church-navy mb-2">Weekday Masses</h3>
+                        <span class="text-[10px] uppercase tracking-widest text-church-gold font-bold block mb-4">Historic Church</span>
+                        <p class="text-church-gray"><strong>Tuesday:</strong> 5:45 PM</p>
+                        <p class="text-church-gray"><strong>Wed - Fri:</strong> 9:00 AM</p>
+                    </div>
+
+                    <div class="text-center px-4 pt-8 md:pt-0">
+                        <h3 class="font-display text-2xl text-church-navy mb-2">Reconciliation</h3>
+                        <span class="text-[10px] uppercase tracking-widest text-church-gold font-bold block mb-4">Main Church</span>
+                        <p class="text-church-gray"><strong>Tuesday:</strong> 5:00 - 5:35 PM</p>
+                        <p class="text-church-gray"><strong>Friday:</strong> 8:00 - 8:45 AM</p>
+                        <p class="text-church-gray"><strong>Saturday:</strong> 3:30 - 4:45 PM</p>
+                    </div>
+
+                    <div class="text-center px-4 pt-8 md:pt-0">
+                        <h3 class="font-display text-2xl text-church-navy mb-2">Adoration</h3>
+                        <span class="text-[10px] uppercase tracking-widest text-church-gold font-bold block mb-4">Chapel of the Nativity</span>
+                        <p class="text-church-gray text-sm leading-relaxed">
+                            Perpetual Adoration takes place 24/7 in the Chapel.
+                        </p>
+                        <a href="pages/mass-prayer.html" class="mt-4 text-xs font-bold text-church-navy border-b-2 border-church-gold pb-1 hover:text-church-gold transition-colors inline-block">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-church-cream">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12" data-animate="fade-in-up">
+                    <h2 class="font-display text-3xl text-church-navy mb-2">Parish Resources</h2>
+                    <div class="h-0.5 w-16 bg-church-gold mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <a href="#" class="group block bg-white p-6 shadow-sm hover:shadow-xl transition-all border-t-4 border-church-navy hover:border-church-gold" data-animate="fade-in-up">
+                        <h3 class="font-bold text-church-navy uppercase text-sm tracking-wide mb-2">Bulletin Inserts</h3>
+                        <p class="text-xs text-gray-500 mb-4">Lord Renew Your Church</p>
+                        <span class="text-xs font-bold text-church-gold uppercase group-hover:underline">Read More <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </a>
+
+                    <a href="https://www.archspm.org/synodletter/" target="_blank" class="group block bg-white p-6 shadow-sm hover:shadow-xl transition-all border-t-4 border-church-navy hover:border-church-gold" data-animate="fade-in-up">
+                        <h3 class="font-bold text-church-navy uppercase text-sm tracking-wide mb-2">Pastoral Letter</h3>
+                        <p class="text-xs text-gray-500 mb-4">From Archbishop Hebda</p>
+                        <span class="text-xs font-bold text-church-gold uppercase group-hover:underline">Read Letter <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </a>
+
+                    <a href="https://irp.cdn-website.com/51d19b9a/files/uploaded/Reclaiming+Sundays+Monthly+Guide.pdf" target="_blank" class="group block bg-white p-6 shadow-sm hover:shadow-xl transition-all border-t-4 border-church-navy hover:border-church-gold" data-animate="fade-in-up">
+                        <h3 class="font-bold text-church-navy uppercase text-sm tracking-wide mb-2">Reclaiming Sundays</h3>
+                        <p class="text-xs text-gray-500 mb-4">Monthly Guide & Resources</p>
+                        <span class="text-xs font-bold text-church-gold uppercase group-hover:underline">Download PDF <i class="fa-solid fa-download ml-1"></i></span>
+                    </a>
+
+                    <a href="https://kstp.com/kstp-news/top-news/so-minnesota-oldest-house-of-worship/" target="_blank" class="group block bg-white p-6 shadow-sm hover:shadow-xl transition-all border-t-4 border-church-navy hover:border-church-gold" data-animate="fade-in-up">
+                        <h3 class="font-bold text-church-navy uppercase text-sm tracking-wide mb-2">As Seen on TV</h3>
+                        <p class="text-xs text-gray-500 mb-4">St. Peter's on Channel 5 News</p>
+                        <span class="text-xs font-bold text-church-gold uppercase group-hover:underline">Watch Video <i class="fa-solid fa-play ml-1"></i></span>
+                    </a>
+
+                    <a href="#" class="group block text-left bg-white p-6 shadow-sm hover:shadow-xl transition-all border-t-4 border-church-navy hover:border-church-gold" data-animate="fade-in-up">
+                        <h3 class="font-bold text-church-navy uppercase text-sm tracking-wide mb-2">Faith Enrichment</h3>
+                        <p class="text-xs text-gray-500 mb-4">Talks to encourage your relationship with Christ</p>
+                        <span class="text-xs font-bold text-church-gold uppercase group-hover:underline">View Resources <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </a>
+
+                    <a href="#" class="group block text-left bg-white p-6 shadow-sm hover:shadow-xl transition-all border-t-4 border-red-700 hover:border-church-gold" data-animate="fade-in-up">
+                        <h3 class="font-bold text-red-800 uppercase text-sm tracking-wide mb-2">Safe Environment</h3>
+                        <p class="text-xs text-gray-500 mb-4">Reporting Abuse & Victim Assistance</p>
+                        <span class="text-xs font-bold text-church-gold uppercase group-hover:underline">Learn More <i class="fa-solid fa-shield-heart ml-1"></i></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-white" data-animate="fade-in-up">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-10">
+                    <div class="text-center md:text-left mb-4 md:mb-0">
+                        <h2 class="font-display text-4xl text-church-navy">Upcoming This Week</h2>
+                        <p class="text-church-gray text-sm mt-2">What's happening at St. Peter's in the next 7 days</p>
+                    </div>
+                    <a href="pages/events.html" class="inline-flex items-center gap-2 bg-church-navy text-white px-6 py-3 rounded-sm uppercase tracking-widest text-xs font-bold hover:bg-church-gold transition-all shadow-lg" style="text-decoration:none;">
+                        <i class="fa-solid fa-calendar"></i> View Full Calendar
+                    </a>
+                </div>
+
+                <div id="home-upcoming-feed">
+                    <!-- Populated by JS -->
+                </div>
+
+                <div id="home-upcoming-empty" class="hidden text-center py-16">
+                    <i class="fa-regular fa-calendar text-5xl text-gray-300 mb-4"></i>
+                    <p class="text-church-gray text-lg font-semibold">No events scheduled this week</p>
+                    <p class="text-gray-400 text-sm mt-1">Check back soon or view the <a href="pages/events.html" class="text-church-gold hover:underline">full calendar</a></p>
+                </div>
+            </div>
+        </section>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var cal = (typeof getCalendarSystem === 'function') ? getCalendarSystem() : null;
+            var feed = document.getElementById('home-upcoming-feed');
+            var empty = document.getElementById('home-upcoming-empty');
+            if (!cal || !feed) return;
+
+            var events = cal.getUpcomingEvents(7);
+            if (!events || events.length === 0) {
+                feed.classList.add('hidden');
+                empty.classList.remove('hidden');
+                return;
+            }
+
+            // Group events by date
+            var grouped = {};
+            events.forEach(function(evt) {
+                if (!grouped[evt.date]) grouped[evt.date] = [];
+                grouped[evt.date].push(evt);
+            });
+
+            var html = '';
+            var dates = Object.keys(grouped).sort();
+
+            dates.forEach(function(dateStr) {
+                var dayEvents = grouped[dateStr];
+                var isToday = cal.isToday(dateStr);
+                var displayDate = cal.formatDateDisplay(dateStr);
+
+                html += '<div class="mb-6">';
+                html += '<div class="flex items-center gap-3 mb-3">';
+                if (isToday) {
+                    html += '<span class="bg-church-gold text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Today</span>';
+                }
+                html += '<h3 class="font-display text-lg text-church-navy">' + displayDate + '</h3>';
+                html += '<div class="flex-1 border-b border-gray-200"></div>';
+                html += '</div>';
+
+                html += '<div class="grid grid-cols-1 md:grid-cols-2 gap-3">';
+                dayEvents.forEach(function(evt) {
+                    var cat = cal.categories[evt.category] || { color: '#4c4c4c', bgColor: '#f0f0f0', name: 'Event', icon: 'fa-calendar' };
+                    var timeStr = evt.startTime ? cal.formatTime(evt.startTime) : '';
+                    if (evt.endTime) timeStr += ' - ' + cal.formatTime(evt.endTime);
+
+                    html += '<div class="flex items-stretch bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden">';
+                    html += '<div class="w-1.5 flex-shrink-0" style="background-color:' + cat.color + ';"></div>';
+                    html += '<div class="flex-1 p-4 min-w-0">';
+                    html += '<div class="flex items-center gap-2 mb-1">';
+                    html += '<span class="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full" style="background-color:' + cat.bgColor + ';color:' + cat.color + ';"><i class="fa-solid ' + cat.icon + '"></i> ' + cat.name + '</span>';
+                    if (evt.isRecurring) html += '<i class="fa-solid fa-rotate text-gray-400 text-[10px]" title="Recurring"></i>';
+                    html += '</div>';
+                    html += '<p class="font-semibold text-church-navy truncate">' + evt.title + '</p>';
+                    html += '<div class="flex items-center gap-3 text-xs text-church-gray mt-1">';
+                    if (timeStr) html += '<span><i class="fa-regular fa-clock mr-1"></i>' + timeStr + '</span>';
+                    if (evt.location) html += '<span class="truncate"><i class="fa-solid fa-location-dot mr-1"></i>' + evt.location + '</span>';
+                    html += '</div>';
+                    html += '</div></div>';
+                });
+                html += '</div></div>';
+            });
+
+            feed.innerHTML = html;
+        });
+        </script>
+
+        <section class="py-16 bg-church-navy text-white" data-animate="fade-in-up">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="font-display text-3xl mb-8">How can we help you?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <a href="pages/contact.html" class="bg-white text-church-navy hover:bg-church-gold hover:text-white px-8 py-4 uppercase tracking-widest text-xs font-bold transition-all shadow-lg rounded">
+                        Contact the Parish
+                    </a>
+                    <a href="pages/donations.html" class="bg-church-gold text-white hover:bg-white hover:text-church-navy px-8 py-4 uppercase tracking-widest text-xs font-bold transition-all shadow-lg rounded">
+                        Support Our Mission
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="site-footer"></div>
+    <script src="js/navigation.js"></script>
+    <script src="js/calendar.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

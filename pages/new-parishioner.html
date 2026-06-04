@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Parishioner Registration | Church of St. Peter - Mendota, MN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'church-navy': '#0d212a',
+                        'church-gold': '#c5a059',
+                        'church-gold-light': '#deb872',
+                        'church-cream': '#f9f7f2',
+                        'church-gray': '#4c4c4c',
+                    },
+                    fontFamily: {
+                        'serif': ['"Playfair Display"', 'serif'],
+                        'display': ['"Cinzel"', 'serif'],
+                        'sans': ['"Inter"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to bottom, rgba(13, 33, 42, 0.7), rgba(13, 33, 42, 0.5)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_sanctuary.png')",
+                        'stained-glass': "linear-gradient(to right, rgba(13, 33, 42, 0.95), rgba(13, 33, 42, 0.9)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_glass.png')",
+                        'altar': "linear-gradient(to bottom, rgba(13, 33, 42, 0.3), rgba(13, 33, 42, 0.8)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_altar.png')"
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <style>
+        .hero-banner {
+            background: linear-gradient(135deg, #0d212a 0%, #1a3a4a 100%);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            border-bottom: 4px solid #c5a059;
+        }
+
+        .hero-banner h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            margin: 0 0 1rem 0;
+            font-weight: 600;
+        }
+
+        .hero-banner p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .form-section {
+            background: #f9f7f2;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 5px solid #c5a059;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: #0d212a;
+            margin: 0 0 1.5rem 0;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: #0d212a;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            padding: 0.75rem;
+            border: 2px solid #deb872;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #c5a059;
+            box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .required {
+            color: #c5a059;
+        }
+
+        .welcome-text {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            margin-bottom: 2rem;
+        }
+
+        .welcome-text h2 {
+            font-family: 'Cinzel', serif;
+            color: #0d212a;
+            margin-top: 0;
+        }
+
+        .welcome-text p {
+            color: #4c4c4c;
+            line-height: 1.8;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #c5a059;
+        }
+
+        .checkbox-item label {
+            cursor: pointer;
+            color: #4c4c4c;
+            margin: 0;
+        }
+
+        .children-add {
+            margin-top: 1rem;
+        }
+
+        .btn-add-child {
+            padding: 0.75rem 1.5rem;
+            background: #0d212a;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-add-child:hover {
+            background: #c5a059;
+            color: #0d212a;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .btn-submit {
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #0d212a 0%, #1a3a4a 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #c5a059 0%, #deb872 100%);
+            color: #0d212a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(197, 160, 89, 0.3);
+        }
+
+        .btn-reset {
+            padding: 1rem 2.5rem;
+            background: white;
+            color: #0d212a;
+            border: 2px solid #c5a059;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-reset:hover {
+            background: #f9f7f2;
+            border-color: #0d212a;
+        }
+
+        .child-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            border: 2px solid #e0e0e0;
+            position: relative;
+        }
+
+        .child-number {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            color: #c5a059;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="site-navigation"></div>
+    <main>
+        <div class="hero-banner">
+            <h1>Welcome to St. Peter!</h1>
+            <p>New Parishioner Registration</p>
+        </div>
+
+        <div class="form-container" data-animate="fade-in-up">
+            <div class="welcome-text">
+                <h2>We're Delighted You're Here</h2>
+                <p>
+                    Welcome to the Church of St. Peter parish family. We're excited to get to know you and your family.
+                    Please fill out this registration form so we can welcome you properly and help you connect with our community and parish ministries.
+                </p>
+                <p>
+                    If you have any questions or would prefer to register in person, please don't hesitate to contact the parish office.
+                </p>
+            </div>
+
+            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+
+                <!-- Household Information Section -->
+                <div class="form-section">
+                    <h3 class="section-title">Household Information</h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Street Address <span class="required">*</span></label>
+                            <input type="text" name="street_address" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">City <span class="required">*</span></label>
+                            <input type="text" name="city" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">State <span class="required">*</span></label>
+                            <input type="text" name="state" class="form-input" placeholder="MN" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Zip Code <span class="required">*</span></label>
+                            <input type="text" name="zip_code" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Home Phone</label>
+                            <input type="tel" name="home_phone" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email <span class="required">*</span></label>
+                            <input type="email" name="email" class="form-input" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Adult 1 Section -->
+                <div class="form-section">
+                    <h3 class="section-title">Adult 1</h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Title</label>
+                            <select name="adult1_title" class="form-select">
+                                <option value="">Select...</option>
+                                <option value="Mr.">Mr.</option>
+                                <option value="Mrs.">Mrs.</option>
+                                <option value="Ms.">Ms.</option>
+                                <option value="Dr.">Dr.</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">First Name <span class="required">*</span></label>
+                            <input type="text" name="adult1_first_name" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Last Name <span class="required">*</span></label>
+                            <input type="text" name="adult1_last_name" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Maiden Name</label>
+                            <input type="text" name="adult1_maiden_name" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Occupation</label>
+                            <input type="text" name="adult1_occupation" class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Cell Phone</label>
+                            <input type="tel" name="adult1_cell_phone" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Date of Birth</label>
+                            <input type="date" name="adult1_date_of_birth" class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Marital Status</label>
+                            <select name="adult1_marital_status" class="form-select">
+                                <option value="">Select...</option>
+                                <option value="Single">Single</option>
+                                <option value="Married">Married</option>
+                                <option value="Divorced">Divorced</option>
+                                <option value="Widowed">Widowed</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Religious Affiliation</label>
+                            <select name="adult1_religion" class="form-select">
+                                <option value="">Select...</option>
+                                <option value="Catholic">Catholic</option>
+                                <option value="Christian">Christian (Other)</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label class="form-label">Sacraments Received</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="adult1_baptism" name="adult1_baptism" value="Baptism">
+                                <label for="adult1_baptism">Baptism</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="adult1_confirmation" name="adult1_confirmation" value="Confirmation">
+                                <label for="adult1_confirmation">Confirmation</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="adult1_eucharist" name="adult1_eucharist" value="First Eucharist">
+                                <label for="adult1_eucharist">First Eucharist</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="adult1_marriage" name="adult1_marriage" value="Marriage">
+                                <label for="adult1_marriage">Marriage</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Adult 2 Section -->
+                <div class="form-section">
+                    <h3 class="section-title">Adult 2 (If Applicable)</h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Title</label>
+                            <select name="adult2_title" class="form-select">
+                                <option value="">Select...</option>
+                                <option value="Mr.">Mr.</option>
+                                <option value="Mrs.">Mrs.</option>
+                                <option value="Ms.">Ms.</option>
+                                <option value="Dr.">Dr.</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">First Name</label>
+                            <input type="text" name="adult2_first_name" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" name="adult2_last_name" class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Maiden Name</label>
+                            <input type="text" name="adult2_maiden_name" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Occupation</label>
+                            <input type="text" name="adult2_occupation" class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Cell Phone</label>
+                            <input type="tel" name="adult2_cell_phone" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Date of Birth</label>
+                            <input type="date" name="adult2_date_of_birth" class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Marital Status</label>
+                            <select name="adult2_marital_status" class="form-select">
+                                <option value="">Select...</option>
+                                <option value="Single">Single</option>
+                                <option value="Married">Married</option>
+                                <option value="Divorced">Divorced</option>
+                                <option value="Widowed">Widowed</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Religious Affiliation</label>
+                            <select name="adult2_religion" class="form-select">
+                                <option value="">Select...</option>
+                                <option value="Catholic">Catholic</option>
+                                <option value="Christian">Christian (Other)</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label class="form-label">Sacraments Received</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="adult2_baptism" name="adult2_baptism" value="Baptism">
+                                <label for="adult2_baptism">Baptism</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="adult2_confirmation" name="adult2_confirmation" value="Confirmation">
+                                <label for="adult2_confirmation">Confirmation</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="adult2_eucharist" name="adult2_eucharist" value="First Eucharist">
+                                <label for="adult2_eucharist">First Eucharist</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="adult2_marriage" name="adult2_marriage" value="Marriage">
+                                <label for="adult2_marriage">Marriage</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Children Section -->
+                <div class="form-section">
+                    <h3 class="section-title">Children (If Applicable)</h3>
+
+                    <!-- Child 1 -->
+                    <div class="child-card">
+                        <div class="child-number">Child 1</div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">First Name</label>
+                                <input type="text" name="child1_first_name" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Date of Birth</label>
+                                <input type="date" name="child1_date_of_birth" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Sex</label>
+                                <select name="child1_sex" class="form-select">
+                                    <option value="">Select...</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Religious Affiliation</label>
+                                <input type="text" name="child1_religion" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Sacraments Received</label>
+                                <input type="text" name="child1_sacraments" class="form-input" placeholder="e.g., Baptism, First Eucharist">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Child 2 -->
+                    <div class="child-card">
+                        <div class="child-number">Child 2</div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">First Name</label>
+                                <input type="text" name="child2_first_name" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Date of Birth</label>
+                                <input type="date" name="child2_date_of_birth" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Sex</label>
+                                <select name="child2_sex" class="form-select">
+                                    <option value="">Select...</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Religious Affiliation</label>
+                                <input type="text" name="child2_religion" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Sacraments Received</label>
+                                <input type="text" name="child2_sacraments" class="form-input" placeholder="e.g., Baptism, First Eucharist">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Child 3 -->
+                    <div class="child-card">
+                        <div class="child-number">Child 3</div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">First Name</label>
+                                <input type="text" name="child3_first_name" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Date of Birth</label>
+                                <input type="date" name="child3_date_of_birth" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Sex</label>
+                                <select name="child3_sex" class="form-select">
+                                    <option value="">Select...</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Religious Affiliation</label>
+                                <input type="text" name="child3_religion" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Sacraments Received</label>
+                                <input type="text" name="child3_sacraments" class="form-input" placeholder="e.g., Baptism, First Eucharist">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit"><i class="fas fa-check"></i> Submit Registration</button>
+                    <button type="reset" class="btn-reset"><i class="fas fa-redo"></i> Clear Form</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <div id="site-footer"></div>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/calendar.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>

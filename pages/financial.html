@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parish Financial | Church of St. Peter - Mendota, MN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'church-navy': '#0d212a',
+                        'church-gold': '#c5a059',
+                        'church-gold-light': '#deb872',
+                        'church-cream': '#f9f7f2',
+                        'church-gray': '#4c4c4c',
+                    },
+                    fontFamily: {
+                        'serif': ['"Playfair Display"', 'serif'],
+                        'display': ['"Cinzel"', 'serif'],
+                        'sans': ['"Inter"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to bottom, rgba(13, 33, 42, 0.7), rgba(13, 33, 42, 0.5)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_sanctuary.png')",
+                        'stained-glass': "linear-gradient(to right, rgba(13, 33, 42, 0.95), rgba(13, 33, 42, 0.9)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_glass.png')",
+                        'altar': "linear-gradient(to bottom, rgba(13, 33, 42, 0.3), rgba(13, 33, 42, 0.8)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_altar.png')"
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <style>
+        .hero-banner {
+            background: linear-gradient(135deg, #0d212a 0%, #1a3a4a 100%);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+            border-bottom: 4px solid #c5a059;
+        }
+
+        .hero-banner h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            margin: 0 0 1rem 0;
+            font-weight: 600;
+        }
+
+        .hero-banner p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #deb872;
+            margin: 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: #0d212a;
+            margin: 2rem 0 1.5rem 0;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #c5a059;
+        }
+
+        .finance-council {
+            background: #f9f7f2;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .council-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .member-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 6px;
+            border-left: 4px solid #c5a059;
+        }
+
+        .member-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: #0d212a;
+            margin: 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .member-role {
+            color: #c5a059;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .contact-info {
+            background: #f9f7f2;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: #0d212a;
+        }
+
+        .contact-value {
+            color: #4c4c4c;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #0d212a 0%, #1a3a4a 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 4px solid #c5a059;
+        }
+
+        .stat-number {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #deb872;
+            margin: 0.5rem 0;
+        }
+
+        .stat-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: #deb872;
+            margin: 0;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border: 1px solid #e0e0e0;
+        }
+
+        .chart-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: #0d212a;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .bar-chart {
+            display: grid;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .bar-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .bar-label {
+            min-width: 150px;
+            font-weight: 500;
+            color: #0d212a;
+        }
+
+        .bar-background {
+            flex: 1;
+            height: 40px;
+            background: #f0f0f0;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #0d212a, #c5a059);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 1rem;
+            color: white;
+            font-weight: 600;
+            transition: width 0.3s ease;
+        }
+
+        .timeline {
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: #c5a059;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px #c5a059;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-year {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            color: #c5a059;
+            margin: 0;
+        }
+
+        .timeline-text {
+            color: #4c4c4c;
+            margin: 0.5rem 0 0 0;
+        }
+
+        .documents-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .document-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .document-card:hover {
+            border-color: #c5a059;
+            box-shadow: 0 4px 12px rgba(197, 160, 89, 0.2);
+        }
+
+        .document-icon {
+            font-size: 2rem;
+            color: #c5a059;
+            margin-bottom: 1rem;
+        }
+
+        .document-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: #0d212a;
+            margin: 0.5rem 0;
+        }
+
+        .document-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            background: #0d212a;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .document-link:hover {
+            background: #c5a059;
+            color: #0d212a;
+        }
+    </style>
+</head>
+<body>
+    <div id="site-navigation"></div>
+    <main>
+        <div class="hero-banner">
+            <h1>Parish Financial Information</h1>
+            <p>"Generosity is not about the amount you give, but the love with which you give it."</p>
+        </div>
+
+        <div class="content-section" data-animate="fade-in-up">
+            <section class="finance-council">
+                <h2 class="section-title">Finance Council</h2>
+                <p>Our Finance Council oversees the responsible stewardship of parish resources and ensures transparency in our financial operations.</p>
+                <div class="council-members">
+                    <div class="member-card">
+                        <p class="member-role">Chair</p>
+                        <p class="member-name">Sue Bielinski</p>
+                    </div>
+                    <div class="member-card">
+                        <p class="member-role">Member</p>
+                        <p class="member-name">Tom O'Neill</p>
+                    </div>
+                    <div class="member-card">
+                        <p class="member-role">Member</p>
+                        <p class="member-name">Tim Bianchi</p>
+                    </div>
+                    <div class="member-card">
+                        <p class="member-role">Member</p>
+                        <p class="member-name">Mark Mischke</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="contact-info">
+                <p><span class="contact-label">Questions about Parish Finances?</span></p>
+                <p class="contact-label">Peter Guzulaitis</p>
+                <p class="contact-label">Director of Operations</p>
+                <p><span class="contact-label">Email:</span> <span class="contact-value"><a href="mailto:directorofoperations@stpetersmendota.org" style="color: #c5a059; text-decoration: none;">directorofoperations@stpetersmendota.org</a></span></p>
+                <p><span class="contact-label">Phone:</span> <span class="contact-value">651-905-4307</span></p>
+            </div>
+        </div>
+
+        <div class="content-section" data-animate="fade-in-up">
+            <h2 class="section-title">2024-2025 Financial Highlights</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <p class="stat-label">Total Revenue</p>
+                    <p class="stat-number">$1.6M</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-label">Net Surplus</p>
+                    <p class="stat-number">$85.8K</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-label">Families Giving</p>
+                    <p class="stat-number">557</p>
+                    <p style="font-size: 0.85rem; color: #deb872; margin-top: 0.5rem;"><em>up from 486 (2020)</em></p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-label">Debt Remaining</p>
+                    <p class="stat-number">$2.2M</p>
+                    <p style="font-size: 0.85rem; color: #deb872; margin-top: 0.5rem;"><em>down from $5.4M</em></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" data-animate="fade-in-up">
+            <div class="chart-container">
+                <h3 class="chart-title">Operational Performance (2024-25)</h3>
+                <div class="bar-chart">
+                    <div class="bar-item">
+                        <span class="bar-label">Income</span>
+                        <div class="bar-background">
+                            <div class="bar-fill" style="width: 95%;">$1.62M</div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label">Expenses</span>
+                        <div class="bar-background">
+                            <div class="bar-fill" style="width: 90%;">$1.54M</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" data-animate="fade-in-up">
+            <div class="chart-container">
+                <h3 class="chart-title">Debt Reduction Progress</h3>
+                <div class="bar-chart">
+                    <div class="bar-item">
+                        <span class="bar-label">2020</span>
+                        <div class="bar-background">
+                            <div class="bar-fill" style="width: 100%;">$5.40M</div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label">2022</span>
+                        <div class="bar-background">
+                            <div class="bar-fill" style="width: 62%;">$3.35M</div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label">Current</span>
+                        <div class="bar-background">
+                            <div class="bar-fill" style="width: 41%;">$2.20M</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" data-animate="fade-in-up">
+            <div class="chart-container">
+                <h3 class="chart-title">Sunday Collection Growth (2020-2024)</h3>
+                <svg viewBox="0 0 700 400" style="width: 100%; height: auto;">
+                    <!-- Grid -->
+                    <line x1="80" y1="350" x2="680" y2="350" stroke="#e0e0e0" stroke-width="2"/>
+                    <line x1="80" y1="280" x2="680" y2="280" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="5,5"/>
+                    <line x1="80" y1="210" x2="680" y2="210" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="5,5"/>
+                    <line x1="80" y1="140" x2="680" y2="140" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="5,5"/>
+                    <line x1="80" y1="70" x2="680" y2="70" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="5,5"/>
+                    <line x1="80" y1="20" x2="80" y2="350" stroke="#0d212a" stroke-width="2"/>
+                    <line x1="680" y1="350" x2="680" y2="355" stroke="#0d212a" stroke-width="2"/>
+
+                    <!-- Y-axis labels -->
+                    <text x="30" y="355" text-anchor="end" font-size="12" fill="#4c4c4c">$0</text>
+                    <text x="30" y="285" text-anchor="end" font-size="12" fill="#4c4c4c">$250K</text>
+                    <text x="30" y="215" text-anchor="end" font-size="12" fill="#4c4c4c">$500K</text>
+                    <text x="30" y="145" text-anchor="end" font-size="12" fill="#4c4c4c">$750K</text>
+                    <text x="30" y="75" text-anchor="end" font-size="12" fill="#4c4c4c">$1M</text>
+
+                    <!-- Bars -->
+                    <rect x="100" y="280" width="60" height="70" fill="#0d212a" rx="4"/>
+                    <rect x="170" y="282" width="60" height="68" fill="#1a3a4a" rx="4"/>
+                    <rect x="240" y="268" width="60" height="82" fill="#0d212a" rx="4"/>
+                    <rect x="310" y="262" width="60" height="88" fill="#1a3a4a" rx="4"/>
+                    <rect x="380" y="244" width="60" height="106" fill="#c5a059" rx="4"/>
+
+                    <!-- Data labels -->
+                    <text x="130" y="365" text-anchor="middle" font-size="12" fill="#4c4c4c" font-weight="600">2020</text>
+                    <text x="130" y="245" text-anchor="middle" font-size="11" fill="white" font-weight="600">$875K</text>
+
+                    <text x="200" y="365" text-anchor="middle" font-size="12" fill="#4c4c4c" font-weight="600">2021</text>
+                    <text x="200" y="248" text-anchor="middle" font-size="11" fill="white" font-weight="600">$873K</text>
+
+                    <text x="270" y="365" text-anchor="middle" font-size="12" fill="#4c4c4c" font-weight="600">2022</text>
+                    <text x="270" y="233" text-anchor="middle" font-size="11" fill="white" font-weight="600">$926K</text>
+
+                    <text x="340" y="365" text-anchor="middle" font-size="12" fill="#4c4c4c" font-weight="600">2023</text>
+                    <text x="340" y="227" text-anchor="middle" font-size="11" fill="white" font-weight="600">$949K</text>
+
+                    <text x="410" y="365" text-anchor="middle" font-size="12" fill="#4c4c4c" font-weight="600">2024</text>
+                    <text x="410" y="209" text-anchor="middle" font-size="11" fill="white" font-weight="600">$1.08M</text>
+                </svg>
+            </div>
+        </div>
+
+        <div class="content-section" data-animate="fade-in-up">
+            <h2 class="section-title">Financial Documents</h2>
+            <div class="documents-section">
+                <div class="document-card">
+                    <div class="document-icon"><i class="fas fa-file-pdf"></i></div>
+                    <h3 class="document-title">Feasibility Study Summary</h3>
+                    <p style="color: #4c4c4c; margin: 0.5rem 0;">Overview of parish building projects and capital needs assessment.</p>
+                    <a href="#" class="document-link"><i class="fas fa-download"></i> Download PDF</a>
+                </div>
+                <div class="document-card">
+                    <div class="document-icon"><i class="fas fa-file-pdf"></i></div>
+                    <h3 class="document-title">2025 Debt Brochure</h3>
+                    <p style="color: #4c4c4c; margin: 0.5rem 0;">Understanding our debt reduction strategy and timeline.</p>
+                    <a href="#" class="document-link"><i class="fas fa-download"></i> Download PDF</a>
+                </div>
+            </div>
+
+            <h3 style="font-family: 'Cinzel', serif; font-size: 1.3rem; color: #0d212a; margin-top: 2rem; margin-bottom: 1rem;">Annual Financial Reports</h3>
+            <div class="documents-section">
+                <div class="document-card">
+                    <div class="document-icon"><i class="fas fa-file-pdf"></i></div>
+                    <h3 class="document-title">FY 2024-25</h3>
+                    <p style="color: #4c4c4c; margin: 0.5rem 0;">Complete financial statements and parish report.</p>
+                    <a href="#" class="document-link"><i class="fas fa-download"></i> Download PDF</a>
+                </div>
+                <div class="document-card">
+                    <div class="document-icon"><i class="fas fa-file-pdf"></i></div>
+                    <h3 class="document-title">FY 2023-24</h3>
+                    <p style="color: #4c4c4c; margin: 0.5rem 0;">Complete financial statements and parish report.</p>
+                    <a href="#" class="document-link"><i class="fas fa-download"></i> Download PDF</a>
+                </div>
+                <div class="document-card">
+                    <div class="document-icon"><i class="fas fa-file-pdf"></i></div>
+                    <h3 class="document-title">FY 2022-23</h3>
+                    <p style="color: #4c4c4c; margin: 0.5rem 0;">Complete financial statements and parish report.</p>
+                    <a href="#" class="document-link"><i class="fas fa-download"></i> Download PDF</a>
+                </div>
+                <div class="document-card">
+                    <div class="document-icon"><i class="fas fa-file-pdf"></i></div>
+                    <h3 class="document-title">FY 2021-22</h3>
+                    <p style="color: #4c4c4c; margin: 0.5rem 0;">Complete financial statements and parish report.</p>
+                    <a href="#" class="document-link"><i class="fas fa-download"></i> Download PDF</a>
+                </div>
+                <div class="document-card">
+                    <div class="document-icon"><i class="fas fa-file-pdf"></i></div>
+                    <h3 class="document-title">FY 2020-21</h3>
+                    <p style="color: #4c4c4c; margin: 0.5rem 0;">Complete financial statements and parish report.</p>
+                    <a href="#" class="document-link"><i class="fas fa-download"></i> Download PDF</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="site-footer"></div>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/calendar.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>

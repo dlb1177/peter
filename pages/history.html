@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History | Church of St. Peter - Mendota, MN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'church-navy': '#0d212a',
+                        'church-gold': '#c5a059',
+                        'church-gold-light': '#deb872',
+                        'church-cream': '#f9f7f2',
+                        'church-gray': '#4c4c4c',
+                    },
+                    fontFamily: {
+                        'serif': ['"Playfair Display"', 'serif'],
+                        'display': ['"Cinzel"', 'serif'],
+                        'sans': ['"Inter"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to bottom, rgba(13, 33, 42, 0.7), rgba(13, 33, 42, 0.5)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_sanctuary.png')",
+                        'stained-glass': "linear-gradient(to right, rgba(13, 33, 42, 0.95), rgba(13, 33, 42, 0.9)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_glass.png')",
+                        'altar': "linear-gradient(to bottom, rgba(13, 33, 42, 0.3), rgba(13, 33, 42, 0.8)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_altar.png')"
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <style>
+        .hero-banner {
+            background: linear-gradient(135deg, #0d212a 0%, #1a3a4a 100%);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+            border-bottom: 4px solid #c5a059;
+        }
+
+        .hero-banner h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            margin: 0 0 1rem 0;
+            font-weight: 600;
+        }
+
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #deb872;
+            margin: 0;
+            font-style: italic;
+        }
+
+        .content-section {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: #0d212a;
+            margin: 2rem 0 1.5rem 0;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #c5a059;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: #4c4c4c;
+            line-height: 1.8;
+            margin: 1.5rem 0;
+        }
+
+        .timeline {
+            margin: 3rem 0;
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #c5a059 0%, #deb872 50%, #c5a059 100%);
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: -1.15rem;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border: 3px solid #c5a059;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px #f9f7f2;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            border-color: #c5a059;
+            box-shadow: 0 4px 12px rgba(197, 160, 89, 0.2);
+        }
+
+        .timeline-year {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #c5a059;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .timeline-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0d212a;
+            margin: 0.5rem 0;
+        }
+
+        .timeline-text {
+            color: #4c4c4c;
+            margin: 0.5rem 0 0 0;
+            line-height: 1.6;
+        }
+
+        .milestone-marker {
+            display: inline-block;
+            background: linear-gradient(135deg, #0d212a 0%, #1a3a4a 100%);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .historic-church-section {
+            background: linear-gradient(135deg, #f9f7f2 0%, #fef9f3 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 5px solid #c5a059;
+            margin: 2rem 0;
+        }
+
+        .church-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: #0d212a;
+            margin: 0 0 1rem 0;
+        }
+
+        .church-text {
+            color: #4c4c4c;
+            line-height: 1.8;
+            margin: 0.5rem 0;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #0d212a 0%, #1a3a4a 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border: 3px solid #c5a059;
+        }
+
+        .highlight-box h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            margin-top: 0;
+            color: #deb872;
+        }
+
+        .highlight-box p {
+            margin: 0.5rem 0;
+            line-height: 1.7;
+        }
+
+        .external-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            background: #c5a059;
+            color: #0d212a;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .external-link:hover {
+            background: #deb872;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(197, 160, 89, 0.3);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: #c5a059;
+            box-shadow: 0 4px 12px rgba(197, 160, 89, 0.2);
+        }
+
+        .stat-number {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #c5a059;
+            margin: 0.5rem 0;
+        }
+
+        .stat-label {
+            font-family: 'Inter', sans-serif;
+            color: #0d212a;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .quote-section {
+            background: #f9f7f2;
+            padding: 3rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+            text-align: center;
+            border: 2px solid #deb872;
+        }
+
+        .quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #0d212a;
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        .quote-mark {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #c5a059;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="site-navigation"></div>
+    <main>
+        <div class="hero-banner">
+            <h1>Our History</h1>
+            <p class="hero-subtitle">Nearly Two Centuries of Faith and Community</p>
+        </div>
+
+        <div class="content-section" data-animate="fade-in-up">
+            <p class="intro-text">
+                The Church of St. Peter in Mendota is the oldest parish in Minnesota. Founded in 1840 by Father Lucien Galtier, our parish has served as a beacon of faith, community, and spiritual growth for nearly two centuries. Our roots run deep in Minnesota's history, and our commitment to faith and service continues strong today.
+            </p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <p class="stat-number">1840</p>
+                    <p class="stat-label">Year Founded</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-number">184</p>
+                    <p class="stat-label">Years of Service</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-number">1st</p>
+                    <p class="stat-label">Oldest Parish in Minnesota</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" data-animate="fade-in-up">
+            <h2 class="section-title">Timeline of Our Parish</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <p class="timeline-year">1840</p>
+                        <h3 class="timeline-title">Parish Founded <span class="milestone-marker">FOUNDING</span></h3>
+                        <p class="timeline-text">
+                            Father Lucien Galtier establishes the Church of St. Peter in Mendota, Minnesota. This marks the beginning of Minnesota's oldest parish and reflects the deep Catholic faith of early settlers. The parish becomes a spiritual home for generations of faithful Catholics in the Minnesota region.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <p class="timeline-year">1841</p>
+                        <h3 class="timeline-title">First Log Chapel Built</h3>
+                        <p class="timeline-text">
+                            The first place of worship for our parish—a simple log chapel—is constructed. Despite its modest construction, this chapel becomes a sacred space where parishioners gather to pray, celebrate sacraments, and build community bonds that will sustain the parish for generations to come.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <p class="timeline-year">1853</p>
+                        <h3 class="timeline-title">Historic Stone Church Constructed <span class="milestone-marker">LANDMARK</span></h3>
+                        <p class="timeline-text">
+                            The beautiful historic stone church is built, replacing the original log chapel. This remarkable building becomes one of the oldest churches in Minnesota. Crafted with care and devotion, the stone church stands as a testament to the commitment of our ancestors to creating a lasting place of worship. The structure will later be recognized on the National Register of Historic Places.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <p class="timeline-year">Late 1800s - Early 1900s</p>
+                        <h3 class="timeline-title">Growth and Expansion</h3>
+                        <p class="timeline-text">
+                            The parish grows significantly as Catholic settlement increases in the Minnesota region. The parish expands its ministries, develops stronger ties to the surrounding community, and becomes increasingly influential in local civic and spiritual life.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <p class="timeline-year">Mid-20th Century</p>
+                        <h3 class="timeline-title">Modern Era Development</h3>
+                        <p class="timeline-text">
+                            The parish continues to adapt and grow to meet the changing needs of its community. New programs, expanded religious education, and strengthened ministries help St. Peter's remain vibrant and engaged with contemporary concerns while maintaining its spiritual roots and traditions.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <p class="timeline-year">2000s - Present</p>
+                        <h3 class="timeline-title">Preservation and Growth <span class="milestone-marker">MODERN</span></h3>
+                        <p class="timeline-text">
+                            A new modern church building is constructed to serve the growing parish community while the historic 1853 stone church is carefully preserved for daily Masses and special liturgies. This thoughtful approach honors our heritage while meeting contemporary needs. Ongoing renovations and maintenance ensure both buildings serve the faithful well.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" data-animate="fade-in-up">
+            <div class="historic-church-section">
+                <h3 class="church-title"><i class="fas fa-church"></i> The Historic Stone Church</h3>
+                <p class="church-text">
+                    Built in 1853, the historic stone church is one of the oldest churches in Minnesota and represents a remarkable achievement in both faith and craftsmanship. The beautiful stone construction has endured for over 170 years, serving as a tangible connection to our parish's rich heritage.
+                </p>
+                <p class="church-text">
+                    Today, this sacred building continues to be used for daily Masses and special liturgies. Its peaceful interior invites prayer and contemplation, while its solid walls echo with nearly two centuries of prayers, celebrations, and moments of grace. The historic church remains the spiritual heart of St. Peter's, reminding us of those who came before us and the faith that sustains us.
+                </p>
+                <p class="church-text">
+                    The church is recognized on the National Register of Historic Places, ensuring its preservation for future generations and honoring its significance to Minnesota's religious and architectural heritage.
+                </p>
+            </div>
+        </div>
+
+        <div class="content-section" data-animate="fade-in-up">
+            <h2 class="section-title">Mendota: Minnesota's Oldest Settlement</h2>
+            <p class="intro-text">
+                The Church of St. Peter is inextricably linked to Mendota's history as Minnesota's oldest permanent European settlement. Located at the confluence of the Minnesota and Mississippi Rivers, Mendota served as a vital trading post, military outpost, and community hub long before Minnesota achieved statehood.
+            </p>
+            <p class="intro-text">
+                Our parish emerged from this rich historical context, serving not only as a place of worship but as a cornerstone of community life. From the earliest days, the Church of St. Peter has embodied the hopes, struggles, and dreams of those who built Minnesota. The faith of our founders, the dedication of our ancestors, and the commitment of current parishioners have shaped us into a parish with an unparalleled legacy of service.
+            </p>
+        </div>
+
+        <div class="content-section" data-animate="fade-in-up">
+            <div class="highlight-box">
+                <h3><i class="fas fa-landmark"></i> A Living Historical Landmark</h3>
+                <p>
+                    The Church of St. Peter's historic stone church is one of the oldest churches in Minnesota and is officially listed on the National Register of Historic Places. This designation honors not only the architectural significance of the building but also the spiritual and cultural importance of our parish to Minnesota's religious heritage.
+                </p>
+                <a href="https://kstp.com/kstp-news/top-news/so-minnesota-oldest-house-of-worship/" target="_blank" class="external-link">
+                    <i class="fas fa-external-link-alt"></i> Learn More About Minnesota's Oldest House of Worship
+                </a>
+            </div>
+        </div>
+
+        <div class="content-section" data-animate="fade-in-up">
+            <h2 class="section-title">Our Continuing Journey</h2>
+            <p class="intro-text">
+                As we move deeper into the 21st century, the Church of St. Peter continues to evolve and serve its community with the same passion and commitment that Father Lucien Galtier brought to us in 1840. We honor our past by learning from it, celebrate our present through active ministry, and look to the future with hope.
+            </p>
+            <p class="intro-text">
+                Our history is not merely something to admire from a distance—it is a living legacy that shapes how we serve, worship, and grow together as a parish family. Every Mass celebrated in our historic stone church, every sacrament administered, and every act of service performed continues the sacred work begun nearly two centuries ago.
+            </p>
+        </div>
+
+        <div class="quote-section" data-animate="fade-in-up">
+            <div class="quote-mark">"</div>
+            <p class="quote">
+                From a simple log chapel to a historic stone church, from frontier settlement to thriving community—the Church of St. Peter stands as a testament to the enduring power of faith and the legacy of generations devoted to serving God and neighbor.
+            </p>
+        </div>
+
+        <div class="content-section" data-animate="fade-in-up">
+            <h2 class="section-title">Be Part of Our Story</h2>
+            <p class="intro-text">
+                The history of the Church of St. Peter is not complete—it is still being written by the faithful who worship here today. Whether you are a longtime parishioner connected to our deep roots or a newcomer discovering our community for the first time, you are invited to become part of our continuing story. Join us in worship, service, and community as we carry forward the faith and mission that have sustained St. Peter's for nearly two centuries.
+            </p>
+        </div>
+    </main>
+    <div id="site-footer"></div>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/calendar.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>

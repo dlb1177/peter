@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cemetery | Church of St. Peter - Mendota, MN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'church-navy': '#0d212a',
+                        'church-gold': '#c5a059',
+                        'church-gold-light': '#deb872',
+                        'church-cream': '#f9f7f2',
+                        'church-gray': '#4c4c4c',
+                    },
+                    fontFamily: {
+                        'serif': ['"Playfair Display"', 'serif'],
+                        'display': ['"Cinzel"', 'serif'],
+                        'sans': ['"Inter"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to bottom, rgba(13, 33, 42, 0.7), rgba(13, 33, 42, 0.5)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_sanctuary.png')",
+                        'stained-glass': "linear-gradient(to right, rgba(13, 33, 42, 0.95), rgba(13, 33, 42, 0.9)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_glass.png')",
+                        'altar': "linear-gradient(to bottom, rgba(13, 33, 42, 0.3), rgba(13, 33, 42, 0.8)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_altar.png')"
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <style>
+        .hero-banner {
+            background: linear-gradient(135deg, #0d212a 0%, #1a3a4a 100%);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            border-bottom: 4px solid #c5a059;
+        }
+
+        .hero-banner h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .content-section {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: #0d212a;
+            margin: 2rem 0 1.5rem 0;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #c5a059;
+        }
+
+        .contact-info {
+            background: #f9f7f2;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .contact-info p {
+            margin: 0.5rem 0;
+            color: #4c4c4c;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: #0d212a;
+        }
+
+        .contact-value {
+            color: #4c4c4c;
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-table thead {
+            background: linear-gradient(135deg, #0d212a 0%, #1a3a4a 100%);
+            color: white;
+        }
+
+        .pricing-table th {
+            padding: 1rem;
+            text-align: left;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+        }
+
+        .pricing-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            color: #4c4c4c;
+        }
+
+        .pricing-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .pricing-table tbody tr:hover {
+            background: #f9f7f2;
+        }
+
+        .price {
+            font-weight: 600;
+            color: #0d212a;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+        }
+
+        .note-box {
+            background: #fef9f3;
+            border-left: 4px solid #c5a059;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 2rem 0;
+        }
+
+        .note-title {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            color: #0d212a;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .note-text {
+            color: #4c4c4c;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .info-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            border-color: #c5a059;
+            box-shadow: 0 4px 12px rgba(197, 160, 89, 0.2);
+        }
+
+        .info-card-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: #0d212a;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .info-card-content {
+            color: #4c4c4c;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="site-navigation"></div>
+    <main>
+        <div class="hero-banner">
+            <h1>St. Peter's Historic Cemetery</h1>
+        </div>
+
+        <div class="content-section" data-animate="fade-in-up">
+            <div class="contact-info">
+                <p><span class="contact-label">Cemetery Information & Arrangements</span></p>
+                <p><span class="contact-label">Contact:</span> <span class="contact-value">Peter Guzulaitis</span></p>
+                <p><span class="contact-label">Phone:</span> <span class="contact-value">651-905-4307</span></p>
+            </div>
+        </div>
+
+        <div class="content-section" data-animate="fade-in-up">
+            <h2 class="section-title">Burial & Service Costs</h2>
+            <p style="color: #4c4c4c; font-size: 1rem; margin-bottom: 1.5rem;">
+                St. Peter's Cemetery provides a peaceful, sacred resting place for our parishioners and families. The following pricing is current and subject to change. Please contact Peter Guzulaitis for the most up-to-date information.
+            </p>
+
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Grave (Parishioner)</td>
+                        <td class="price">$1,800</td>
+                    </tr>
+                    <tr>
+                        <td>Grave (Non-Parishioner)</td>
+                        <td class="price">$3,500</td>
+                    </tr>
+                    <tr>
+                        <td>Opening/Closing (Full Burial)</td>
+                        <td class="price">$1,350</td>
+                    </tr>
+                    <tr>
+                        <td>Opening/Closing (Cremation)</td>
+                        <td class="price">$800</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box">
+                <p class="note-title">Winter Service Rates</p>
+                <p class="note-text">Winter opening and closing rates (November 15 - April 15) may be higher due to ground conditions. Please contact the cemetery office for current winter pricing.</p>
+            </div>
+        </div>
+
+        <div class="content-section" data-animate="fade-in-up">
+            <h2 class="section-title">Decorations & Cemetery Guidelines</h2>
+
+            <div class="info-card">
+                <h3 class="info-card-title">Decorations</h3>
+                <p class="info-card-content">
+                    Families are welcome to place flowers, plants, and other decorations on graves as a way to honor their loved ones. We ask that decorations be maintained and removed periodically, particularly before ground maintenance work. Fresh flowers are preferred and should be removed after they have wilted. Seasonal decorations are welcome for holidays and special occasions.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h3 class="info-card-title">Memorial Plantings</h3>
+                <p class="info-card-content">
+                    Shrubs, trees, and other plantings in memory of loved ones require approval from the cemetery office. This ensures proper maintenance and prevents overcrowding. Contact Peter Guzulaitis to discuss approved planting options.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h3 class="info-card-title">Ground Care & Maintenance</h3>
+                <p class="info-card-content">
+                    The cemetery grounds are maintained by the parish to preserve the peaceful, well-kept appearance of the cemetery. Families should not place structures, fencing, or other installations on graves without prior approval.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h3 class="info-card-title">Visiting Hours</h3>
+                <p class="info-card-content">
+                    The cemetery is open during daylight hours throughout the year. Families are invited to visit to remember and honor their loved ones. For winter visits, please be aware that grounds may be snow-covered and roads may not be plowed.
+                </p>
+            </div>
+        </div>
+
+        <div class="content-section" data-animate="fade-in-up">
+            <h2 class="section-title">Planning Ahead</h2>
+            <p style="color: #4c4c4c; font-size: 1rem; margin-bottom: 1.5rem;">
+                Many families find it helpful to make cemetery arrangements in advance. We encourage you to contact Peter Guzulaitis to discuss burial options, plot selection, and other arrangements at your own pace. Pre-planning can provide peace of mind for you and your family.
+            </p>
+        </div>
+    </main>
+    <div id="site-footer"></div>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/calendar.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>

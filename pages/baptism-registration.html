@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baptism Registration | Church of St. Peter - Mendota, MN</title>
+    <meta name="description" content="Register your child for baptism at the Church of St. Peter. Complete our baptism registration form.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'church-navy': '#0d212a',
+                        'church-gold': '#c5a059',
+                        'church-gold-light': '#deb872',
+                        'church-cream': '#f9f7f2',
+                        'church-gray': '#4c4c4c',
+                    },
+                    fontFamily: {
+                        'serif': ['"Playfair Display"', 'serif'],
+                        'display': ['"Cinzel"', 'serif'],
+                        'sans': ['"Inter"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to bottom, rgba(13, 33, 42, 0.7), rgba(13, 33, 42, 0.5)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_sanctuary.png')",
+                        'stained-glass': "linear-gradient(to right, rgba(13, 33, 42, 0.95), rgba(13, 33, 42, 0.9)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_glass.png')",
+                        'altar': "linear-gradient(to bottom, rgba(13, 33, 42, 0.3), rgba(13, 33, 42, 0.8)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_altar.png')"
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <div id="site-navigation"></div>
+    <main class="flex-grow relative">
+        <section class="py-16 bg-gray-100">
+            <div class="max-w-4xl mx-auto px-4">
+
+                <div class="text-center mb-10">
+                    <h1 class="font-display text-4xl text-church-navy mb-4">Baptism Registration Form</h1>
+                    <p class="text-gray-600 mb-2">Please complete the form below to register.</p>
+                    <div class="bg-white p-4 rounded-lg shadow-sm inline-block border-l-4 border-church-gold text-left text-sm text-gray-600 mt-4">
+                        <p class="font-bold text-church-navy text-base mb-1">Parish Contact Information</p>
+                        <p><strong>Phone:</strong> (651) 452-4550</p>
+                        <p class="italic mb-2">If you're calling after hours follow the prompts to be connected with a member of our pastoral care team.</p>
+                        <p>1405 Sibley Memorial Highway, PO Box 50679, Mendota, MN 55150-0679</p>
+                        <p>Email: <a href="mailto:church@stpetersmendota.org" class="text-church-navy hover:underline">church@stpetersmendota.org</a></p>
+                    </div>
+                    <div class="mt-6">
+                        <a href="sacraments.html" class="text-church-navy hover:text-church-gold font-bold text-sm uppercase tracking-wide inline-flex items-center justify-center gap-2">
+                            &larr; Back to Sacraments
+                        </a>
+                    </div>
+                </div>
+
+                <form class="bg-white shadow-xl rounded-lg p-8 md:p-10 space-y-8 border-t-4 border-church-navy">
+
+                    <div>
+                        <h3 class="text-xl font-display text-church-navy mb-4 border-b pb-2">Family Information</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-bold text-gray-800 mb-1">Family Name</label>
+                                <input type="text" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200" placeholder="e.g. The Smith Family">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-bold text-gray-800 mb-1">Address</label>
+                                <textarea class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200" rows="2"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-800 mb-1">Primary Phone</label>
+                                <input type="tel" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-800 mb-1">Primary Email</label>
+                                <input type="email" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-800 mb-1">Today's Date</label>
+                                <input type="date" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                            </div>
+                            <div class="flex flex-col justify-center bg-gray-50 p-3 rounded border border-gray-200">
+                                <label class="block text-sm font-bold text-church-navy mb-2">Are you a registered parishioner of St. Peter's?</label>
+                                <div class="flex gap-4">
+                                    <label class="inline-flex items-center cursor-pointer">
+                                        <input type="radio" name="registered" value="yes" class="text-church-navy focus:ring-church-navy h-5 w-5">
+                                        <span class="ml-2 text-gray-800 font-medium">Yes</span>
+                                    </label>
+                                    <label class="inline-flex items-center cursor-pointer">
+                                        <input type="radio" name="registered" value="no" class="text-church-navy focus:ring-church-navy h-5 w-5">
+                                        <span class="ml-2 text-gray-800 font-medium">No</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-display text-church-navy mb-4 border-b pb-2">Parent Information</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-800 mb-1">Father's Birth Name</label>
+                                <input type="text" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-800 mb-1">Father's Religion</label>
+                                <input type="text" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-bold text-gray-800 mb-1">Mother's Birth Name (Maiden)</label>
+                                <input type="text" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-800 mb-1">Mother's Present Name</label>
+                                <input type="text" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-bold text-gray-800 mb-1">Mother's Religion</label>
+                                <input type="text" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-church-cream bg-opacity-40 p-6 rounded border border-church-gold">
+                        <h3 class="text-lg font-display text-church-navy mb-4">Marriage Information</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-bold text-church-navy mb-2">Are the parents married?</label>
+                                <div class="flex gap-4">
+                                    <label class="inline-flex items-center cursor-pointer">
+                                        <input type="radio" name="married" value="yes" class="text-church-navy focus:ring-church-navy h-5 w-5">
+                                        <span class="ml-2 text-gray-800 font-medium">Yes</span>
+                                    </label>
+                                    <label class="inline-flex items-center cursor-pointer">
+                                        <input type="radio" name="married" value="no" class="text-church-navy focus:ring-church-navy h-5 w-5">
+                                        <span class="ml-2 text-gray-800 font-medium">No</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="md:col-span-2">
+                                    <label class="block text-sm font-bold text-gray-800 mb-1">Name of church or institution where married</label>
+                                    <input type="text" class="w-full bg-white border border-gray-400 rounded p-3 focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-800 mb-1">City, State of church/institution</label>
+                                    <input type="text" class="w-full bg-white border border-gray-400 rounded p-3 focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-800 mb-1">Name of officiant at your wedding</label>
+                                    <input type="text" class="w-full bg-white border border-gray-400 rounded p-3 focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-display text-church-navy mb-4 border-b pb-2">Child Information</h3>
+                        <div class="space-y-6">
+                            <div class="bg-gray-50 p-3 rounded border border-gray-200">
+                                <label class="block text-sm font-bold text-gray-800 mb-2">Has the child you wish to be baptized been born yet?</label>
+                                <div class="flex gap-4">
+                                    <label class="inline-flex items-center cursor-pointer">
+                                        <input type="radio" name="born" value="yes" class="text-church-navy focus:ring-church-navy h-5 w-5">
+                                        <span class="ml-2 text-gray-800 font-medium">Yes</span>
+                                    </label>
+                                    <label class="inline-flex items-center cursor-pointer">
+                                        <input type="radio" name="born" value="no" class="text-church-navy focus:ring-church-navy h-5 w-5">
+                                        <span class="ml-2 text-gray-800 font-medium">No</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-800 mb-1">If no, what is the due date?</label>
+                                    <input type="date" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-800 mb-1">Child's Name (First, Middle, Last)</label>
+                                    <input type="text" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-800 mb-1">Child's Birthdate</label>
+                                    <input type="date" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-800 mb-1">City of Birth</label>
+                                    <input type="text" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                                </div>
+                                <div class="bg-gray-50 p-3 rounded border border-gray-200">
+                                    <label class="block text-sm font-bold text-gray-800 mb-2">Child's Sex</label>
+                                    <div class="flex gap-4">
+                                        <label class="inline-flex items-center cursor-pointer">
+                                            <input type="radio" name="sex" value="male" class="text-church-navy focus:ring-church-navy h-5 w-5">
+                                            <span class="ml-2 text-gray-800 font-medium">Male</span>
+                                        </label>
+                                        <label class="inline-flex items-center cursor-pointer">
+                                            <input type="radio" name="sex" value="female" class="text-church-navy focus:ring-church-navy h-5 w-5">
+                                            <span class="ml-2 text-gray-800 font-medium">Female</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-800 mb-1">What number child is this for you?</label>
+                                    <input type="number" class="w-full bg-gray-50 border border-gray-400 rounded p-3 focus:bg-white focus:border-church-navy focus:ring-church-navy transition-colors duration-200" min="1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded border-l-4 border-church-navy">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-bold text-gray-800 mb-2">Have you attended a baptism class in past 5 years?</label>
+                                <div class="flex gap-4">
+                                    <label class="inline-flex items-center cursor-pointer">
+                                        <input type="radio" name="class" value="yes" class="text-church-navy focus:ring-church-navy h-5 w-5">
+                                        <span class="ml-2 text-gray-800 font-medium">Yes</span>
+                                    </label>
+                                    <label class="inline-flex items-center cursor-pointer">
+                                        <input type="radio" name="class" value="no" class="text-church-navy focus:ring-church-navy h-5 w-5">
+                                        <span class="ml-2 text-gray-800 font-medium">No</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-bold text-gray-800 mb-1">If yes, where?</label>
+                                <input type="text" class="w-full bg-white border border-gray-400 rounded p-3 focus:border-church-navy focus:ring-church-navy transition-colors duration-200">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6">
+                        <button type="submit" class="w-full bg-church-navy text-white font-bold uppercase tracking-widest py-4 rounded shadow hover:bg-church-gold transition-colors duration-300">
+                            Submit Registration
+                        </button>
+                    </div>
+                </form>
+
+                <div class="mt-8 text-center text-xs text-gray-400">
+                    <p>Church of St. Peter | Mendota, MN</p>
+                    <p>Built by Vivial | Privacy Policy</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="site-footer"></div>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/calendar.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>

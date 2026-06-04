@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safe Environment | Church of St. Peter - Mendota, MN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'church-navy': '#0d212a',
+                        'church-gold': '#c5a059',
+                        'church-gold-light': '#deb872',
+                        'church-cream': '#f9f7f2',
+                        'church-gray': '#4c4c4c',
+                    },
+                    fontFamily: {
+                        'serif': ['"Playfair Display"', 'serif'],
+                        'display': ['"Cinzel"', 'serif'],
+                        'sans': ['"Inter"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to bottom, rgba(13, 33, 42, 0.7), rgba(13, 33, 42, 0.5)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_sanctuary.png')",
+                        'stained-glass': "linear-gradient(to right, rgba(13, 33, 42, 0.95), rgba(13, 33, 42, 0.9)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_glass.png')",
+                        'altar': "linear-gradient(to bottom, rgba(13, 33, 42, 0.3), rgba(13, 33, 42, 0.8)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_altar.png')"
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #0d212a;
+            background-color: #f9f7f2;
+            line-height: 1.6;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        .hero-section {
+            background: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero-section h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: #0d212a;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-section p {
+            font-size: 1rem;
+            color: #4c4c4c;
+            max-width: 50rem;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 75rem;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .coordinator-box {
+            background: #f9f7f2;
+            border-left: 4px solid #c5a059;
+            padding: 1.5rem;
+            border-radius: 0.25rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .coordinator-box {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .coordinator-info h3 {
+            font-weight: 600;
+            color: #0d212a;
+            margin-bottom: 0.25rem;
+        }
+
+        .coordinator-info p {
+            color: #4c4c4c;
+            font-size: 0.95rem;
+        }
+
+        .coordinator-contact {
+            text-align: right;
+        }
+
+        @media (max-width: 768px) {
+            .coordinator-contact {
+                text-align: center;
+            }
+        }
+
+        .coordinator-contact p {
+            color: #0d212a;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .coordinator-contact a {
+            color: #0d212a;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .coordinator-contact a:hover {
+            color: #c5a059;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0d212a;
+            margin-bottom: 1.5rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .requirement-item {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 0.25rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .requirement-item .number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #c5a059;
+            margin-bottom: 0.5rem;
+        }
+
+        .requirement-item p {
+            font-weight: 600;
+            color: #0d212a;
+            font-size: 0.9rem;
+        }
+
+        .info-box {
+            background: #e0f2fe;
+            border-left: 4px solid #0d212a;
+            padding: 1.5rem;
+            border-radius: 0.25rem;
+            margin: 2rem 0;
+        }
+
+        .info-box h4 {
+            font-weight: 600;
+            color: #0d212a;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-box p {
+            color: #333;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .info-box a {
+            color: #0d212a;
+            text-decoration: underline;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .info-box a:hover {
+            color: #c5a059;
+        }
+
+        .registration-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #c5a059;
+        }
+
+        .registration-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: #0d212a;
+            margin-bottom: 1.5rem;
+        }
+
+        .time-badge {
+            display: inline-block;
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #4c4c4c;
+        }
+
+        .registration-card ol {
+            list-style: decimal;
+            list-style-position: inside;
+            color: #4c4c4c;
+            space-y: 1.5rem;
+        }
+
+        .registration-card li {
+            margin: 1.5rem 0;
+            padding-left: 1rem;
+            line-height: 1.6;
+        }
+
+        .registration-card strong {
+            color: #0d212a;
+        }
+
+        .registration-card ul {
+            list-style: disc;
+            list-style-position: inside;
+            margin: 1rem 0;
+            padding-left: 1rem;
+        }
+
+        .registration-card li ul {
+            list-style: none;
+            margin-left: 1rem;
+        }
+
+        .registration-card li ul li {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .registration-note {
+            background: #fff8e1;
+            padding: 1rem;
+            border-radius: 0.25rem;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+            color: #5d4400;
+        }
+
+        .virtusonline-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: #0d212a;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 0.25rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .virtusonline-btn:hover {
+            background: #c5a059;
+        }
+
+        .sidebar {
+            background: #f9f7f2;
+            padding: 2rem 1.5rem;
+            border-radius: 0.25rem;
+            border-top: 4px solid #0d212a;
+            position: sticky;
+            top: 1rem;
+        }
+
+        .sidebar h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: #0d212a;
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            space-y: 1.5rem;
+        }
+
+        .sidebar li {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #deb872;
+        }
+
+        .sidebar li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .sidebar p {
+            font-weight: 600;
+            color: #0d212a;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .sidebar .resource-desc {
+            font-size: 0.85rem;
+            color: #4c4c4c;
+            margin-bottom: 0.75rem;
+        }
+
+        .sidebar a {
+            display: inline-block;
+            color: #0d212a;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            word-break: break-word;
+        }
+
+        .sidebar a:hover {
+            color: #c5a059;
+        }
+
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        [data-animate]:nth-child(1) { animation-delay: 0.1s; }
+        [data-animate]:nth-child(2) { animation-delay: 0.2s; }
+        [data-animate]:nth-child(3) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <div id="site-navigation"></div>
+    <main>
+        <div class="hero-section" data-animate="fade-in-up">
+            <h1>Safe Environment</h1>
+            <p>St. Peter's is committed to providing a safe environment for all.</p>
+        </div>
+
+        <div class="container">
+            <section data-animate="fade-in-up">
+                <div class="coordinator-box">
+                    <div class="coordinator-info">
+                        <h3>Safe Environment Coordinator</h3>
+                        <p>Elizabeth McCanna</p>
+                    </div>
+                    <div class="coordinator-contact">
+                        <p>(651) 905-4312</p>
+                        <a href="mailto:emccanna@stpetersmendota.org">emccanna@stpetersmendota.org</a>
+                    </div>
+                </div>
+            </section>
+
+            <section data-animate="fade-in-up">
+                <div class="grid-2">
+                    <div>
+                        <section>
+                            <h2 class="section-title">Volunteering at St. Peter's</h2>
+                            <p style="color: #4c4c4c; margin-bottom: 1.5rem;">
+                                All volunteers who interact with minors are required to complete and maintain safe environment credentials through the Archdiocese of Saint Paul and Minneapolis. The essential 3 include:
+                            </p>
+
+                            <div class="requirements-grid">
+                                <div class="requirement-item">
+                                    <div class="number">1</div>
+                                    <p>VIRTUS training session</p>
+                                </div>
+                                <div class="requirement-item">
+                                    <div class="number">2</div>
+                                    <p>Background Check</p>
+                                </div>
+                                <div class="requirement-item">
+                                    <div class="number">3</div>
+                                    <p>Online Code of Conduct</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="info-box">
+                                <h4>
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Existing Accounts
+                                </h4>
+                                <p>
+                                    To ensure successful completion of the requirements, follow the information below before creating your VIRTUS account. <strong>If you have an existing VIRTUS account, contact Elizabeth McCanna at <a href="mailto:emccanna@stpetersmendota.org">emccanna@stpetersmendota.org</a> for assistance so your account can be updated prior to login.</strong>
+                                </p>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="registration-card">
+                                <h3>Registration Instructions</h3>
+
+                                <div class="time-badge">Total Time Commitment: Approximately 95 minutes</div>
+
+                                <ol>
+                                    <li>
+                                        <strong>Set aside sufficient time</strong> to complete all items without logging out. Incomplete accounts may result in lost data, requiring you to repeat your setup.
+                                    </li>
+                                    <li>
+                                        <strong>Read and follow the directions</strong> on the website in the order presented.
+                                        <ul style="margin-top: 1rem;">
+                                            <li style="color: #c41e3a; font-style: italic;">Skipping items, fast-forwarding or backing up may corrupt your account and require you to repeat your assignments.</li>
+                                            <li style="margin-top: 0.5rem;">
+                                                <strong>You will:</strong>
+                                                <ul>
+                                                    <li>Complete each registration field as presented on the screen</li>
+                                                    <li>Complete the Code of Conduct</li>
+                                                    <li>Complete the Background Check application (SSN is required)</li>
+                                                    <li>Complete Safe Environment Training (1 module, approximately 75 minutes)</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ol>
+
+                                <div class="registration-note">
+                                    <strong>Note:</strong> Use Google Chrome browser and allow pop-ups for this website. Please contact Elizabeth McCanna (<a href="mailto:emccanna@stpetersmendota.org">emccanna@stpetersmendota.org</a>) if you have any questions or problems with completing this.
+                                </div>
+
+                                <a href="http://www.virtusonline.org/" target="_blank" class="virtusonline-btn">Go to www.virtusonline.org</a>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div>
+                        <div class="sidebar">
+                            <h2>Safe Environment Resources</h2>
+
+                            <ul>
+                                <li>
+                                    <p>Archdiocesan Victim Assistance Hotline</p>
+                                    <p class="resource-desc">Confidential, compassionate assistance from an independent and professional local provider, 24 hours per day, 7 days per week.</p>
+                                    <p style="font-weight: 600; color: #0d212a;">Contact Canvas Health:</p>
+                                    <a href="tel:6512914497">(651) 291-4497</a>
+                                </li>
+
+                                <li>
+                                    <p>Reporting Child Abuse and Neglect</p>
+                                    <p class="resource-desc">MN Department of Human Services</p>
+                                    <a href="https://mn.gov/dhs/report-abuse/" target="_blank">https://mn.gov/dhs/report-abuse/</a>
+                                </li>
+
+                                <li>
+                                    <p>United Way 211 (First Call for Help)</p>
+                                    <a href="tel:18005437709">1-800-543-7709</a>
+                                </li>
+
+                                <li>
+                                    <p>National Child Abuse Hotline</p>
+                                    <a href="tel:18004224453">1-800-422-4453</a>
+                                </li>
+
+                                <li>
+                                    <p>How to report abuse</p>
+                                    <p class="resource-desc">Archdiocese of St. Paul/Minneapolis</p>
+                                    <a href="https://safe-environment.archspm.org/report-abuse/" target="_blank">https://safe-environment.archspm.org/report-abuse/</a>
+                                </li>
+
+                                <li>
+                                    <p>Safe Environment</p>
+                                    <p class="resource-desc">Archdiocese of St. Paul/Minneapolis</p>
+                                    <a href="https://safe-environment.archspm.org/" target="_blank">https://safe-environment.archspm.org/</a>
+                                </li>
+
+                                <li>
+                                    <p>Charter for the Protection of Youth and Young People</p>
+                                    <p class="resource-desc">USCCB</p>
+                                    <a href="https://www.usccb.org/test/upload/Charter-for-the-Protection-of-Children-and-Young-People-2018-final(1).pdf" target="_blank">View PDF</a>
+                                </li>
+
+                                <li>
+                                    <p>Committee for the Protection of Children and Young People</p>
+                                    <p class="resource-desc">USCCB</p>
+                                    <a href="https://www.usccb.org/committees/protection-children-young-people" target="_blank">Visit Website</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <div id="site-footer"></div>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/calendar.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>

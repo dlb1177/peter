@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha | Church of St. Peter - Mendota, MN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'church-navy': '#0d212a',
+                        'church-gold': '#c5a059',
+                        'church-gold-light': '#deb872',
+                        'church-cream': '#f9f7f2',
+                        'church-gray': '#4c4c4c',
+                    },
+                    fontFamily: {
+                        'serif': ['"Playfair Display"', 'serif'],
+                        'display': ['"Cinzel"', 'serif'],
+                        'sans': ['"Inter"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to bottom, rgba(13, 33, 42, 0.7), rgba(13, 33, 42, 0.5)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_sanctuary.png')",
+                        'stained-glass': "linear-gradient(to right, rgba(13, 33, 42, 0.95), rgba(13, 33, 42, 0.9)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_glass.png')",
+                        'altar': "linear-gradient(to bottom, rgba(13, 33, 42, 0.3), rgba(13, 33, 42, 0.8)), url('https://www.dylanbrowncpa.com/st-peter/watercolor_altar.png')"
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #0d212a;
+            background-color: #f9f7f2;
+            line-height: 1.6;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        .container {
+            max-width: 75rem;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            padding: 5rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .hero::before {
+            content: '?';
+            position: absolute;
+            right: -5rem;
+            bottom: -8rem;
+            font-size: 30rem;
+            font-weight: 900;
+            opacity: 0.1;
+            pointer-events: none;
+            line-height: 1;
+        }
+
+        .hero > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero img {
+            height: 6rem;
+            width: auto;
+            margin: 0 auto 1.5rem;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 55rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #0d212a;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #deb872;
+        }
+
+        .what-is-alpha {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #dc2626;
+            margin-bottom: 2rem;
+        }
+
+        .what-is-alpha p {
+            color: #4c4c4c;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .what-is-alpha strong {
+            color: #0d212a;
+            font-weight: 600;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.25rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            border-top: 3px solid #c5a059;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-box h3 {
+            font-weight: 700;
+            color: #0d212a;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .feature-box p {
+            color: #4c4c4c;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .details-section {
+            background: #f9f7f2;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+        }
+
+        .details-section h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: #0d212a;
+            margin-bottom: 1rem;
+        }
+
+        .details-section p {
+            color: #4c4c4c;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .faq-section {
+            margin: 2rem 0;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.25rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #dc2626;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-item h4 {
+            font-weight: 700;
+            color: #0d212a;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .faq-item p {
+            color: #4c4c4c;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-section h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .register-button {
+            display: inline-block;
+            background: white;
+            color: #dc2626;
+            padding: 1rem 3rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+
+        .register-button:hover {
+            background: #f3f4f6;
+            transform: scale(1.05);
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            border-top: 4px solid #0d212a;
+        }
+
+        .contact-info h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: #0d212a;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            color: #4c4c4c;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info a {
+            color: #0d212a;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #c5a059;
+        }
+
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        [data-animate]:nth-child(1) { animation-delay: 0.1s; }
+        [data-animate]:nth-child(2) { animation-delay: 0.2s; }
+        [data-animate]:nth-child(3) { animation-delay: 0.3s; }
+        [data-animate]:nth-child(4) { animation-delay: 0.4s; }
+        [data-animate]:nth-child(5) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+    <div id="site-navigation"></div>
+    <main>
+        <section class="hero" data-animate="fade-in-up">
+            <img src="https://alphausa.org/wp-content/uploads/2025/07/alpha-logo-web-CUTOUT-LOGO-WHITE.png" alt="Alpha">
+            <h1>Explore Life, Faith, Meaning</h1>
+            <p>
+                Alpha is a place to explore the basics of the Christian faith and build relationships. Each week, we share <strong>dinner</strong>, watch a <strong>video presentation</strong>, and have a <strong>small group discussion</strong>. It is open, informal, and honest. No pressure. No charge. All are welcome!
+            </p>
+            <a href="https://dylanbrowncpa.com/alpha" target="_blank" class="register-button">Register Now</a>
+        </section>
+
+        <div class="container">
+            <section data-animate="fade-in-up">
+                <h2 class="section-title">What is Alpha?</h2>
+                <div class="what-is-alpha">
+                    <p>
+                        Alpha is an international initiative that creates a space where anyone can explore faith, ask questions, and discuss life's biggest topics in a welcoming, non-judgmental environment. Originally created by Holy Trinity Brompton Church in London in the 1970s, Alpha has been used by millions of people worldwide to encounter Christ and grow in faith.
+                    </p>
+                    <p>
+                        At St. Peter's, Alpha is designed for anyone—whether you're a lifelong Catholic looking to deepen your faith, someone curious about Christianity, or someone exploring spirituality for the first time. There's no pressure, no judgment, and no charge.
+                    </p>
+                </div>
+
+                <div class="features">
+                    <div class="feature-box">
+                        <div class="feature-icon">🍽️</div>
+                        <h3>Dinner</h3>
+                        <p>Each session begins with a shared meal, creating a welcoming and relaxed atmosphere to build community.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">🎬</div>
+                        <h3>Video</h3>
+                        <p>Watch engaging presentations exploring the basics of Christian faith and how it applies to daily life.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">💬</div>
+                        <h3>Discussion</h3>
+                        <p>Share your thoughts in small groups in a safe, confidential setting where all questions are welcome.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section data-animate="fade-in-up">
+                <h2 class="section-title">When and Where</h2>
+                <div class="details-section">
+                    <h3>Session Details</h3>
+                    <p>
+                        <strong>Location:</strong> Church of St. Peter, Mendota, Minnesota
+                    </p>
+                    <p>
+                        <strong>Time:</strong> Check the Alpha website for current session schedules and times.
+                    </p>
+                    <p>
+                        <strong>Duration:</strong> Alpha typically runs for 10-11 weeks, with each session lasting about 2-3 hours (dinner included).
+                    </p>
+                    <p>
+                        <strong>Cost:</strong> Free! There's no charge to participate in Alpha. Dinner is provided each week.
+                    </p>
+                </div>
+            </section>
+
+            <section data-animate="fade-in-up">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-section">
+                    <div class="faq-item">
+                        <h4>Is Alpha really free?</h4>
+                        <p>
+                            Yes! Alpha is completely free to attend. We provide dinner each week as part of the program at no cost to you. The goal is to remove barriers so that anyone who wants to explore faith can do so.
+                        </p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>Do I need to know anything about Christianity to attend?</h4>
+                        <p>
+                            Not at all! Alpha is designed for people of all backgrounds and levels of faith—from those new to Christianity to longtime Catholics. There's no expectation of prior knowledge. All questions are welcome and encouraged.
+                        </p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>Can I bring a friend?</h4>
+                        <p>
+                            Absolutely! Bring friends, family members, or anyone you think might be interested in exploring faith. Alpha is a wonderful opportunity to share your faith journey with others and discover together.
+                        </p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>What if I miss a session?</h4>
+                        <p>
+                            It's okay if you miss a session! While consistency helps you get the most out of Alpha, we understand that life happens. Each session stands somewhat on its own, and the small group community is forgiving and supportive.
+                        </p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>Is there pressure to commit to anything?</h4>
+                        <p>
+                            No. Alpha is pressure-free. You're free to come and go as you're able, ask questions without judgment, and take the experience at your own pace. There's no expectation to agree with anything or make commitments.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section data-animate="fade-in-up">
+                <div class="cta-section">
+                    <h2>Ready to Explore?</h2>
+                    <p>Join us for Alpha and discover more about faith, life, and what it means to follow Christ.</p>
+                    <a href="https://dylanbrowncpa.com/alpha" target="_blank" class="register-button">Register for Alpha</a>
+                </div>
+            </section>
+
+            <section data-animate="fade-in-up">
+                <div class="contact-info">
+                    <h3>Questions?</h3>
+                    <p>Contact Elizabeth McCanna, Director of Evangelization</p>
+                    <p>
+                        <a href="mailto:emccanna@stpetersmendota.org">emccanna@stpetersmendota.org</a><br>
+                        651-905-4312
+                    </p>
+                    <p style="margin-top: 1.5rem; font-size: 0.95rem; color: #666;">
+                        Elizabeth can answer questions about Alpha, help with registration, or discuss how Alpha might fit your spiritual journey.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+    <div id="site-footer"></div>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/calendar.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>
