@@ -60,6 +60,7 @@
       {
         label: 'News & Events',
         submenu: [
+          { label: 'Community Life', href: 'pages/community-life.html' },
           { label: 'Events Calendar', href: 'pages/events.html' },
           { label: 'Bulletins & Newsletters', href: 'pages/bulletins.html' },
           { label: 'Uganda Mission', href: 'pages/uganda-mission.html' }

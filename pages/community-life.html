@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Life | Church of St. Peter - Mendota, MN</title>
+    <meta name="description" content="Community life at the Church of St. Peter in Mendota, MN — festivals, fellowship meals, outreach, and events for the whole parish family.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'church-navy': '#0d212a',
+                        'church-gold': '#c5a059',
+                        'church-gold-light': '#deb872',
+                        'church-cream': '#f9f7f2',
+                        'church-gray': '#4c4c4c',
+                    },
+                    fontFamily: {
+                        'serif': ['"Playfair Display"', 'serif'],
+                        'display': ['"Cinzel"', 'serif'],
+                        'sans': ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/community.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: #0d212a; background-color: #f9f7f2; line-height: 1.6; }
+        main { flex: 1; }
+    </style>
+</head>
+<body>
+    <div id="site-navigation"></div>
+    <main>
+        <header class="cl-hero">
+            <p class="eyebrow">Church of St. Peter</p>
+            <h1>Community Life</h1>
+            <p class="intro">Faith comes alive in community. From festivals and fellowship meals to outreach and service, here is what is happening across our parish family. All are welcome — come and be part of it.</p>
+        </header>
+
+        <div class="cl-container">
+            <div id="community-featured"></div>
+
+            <div class="cl-filters" id="community-filters" role="group" aria-label="Filter events">
+                <button class="cl-filter" type="button" data-filter="upcoming" aria-pressed="true">Upcoming</button>
+                <button class="cl-filter" type="button" data-filter="past" aria-pressed="false">Past</button>
+                <button class="cl-filter" type="button" data-filter="all" aria-pressed="false">All</button>
+            </div>
+
+            <section id="community-grid" class="cl-grid" aria-live="polite">
+                <p class="cl-empty">Loading events…</p>
+            </section>
+        </div>
+    </main>
+    <div id="site-footer"></div>
+    <script src="../js/config.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/calendar.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/app.js"></script>
+    <script type="module" src="../js/community.js"></script>
+</body>
+</html>

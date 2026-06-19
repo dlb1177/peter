@@ -54,6 +54,18 @@ Site-wide settings live here so you don't have to dig through markup:
 
 ## Outstanding / next steps (roughly prioritized)
 
+**Community Life admin (Firebase) — finish the one-time setup**
+- Built: `pages/community-life.html` (event grid) + `pages/community-event.html`
+  (one template renders any event), reading from Firebase; a password-protected
+  admin at `/admin/` (`admin/index.html` + `admin/admin.js`) where staff
+  add/edit/delete events (title, description, date, time, embed code). No GitHub
+  for staff — they just type a shared password.
+- [ ] Do the one-time Firebase setup and paste keys into `js/firebase-config.js`
+      — full click-by-click steps + security rules in **`COMMUNITY_LIFE.md`**.
+- [ ] Enable GitHub Pages so the site + `/admin/` are reachable.
+- Until configured, the pages show a friendly "coming soon" / "not connected"
+  state (no errors).
+
 **Forms / calendar finishing touches**
 - [ ] Paste the ParishSoft embed URL into `js/config.js` when available.
 - [ ] Decide recipient strategy: point the Web3Forms key at a parish Google

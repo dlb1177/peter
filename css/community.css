@@ -1,0 +1,151 @@
+/*
+ * Church of St. Peter — Community Life
+ * Styles for the event grid (community-life.html) and the event detail
+ * template (community-event.html). Events come from Firebase; each event is
+ * Title · Description · Date · Time · (optional) pasted Embed code.
+ */
+
+.cl-hero {
+    background: linear-gradient(135deg, #0d212a 0%, #1a3a4a 100%);
+    border-bottom: 4px solid #c5a059;
+    padding: 4rem 1rem;
+    text-align: center;
+}
+.cl-hero .eyebrow {
+    color: #deb872;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-bottom: 1rem;
+}
+.cl-hero h1 {
+    font-family: 'Cinzel', serif;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    margin-bottom: 1.25rem;
+}
+.cl-hero p.intro {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1.1rem;
+    max-width: 50rem;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.cl-container { max-width: 70rem; margin: 0 auto; padding: 0 1rem; }
+
+/* ---- Filter bar ---- */
+.cl-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin: 2.5rem 0 1.75rem;
+}
+.cl-filter {
+    background: transparent;
+    border: 1px solid #c5a059;
+    color: #0d212a;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+.cl-filter:hover { background: #f4ecdc; }
+.cl-filter[aria-pressed="true"] { background: #0d212a; color: #fff; border-color: #0d212a; }
+
+/* ---- Event grid (text cards, no images) ---- */
+.cl-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.75rem;
+    margin: 0 0 3.5rem;
+}
+
+.cl-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 0.5rem;
+    border-top: 4px solid #c5a059;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    padding: 1.6rem 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cl-card:nth-child(even) { border-top-color: #0d212a; }
+.cl-card:hover { transform: translateY(-4px); box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12); }
+
+.cl-card-top { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.75rem; }
+.cl-card .cl-date { color: #c5a059; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.cl-card .cl-status { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.25rem 0.6rem; border-radius: 1rem; }
+.cl-status.upcoming { background: #e6f0e6; color: #2f6f3a; }
+.cl-status.past { background: #ececec; color: #777; }
+
+.cl-card h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: #0d212a; margin-bottom: 0.5rem; line-height: 1.25; }
+.cl-card h3 a { color: inherit; text-decoration: none; }
+.cl-card h3 a:hover { color: #c5a059; }
+.cl-card .cl-time { font-size: 0.85rem; color: #777; margin-bottom: 0.6rem; }
+.cl-card .cl-time i { color: #c5a059; margin-right: 0.35rem; }
+.cl-card .cl-summary { color: #4c4c4c; font-size: 0.93rem; line-height: 1.6; margin-bottom: 1.2rem; flex: 1; }
+
+.cl-card-actions { display: flex; align-items: center; gap: 0.75rem; margin-top: auto; }
+.cl-viewpage {
+    background: #0d212a;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    transition: background 0.25s ease;
+}
+.cl-viewpage:hover { background: #c5a059; color: #0d212a; }
+
+.cl-empty { grid-column: 1 / -1; text-align: center; color: #777; padding: 3rem 1rem; font-style: italic; }
+
+/* ============== Event detail page ============== */
+.cl-event-hero {
+    background: linear-gradient(135deg, #0d212a 0%, #1a3a4a 100%);
+    border-bottom: 4px solid #c5a059;
+    padding: 3.5rem 1.5rem 3rem;
+}
+.cl-event-hero-inner { max-width: 60rem; margin: 0 auto; }
+.cl-event-hero .cl-tag {
+    display: inline-block;
+    background: #c5a059;
+    color: #0d212a;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.3rem 0.8rem;
+    border-radius: 1rem;
+    margin-bottom: 0.9rem;
+}
+.cl-event-hero h1 { font-family: 'Cinzel', serif; color: #fff; font-weight: 800; font-size: clamp(1.9rem, 5vw, 3rem); margin-bottom: 0.85rem; line-height: 1.15; }
+.cl-event-meta { display: flex; flex-wrap: wrap; gap: 1.25rem; color: rgba(255, 255, 255, 0.92); font-size: 0.95rem; }
+.cl-event-meta span i { color: #deb872; margin-right: 0.45rem; }
+
+.cl-event-body { max-width: 60rem; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+.cl-event-desc { font-size: 1.15rem; line-height: 1.8; color: #3a3a3a; margin-bottom: 2.25rem; }
+
+.cl-embed { margin: 1rem 0 2rem; }
+/* Make typical embeds (iframes) responsive and tidy inside our container. */
+.cl-embed iframe, .cl-embed img, .cl-embed video { max-width: 100%; border: 0; border-radius: 0.4rem; }
+.cl-embed > div { max-width: 100%; }
+
+.cl-back { display: inline-block; margin-top: 1rem; color: #c5a059; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; text-decoration: none; }
+.cl-back:hover { color: #0d212a; }
+
+/* Self-contained reveal (avoids the global [data-animate] observer, which only
+   sees elements present at init and would hide JS-injected cards). */
+.cl-reveal { opacity: 0; transform: translateY(18px); animation: clFadeUp 0.55s ease-out forwards; }
+@keyframes clFadeUp { to { opacity: 1; transform: translateY(0); } }
