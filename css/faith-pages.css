@@ -1,0 +1,93 @@
+/*
+ * Church of St. Peter — Faith Formation pages
+ * These pages (Catechesis of the Good Shepherd, Youth Formation, Adult
+ * Formation, Small Groups) render their content from data (Firebase, with a
+ * baked-in default) so parish staff can edit them from /admin/.
+ */
+
+.fp-hero { text-align: center; padding: 4rem 1rem; margin-bottom: 2rem; }
+.fp-hero.light { background: #fff; }
+.fp-hero.navy { background: linear-gradient(135deg, #0d212a 0%, #1a3a4a 100%); border-bottom: 4px solid #c5a059; }
+.fp-eyebrow { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1rem; }
+.fp-hero.light .fp-eyebrow { color: #c5a059; }
+.fp-hero.navy .fp-eyebrow { color: #deb872; }
+.fp-title { font-family: 'Cinzel', serif; font-weight: 800; font-size: clamp(2rem, 5vw, 3.25rem); margin-bottom: 1.25rem; }
+.fp-hero.light .fp-title { color: #0d212a; }
+.fp-hero.navy .fp-title { color: #fff; }
+.fp-intro { font-size: 1.1rem; line-height: 1.8; max-width: 55rem; margin: 0 auto; }
+.fp-hero.light .fp-intro { color: #4c4c4c; }
+.fp-hero.navy .fp-intro { color: rgba(255, 255, 255, 0.88); }
+
+.fp-container { max-width: 70rem; margin: 0 auto; padding: 0 1.25rem 2rem; }
+.fp-block { margin-bottom: 2.25rem; }
+.fp-empty { text-align: center; color: #888; font-style: italic; padding: 2.5rem 0; }
+
+.fp-heading { font-family: 'Cinzel', serif; font-size: 2rem; font-weight: 600; color: #0d212a; margin: 2.5rem 0 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid #deb872; }
+
+.fp-text { color: #4c4c4c; line-height: 1.85; font-size: 1.05rem; max-width: 52rem; }
+.fp-text p { margin-bottom: 1rem; }
+.fp-text h3 { font-family: 'Cinzel', serif; color: #0d212a; font-size: 1.25rem; margin: 1.5rem 0 0.6rem; }
+.fp-text ul { margin: 0 0 1rem 1.4rem; }
+.fp-text li { margin-bottom: 0.45rem; }
+.fp-text a { color: #0d212a; font-weight: 600; text-decoration: underline; text-decoration-color: #c5a059; }
+.fp-text a:hover { color: #c5a059; }
+.fp-text strong { color: #0d212a; }
+
+.fp-image { margin: 0 0 2.25rem; }
+.fp-image img { width: 100%; border-radius: 0.4rem; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); display: block; }
+.fp-image.centered img { max-width: 32rem; margin: 0 auto; }
+.fp-image figcaption { text-align: center; font-size: 0.85rem; color: #888; font-style: italic; margin-top: 0.5rem; }
+
+.fp-btn-row { text-align: center; }
+.fp-btn { display: inline-block; padding: 0.8rem 1.9rem; border-radius: 0.3rem; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; transition: all 0.25s; }
+.fp-btn.primary { background: #0d212a; color: #fff; }
+.fp-btn.primary:hover { background: #c5a059; color: #0d212a; }
+.fp-btn.outline { border: 2px solid #c5a059; color: #0d212a; }
+.fp-btn.outline:hover { background: #c5a059; color: #fff; }
+
+.fp-quote { text-align: center; border: none; margin: 1.5rem auto 2.5rem; max-width: 46rem; }
+.fp-quote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.5rem; color: #4c4c4c; margin-bottom: 0.5rem; }
+.fp-quote cite { font-style: normal; font-weight: 600; color: #0d212a; font-size: 0.9rem; }
+
+.fp-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem; }
+.fp-card { background: #fff; border-top: 4px solid #c5a059; border-radius: 0.5rem; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06); padding: 1.75rem; display: flex; flex-direction: column; }
+.fp-card:nth-child(even) { border-top-color: #0d212a; }
+.fp-card-sub { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #c5a059; margin-bottom: 0.4rem; }
+.fp-card h3 { font-family: 'Cinzel', serif; font-size: 1.35rem; color: #0d212a; margin-bottom: 0.6rem; }
+.fp-card-body { color: #4c4c4c; font-size: 0.95rem; line-height: 1.6; flex: 1; }
+.fp-card-body p { margin-bottom: 0.75rem; }
+.fp-card-body ul { margin: 0 0 0.75rem 1.2rem; }
+.fp-card-link { margin-top: 1rem; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #c5a059; text-decoration: none; }
+.fp-card-link:hover { color: #0d212a; }
+
+.fp-callout { border-radius: 0.5rem; padding: 1.6rem 1.85rem; max-width: 52rem; }
+.fp-callout.gold { background: #f9f3e7; border: 1px solid #deb872; }
+.fp-callout.navy { background: #0d212a; }
+.fp-callout.red { background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); }
+.fp-callout h4 { font-family: 'Cinzel', serif; font-size: 1.2rem; margin-bottom: 0.5rem; }
+.fp-callout.gold h4 { color: #0d212a; }
+.fp-callout.navy h4, .fp-callout.red h4 { color: #fff; }
+.fp-callout p { line-height: 1.6; margin-bottom: 0.5rem; }
+.fp-callout.gold p { color: #4c4c4c; }
+.fp-callout.navy p, .fp-callout.red p { color: rgba(255, 255, 255, 0.92); }
+.fp-callout-link { display: inline-block; margin-top: 0.6rem; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; text-decoration: none; }
+.fp-callout.gold .fp-callout-link { color: #0d212a; }
+.fp-callout.navy .fp-callout-link, .fp-callout.red .fp-callout-link { color: #fff; text-decoration: underline; }
+
+.fp-links { background: #f9f7f2; border-top: 3px solid #0d212a; border-radius: 0.4rem; padding: 1.5rem 1.75rem; max-width: 52rem; }
+.fp-links h4 { font-family: 'Cinzel', serif; font-size: 1.15rem; color: #0d212a; margin-bottom: 0.75rem; }
+.fp-links ul { list-style: none; }
+.fp-links li { margin-bottom: 0.5rem; }
+.fp-links a { color: #0d212a; text-decoration: none; font-size: 0.95rem; }
+.fp-links a:hover { color: #c5a059; text-decoration: underline; }
+
+.fp-contact { text-align: center; background: #f5f5f5; border: 1px solid #ddd; border-radius: 0.4rem; padding: 1.5rem; max-width: 46rem; margin-left: auto; margin-right: auto; }
+.fp-contact-name { font-weight: 700; color: #0d212a; }
+.fp-contact-role { color: #4c4c4c; }
+.fp-contact-line { color: #4c4c4c; margin-top: 0.25rem; }
+.fp-contact-line a { color: #0d212a; font-weight: 600; text-decoration: none; }
+.fp-contact-line a:hover { color: #c5a059; }
+.fp-contact-note { font-size: 0.9rem; color: #777; margin-top: 0.5rem; }
+
+.fp-reveal { opacity: 0; transform: translateY(16px); animation: fpFade 0.5s ease-out forwards; }
+@keyframes fpFade { to { opacity: 1; transform: translateY(0); } }

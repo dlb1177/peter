@@ -50,9 +50,17 @@ data is protected by the security rules in step 5.
          allow read: if true;                 // anyone can view events on the site
          allow write: if request.auth != null; // only the signed-in office can change them
        }
+       match /pages/{doc} {
+         allow read: if true;                 // anyone can view the Faith Life pages
+         allow write: if request.auth != null; // only the signed-in office can edit them
+       }
      }
    }
    ```
+
+   > If you already published the earlier rules (events only), **re-publish** with
+   > the `pages` block added above — otherwise editing the Faith Life pages in the
+   > admin will fail to save.
 
 That's it. Visit `/admin/`, sign in with the password, and add an event — it goes
 live on the Community Life page immediately.
@@ -80,15 +88,44 @@ live on the Community Life page immediately.
 - **YouTube / Google Maps:** use their **Share → Embed** option and copy the
   `<iframe …>` code.
 
+## Editing the Faith Life pages
+
+The admin sidebar also has a **Faith Life Pages** section. Staff can edit four
+pages — **Catechesis (CGS), Youth Formation, Adult Formation, Small Groups** —
+as reorderable **sections**:
+
+1. Sign in at `/admin/` and pick a page from the sidebar.
+2. Edit the **Page header** (title, kicker, intro) and any section below it.
+   Sections can be **Text, Image, Button, Quote, Cards, Highlight box, Link
+   list, or Contact**. Use the ▲ ▼ to reorder, the trash icon to remove, and
+   **+ Add section** to add new ones.
+3. Text areas accept light **markdown** — `**bold**`, `*italic*`,
+   `[link](https://…)`, and lines starting with `- ` for bullet lists.
+4. Click **Save** to publish. **View page** opens the live page; **Load
+   original** restores that page's starting content if you want to start over.
+
+Each page starts pre-loaded with its current content, so editing begins from the
+live page rather than a blank slate. Saved pages live in the Firestore `pages`
+collection (one document per page); until a page is saved, the site shows the
+baked-in default from `js/faith-pages-defaults.js`.
+
 ## Notes for developers / maintainers
 
 - **No build step.** Pages load the Firebase SDK on demand from Google's CDN via
   dynamic `import()`; the version is pinned in `js/firebase-config.js`
   (`FIREBASE_VERSION`).
-- **Files:** public render = [js/community.js](js/community.js) +
-  [css/community.css](css/community.css); admin = [admin/index.html](admin/index.html)
-  + [admin/admin.js](admin/admin.js); shared config =
-  [js/firebase-config.js](js/firebase-config.js).
+- **Files:** Community Life render = [js/community.js](js/community.js) +
+  [css/community.css](css/community.css); Faith pages render =
+  [js/faith-pages.js](js/faith-pages.js) + [css/faith-pages.css](css/faith-pages.css)
+  with defaults in [js/faith-pages-defaults.js](js/faith-pages-defaults.js); admin =
+  [admin/index.html](admin/index.html) + [admin/admin.js](admin/admin.js); shared
+  config = [js/firebase-config.js](js/firebase-config.js).
+- **Faith pages** (`catechesis-good-shepherd`, `youth-formation`,
+  `adult-formation`, `small-groups`) are thin shells with
+  `<div id="faith-page" data-page="<key>">`; `faith-pages.js` renders them from
+  Firestore `pages/<key>` or the baked-in default. Block types live in both
+  `faith-pages.js` (render) and `admin/admin.js` (`BLOCK_TYPES`, the editor) —
+  add a new type in both. Data shape: `{ title, eyebrow, intro, heroVariant, blocks }`.
 - **Before setup**, `isFirebaseConfigured()` is false, so the public pages show
   "events are coming soon" and the admin shows a "not connected yet" notice — no
   errors.

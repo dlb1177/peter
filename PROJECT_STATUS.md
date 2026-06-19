@@ -65,6 +65,10 @@ Site-wide settings live here so you don't have to dig through markup:
 - [ ] Enable GitHub Pages so the site + `/admin/` are reachable.
 - Until configured, the pages show a friendly "coming soon" / "not connected"
   state (no errors).
+- **Editable Faith Life pages (done):** the admin sidebar also edits four Faith
+  Life pages (CGS, Youth, Adult, Small Groups) as reorderable sections, stored in
+  Firestore `pages`. **Action:** re-publish the Firestore security rules with the
+  `pages` block added (see `COMMUNITY_LIFE.md`) or saving those pages will fail.
 
 **Forms / calendar finishing touches**
 - [ ] Paste the ParishSoft embed URL into `js/config.js` when available.

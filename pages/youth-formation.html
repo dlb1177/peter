@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Youth Formation | Church of St. Peter - Mendota, MN</title>
+    <meta name="description" content="Youth Formation at the Church of St. Peter — ZOI (grades 5-8) and Perissos (grades 9-12) help young people encounter Christ and prepare for the sacraments.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -24,11 +25,6 @@
                         'serif': ['"Playfair Display"', 'serif'],
                         'display': ['"Cinzel"', 'serif'],
                         'sans': ['"Inter"', 'sans-serif'],
-                    },
-                    backgroundImage: {
-                        'hero-pattern': "linear-gradient(to bottom, rgba(13, 33, 42, 0.7), rgba(13, 33, 42, 0.5)), url('../assets/watercolor_sanctuary.png')",
-                        'stained-glass': "linear-gradient(to right, rgba(13, 33, 42, 0.95), rgba(13, 33, 42, 0.9)), url('../assets/watercolor_glass.png')",
-                        'altar': "linear-gradient(to bottom, rgba(13, 33, 42, 0.3), rgba(13, 33, 42, 0.8)), url('../assets/watercolor_altar.png')"
                     }
                 }
             }
@@ -36,344 +32,18 @@
     </script>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/faith-pages.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #0d212a;
-            background-color: #f9f7f2;
-            line-height: 1.6;
-        }
-
-        main {
-            flex: 1;
-        }
-
-        .hero-section {
-            background: white;
-            padding: 4rem 1rem;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .hero-section .eyebrow {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: #c5a059;
-            margin-bottom: 1rem;
-        }
-
-        .hero-section h1 {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 800;
-            color: #0d212a;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-section p {
-            font-size: 1.1rem;
-            color: #4c4c4c;
-            max-width: 55rem;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
-        .container {
-            max-width: 75rem;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        section {
-            margin-bottom: 3rem;
-        }
-
-        .section-title {
-            font-family: 'Cinzel', serif;
-            font-size: 2rem;
-            font-weight: 600;
-            color: #0d212a;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #deb872;
-        }
-
-        .youth-quote {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .youth-quote p {
-            font-size: 1.5rem;
-            color: #4c4c4c;
-            font-style: italic;
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 0.5rem;
-        }
-
-        .youth-quote .attribution {
-            font-size: 0.9rem;
-            color: #0d212a;
-            font-weight: 600;
-        }
-
-        .youth-cards {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        @media (max-width: 768px) {
-            .youth-cards {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .youth-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border-left: 6px solid;
-        }
-
-        .youth-card:first-child {
-            border-left-color: #0d212a;
-        }
-
-        .youth-card:last-child {
-            border-left-color: #c5a059;
-        }
-
-        .youth-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .youth-card h3 {
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            color: #0d212a;
-            margin: 0;
-        }
-
-        .youth-card-label {
-            text-align: right;
-        }
-
-        .youth-card-label .label-main {
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: #c5a059;
-            letter-spacing: 0.05em;
-        }
-
-        .youth-card-label .label-sub {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: #999;
-        }
-
-        .youth-card p {
-            color: #4c4c4c;
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .youth-categories {
-            background: #f5f5f5;
-            padding: 1rem;
-            border-radius: 0.25rem;
-        }
-
-        .youth-categories p {
-            font-weight: 600;
-            color: #0d212a;
-            font-size: 0.9rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .youth-categories ul {
-            list-style: none;
-        }
-
-        .youth-categories li {
-            margin-bottom: 0.75rem;
-            display: flex;
-            gap: 0.75rem;
-            font-size: 0.9rem;
-            color: #4c4c4c;
-        }
-
-        .youth-categories .bullet {
-            color: #c5a059;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        .contact-box {
-            text-align: center;
-            background: #f5f5f5;
-            padding: 1.5rem;
-            border-radius: 0.25rem;
-            border: 1px solid #ddd;
-        }
-
-        .contact-box p {
-            margin: 0.5rem 0;
-        }
-
-        .contact-box .contact-name {
-            font-weight: 700;
-            color: #0d212a;
-        }
-
-        .contact-box a {
-            color: #0d212a;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .contact-box a:hover {
-            color: #c5a059;
-        }
-
-        .related-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .related-links a {
-            display: inline-block;
-            padding: 0.65rem 1.5rem;
-            border: 2px solid #0d212a;
-            border-radius: 0.25rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: #0d212a;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .related-links a:hover {
-            background: #0d212a;
-            color: #c5a059;
-        }
-
-        [data-animate] {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        [data-animate]:nth-child(1) { animation-delay: 0.1s; }
-        [data-animate]:nth-child(2) { animation-delay: 0.2s; }
-        [data-animate]:nth-child(3) { animation-delay: 0.3s; }
-        [data-animate]:nth-child(4) { animation-delay: 0.4s; }
-        [data-animate]:nth-child(5) { animation-delay: 0.5s; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: #0d212a; background-color: #f9f7f2; line-height: 1.6; }
+        main { flex: 1; }
     </style>
 </head>
 <body>
     <div id="site-navigation"></div>
     <main>
-        <div class="hero-section" data-animate="fade-in-up">
-            <p class="eyebrow">Faith Formation &middot; Grades 5&ndash;12</p>
-            <h1>Youth Formation</h1>
-            <p>Our middle school and high school ministries walk with young people as they encounter Christ, grow in friendship with Him and one another, and prepare for the sacraments.</p>
-        </div>
-
-        <div class="container">
-            <section data-animate="fade-in-up">
-                <div class="youth-quote">
-                    <p>"I have come that they may have life and have it abundantly."</p>
-                    <p class="attribution">- Jesus (in John 10:10)</p>
-                </div>
-
-                <div class="youth-cards">
-                    <div class="youth-card">
-                        <div class="youth-card-header">
-                            <h3>ZOI</h3>
-                            <div class="youth-card-label">
-                                <div class="label-main">Greek for "Life"</div>
-                                <div class="label-sub">Grades 5-8</div>
-                            </div>
-                        </div>
-                        <p>
-                            At Zoi Middle Schoolers learn more about the living and effective word of God in small groups facilitated by a small group mentor. Through YDisciple our pre-teens dive into the Sunday scripture.
-                        </p>
-                    </div>
-
-                    <div class="youth-card">
-                        <div class="youth-card-header">
-                            <h3>PERISSOS</h3>
-                            <div class="youth-card-label">
-                                <div class="label-main">Greek for "Abundantly"</div>
-                                <div class="label-sub">Grades 9-12</div>
-                            </div>
-                        </div>
-                        <p>
-                            Perissos is our high school group focused on encountering Christ. All high school youth are welcome to join us each Wednesday from 7:00-8:30pm (September-May) as we dive deeper into relationship with Christ, His Church, and one another.
-                        </p>
-
-                        <div class="youth-categories">
-                            <p>All are welcome! Most folks fall into one of three categories:</p>
-                            <ul>
-                                <li>
-                                    <span class="bullet">•</span>
-                                    <span><strong>Perissos Participant:</strong> This person, who comes from time to time, may or may not be Confirmed and are not preparing for Confirmation.</span>
-                                </li>
-                                <li>
-                                    <span class="bullet">•</span>
-                                    <span><strong>Confirmation Preparation:</strong> High school youth are welcome to prepare for Confirmation any of their four years of high school and full and active participation is a key part of Confirmation prep.</span>
-                                </li>
-                                <li>
-                                    <span class="bullet">•</span>
-                                    <span><strong>Cornerstone:</strong> Cornerstone is the name of our "next level" small groups for Confirmed upperclassmen to dive deeper in their relationship with the Lord. In addition to Perissos on Wednesdays, those who participate in Cornerstone participate in an annual retreat.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-box" style="margin-top: 2rem;">
-                    <p>For more information regarding Zoi &amp; Perissos contact:</p>
-                    <p class="contact-name">Elizabeth McCanna | Director of Evangelization</p>
-                    <p><a href="mailto:emccanna@stpetersmendota.org">emccanna@stpetersmendota.org</a> | 651-905-4312</p>
-                </div>
-
-                <div class="related-links">
-                    <a href="catechesis-good-shepherd.html">Catechesis of the Good Shepherd →</a>
-                    <a href="adult-formation.html">Adult Formation →</a>
-                    <a href="sacrament-confirmation.html">Confirmation →</a>
-                </div>
-            </section>
-        </div>
+        <!-- Content is rendered from data (Firebase, with a baked-in default) and is editable at /admin/ -->
+        <div id="faith-page" data-page="youth-formation"></div>
     </main>
     <div id="site-footer"></div>
     <script src="../js/config.js"></script>
@@ -382,5 +52,6 @@
     <script src="../js/animations.js"></script>
     <script src="../js/components.js"></script>
     <script src="../js/app.js"></script>
+    <script type="module" src="../js/faith-pages.js"></script>
 </body>
 </html>

@@ -24,8 +24,12 @@ files plus a third-party form backend.
 - **Bulletins & Newsletters** and a **Uganda Mission** page ("coming soon").
 - **Community Life** — a "living" events section with a **password-protected
   admin** where parish staff add/edit/delete events (title, description, date,
-  time, and an optional pasted embed code). Backed by Firebase. Full setup +
-  how-to: **[`COMMUNITY_LIFE.md`](COMMUNITY_LIFE.md)**.
+  time, and an optional pasted embed code). Backed by Firebase.
+- **Editable Faith Life pages** — the same admin has a **Faith Life Pages**
+  section where staff edit four pages (Catechesis/CGS, Youth Formation, Adult
+  Formation, Small Groups) as reorderable content sections. Those pages render
+  their content from Firebase (with a baked-in default so they always show).
+  Full setup + how-to for both: **[`COMMUNITY_LIFE.md`](COMMUNITY_LIFE.md)**.
 
 ## Project structure
 
@@ -49,6 +53,8 @@ files plus a third-party form backend.
 │   ├── animations.js       # Intersection-observer entrance animations
 │   ├── calendar.js         # Calendar embed/placeholder controller (ParishSoft)
 │   ├── community.js        # Community Life renderer (reads events from Firebase)
+│   ├── faith-pages.js      # Renders the editable Faith Life pages from data
+│   ├── faith-pages-defaults.js  # Baked-in default content for those pages
 │   ├── firebase-config.js  # Firebase project keys + shared admin email
 │   └── config.js           # Site-wide config (form recipients, embed URLs, etc.)
 ├── assets/                 # Images and other static files served from the repo

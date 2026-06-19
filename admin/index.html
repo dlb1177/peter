@@ -4,79 +4,112 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
-    <title>Community Life Admin · Church of St. Peter</title>
+    <title>Parish Admin · Church of St. Peter</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: #f4f5f7; color: #0d212a; line-height: 1.5; }
-        .topbar { background: #0d212a; color: #fff; padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
-        .topbar .brand { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; }
+        [hidden] { display: none !important; }
+
+        .topbar { background: #0d212a; color: #fff; padding: 0.9rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+        .topbar .brand { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.05rem; }
         .topbar .brand i { color: #c5a059; margin-right: 0.5rem; }
         .topbar .who { font-size: 0.85rem; color: #cfd6da; display: flex; align-items: center; gap: 1rem; }
         .btn-logout { background: transparent; border: 1px solid rgba(255,255,255,0.35); color: #fff; padding: 0.4rem 0.9rem; border-radius: 0.25rem; font-size: 0.8rem; font-weight: 600; cursor: pointer; }
         .btn-logout:hover { background: rgba(255,255,255,0.1); }
 
-        .wrap { max-width: 880px; margin: 2.5rem auto; padding: 0 1.25rem; }
-
-        .card { background: #fff; border-radius: 0.6rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 2rem; margin-bottom: 1.75rem; }
-        .card h2 { font-family: 'Cinzel', serif; font-size: 1.25rem; margin-bottom: 0.35rem; }
-        .card .sub { color: #777; font-size: 0.9rem; margin-bottom: 1.5rem; }
-
-        label { display: block; font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; color: #51606a; margin: 1.1rem 0 0.4rem; }
-        label .opt { color: #aaa; font-weight: 500; text-transform: none; letter-spacing: 0; }
-        input[type=text], input[type=date], input[type=password], textarea {
-            width: 100%; padding: 0.7rem 0.85rem; border: 1px solid #d3d8dc; border-radius: 0.35rem;
-            font-family: inherit; font-size: 0.95rem; color: #0d212a; background: #fff;
+        /* layout */
+        .layout { display: flex; align-items: stretch; min-height: calc(100vh - 56px); }
+        .sidebar { width: 250px; flex-shrink: 0; background: #fff; border-right: 1px solid #e3e7ea; padding: 1rem 0; }
+        .side-link { display: block; width: 100%; text-align: left; background: none; border: none; cursor: pointer; padding: 0.62rem 1.5rem; font-size: 0.92rem; color: #33414b; font-weight: 600; }
+        .side-link:hover { background: #f4f6f7; color: #0d212a; }
+        .side-link.active { background: #f0ece1; color: #0d212a; box-shadow: inset 3px 0 0 #c5a059; }
+        .side-link.sub { padding-left: 2.25rem; font-weight: 500; font-size: 0.88rem; }
+        .side-group { padding: 1.15rem 1.5rem 0.4rem; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.08em; color: #9aa4ab; font-weight: 700; }
+        .content { flex: 1; min-width: 0; padding: 2rem; max-width: 920px; }
+        @media (max-width: 760px) {
+            .layout { flex-direction: column; }
+            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #e3e7ea; display: flex; flex-wrap: wrap; padding: 0.5rem; }
+            .side-link { width: auto; border-radius: 0.3rem; }
+            .side-link.active { box-shadow: none; }
+            .side-group { width: 100%; }
+            .content { padding: 1.25rem; }
         }
-        input:focus, textarea:focus { outline: none; border-color: #c5a059; box-shadow: 0 0 0 3px rgba(197,160,89,0.15); }
-        textarea { resize: vertical; min-height: 5rem; }
-        textarea.embed { min-height: 7rem; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.85rem; }
-        .hint { font-size: 0.8rem; color: #8a929a; margin-top: 0.35rem; }
+
+        .card { background: #fff; border-radius: 0.6rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 1.75rem; margin-bottom: 1.5rem; }
+        .card h2 { font-family: 'Cinzel', serif; font-size: 1.25rem; margin-bottom: 0.3rem; }
+        .card .sub { color: #777; font-size: 0.9rem; margin-bottom: 1.25rem; }
+
+        label { display: block; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; color: #51606a; margin: 0.95rem 0 0.35rem; }
+        label .opt { color: #aaa; font-weight: 500; text-transform: none; letter-spacing: 0; }
+        input[type=text], input[type=date], input[type=password], textarea, select {
+            width: 100%; padding: 0.65rem 0.8rem; border: 1px solid #d3d8dc; border-radius: 0.35rem;
+            font-family: inherit; font-size: 0.93rem; color: #0d212a; background: #fff;
+        }
+        input:focus, textarea:focus, select:focus { outline: none; border-color: #c5a059; box-shadow: 0 0 0 3px rgba(197,160,89,0.15); }
+        textarea { resize: vertical; min-height: 4.5rem; }
+        textarea.embed { min-height: 7rem; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.84rem; }
+        .hint { font-size: 0.8rem; color: #8a929a; margin-top: 0.3rem; }
         .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
         @media (max-width: 560px) { .row { grid-template-columns: 1fr; } }
 
-        .btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #0d212a; color: #fff; border: none; padding: 0.75rem 1.5rem; border-radius: 0.35rem; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: background 0.2s; }
+        .btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #0d212a; color: #fff; border: none; padding: 0.7rem 1.4rem; border-radius: 0.35rem; font-weight: 700; font-size: 0.84rem; text-transform: uppercase; letter-spacing: 0.04em; cursor: pointer; transition: background 0.2s; }
         .btn:hover { background: #c5a059; color: #0d212a; }
         .btn[disabled] { opacity: 0.6; cursor: default; }
         .btn-ghost { background: transparent; color: #51606a; border: 1px solid #d3d8dc; }
         .btn-ghost:hover { background: #f0f2f4; color: #0d212a; }
-        .actions { display: flex; gap: 0.75rem; align-items: center; margin-top: 1.5rem; }
+        .actions { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; margin-top: 1.25rem; }
 
-        .msg { padding: 0.7rem 1rem; border-radius: 0.35rem; font-size: 0.9rem; margin-top: 1rem; display: none; }
+        .msg { padding: 0.65rem 1rem; border-radius: 0.35rem; font-size: 0.9rem; margin-top: 0.85rem; display: none; }
         .msg.error { background: #fdecec; color: #b3261e; display: block; }
         .msg.ok { background: #e8f3ea; color: #2f6f3a; display: block; }
+        .empty { color: #8a929a; font-style: italic; padding: 1rem 0; }
 
-        /* event list */
+        /* event list (Community Life) */
         .ev { display: flex; align-items: center; gap: 1rem; padding: 0.9rem 0; border-bottom: 1px solid #eee; }
         .ev:last-child { border-bottom: none; }
         .ev .ev-main { flex: 1; min-width: 0; }
-        .ev .ev-title { font-weight: 700; color: #0d212a; }
+        .ev .ev-title { font-weight: 700; }
         .ev .ev-meta { font-size: 0.8rem; color: #8a929a; }
-        .ev .ev-meta .badge { display: inline-block; font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.12rem 0.5rem; border-radius: 1rem; margin-left: 0.4rem; }
+        .ev .badge { display: inline-block; font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.12rem 0.5rem; border-radius: 1rem; margin-left: 0.4rem; }
         .badge.upcoming { background: #e6f0e6; color: #2f6f3a; }
         .badge.past { background: #ececec; color: #777; }
         .badge.embed { background: #eef1fb; color: #3b4a8a; }
         .ev .ev-actions button { background: none; border: none; cursor: pointer; font-size: 0.9rem; padding: 0.4rem; color: #6b7780; }
         .ev .ev-actions button:hover { color: #0d212a; }
         .ev .ev-actions .del:hover { color: #b3261e; }
-        .empty { color: #8a929a; font-style: italic; padding: 1rem 0; }
 
-        /* login */
+        /* Faith page editor */
+        .fp-ed-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+        .fp-ed-head h2 { font-family: 'Cinzel', serif; font-size: 1.35rem; }
+        .fp-ed-h { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; color: #51606a; margin: 1.75rem 0 0.85rem; font-weight: 700; }
+        .fp-block-card { border: 1px solid #e0e4e7; border-radius: 0.5rem; padding: 1rem 1.1rem; margin-bottom: 1rem; background: #fcfdfd; }
+        .fp-block-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.25rem; }
+        .fp-block-type { font-weight: 700; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.05em; color: #0d212a; }
+        .fp-block-ctrls button { background: none; border: none; cursor: pointer; color: #8a929a; padding: 0.25rem 0.3rem; font-size: 0.8rem; }
+        .fp-block-ctrls button:hover { color: #0d212a; }
+        .fp-block-ctrls .del:hover { color: #b3261e; }
+        .fp-item { border-left: 3px solid #e0e4e7; padding: 0.4rem 0 0.5rem 0.85rem; margin: 0.7rem 0; }
+        .fp-item-head { display: flex; justify-content: space-between; align-items: center; font-size: 0.7rem; color: #9aa4ab; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
+        .fp-item-head button { background: none; border: none; cursor: pointer; color: #b0b8be; font-size: 0.8rem; }
+        .fp-item-head button:hover { color: #b3261e; }
+        .fp-add-row { display: flex; gap: 0.6rem; align-items: center; margin-top: 0.5rem; }
+        .fp-add-row select { width: auto; }
+
+        /* login / notice */
         .login-wrap { max-width: 400px; margin: 5rem auto; }
         .login-wrap .lock { text-align: center; font-size: 2rem; color: #c5a059; margin-bottom: 0.5rem; }
         .login-wrap h1 { font-family: 'Cinzel', serif; font-size: 1.4rem; text-align: center; margin-bottom: 0.4rem; }
         .login-wrap p.sub { text-align: center; color: #777; font-size: 0.9rem; margin-bottom: 1.5rem; }
-
         .notice { max-width: 620px; margin: 4rem auto; background: #fff8e8; border: 1px solid #e7cf93; border-radius: 0.6rem; padding: 2rem; }
         .notice h1 { font-family: 'Cinzel', serif; font-size: 1.3rem; margin-bottom: 0.75rem; }
         .notice code { background: #f2ead6; padding: 0.1rem 0.35rem; border-radius: 0.2rem; font-size: 0.85rem; }
-        [hidden] { display: none !important; }
     </style>
 </head>
 <body>
     <header class="topbar" id="topbar" hidden>
-        <div class="brand"><i class="fa-solid fa-people-roof"></i>Community Life Admin</div>
+        <div class="brand"><i class="fa-solid fa-church"></i>Parish Admin</div>
         <div class="who"><span id="who-email"></span><button class="btn-logout" id="btn-logout">Sign out</button></div>
     </header>
 
@@ -93,8 +126,8 @@
     <!-- Login -->
     <div class="login-wrap" id="login-view" hidden>
         <div class="lock"><i class="fa-solid fa-lock"></i></div>
-        <h1>Community Life Admin</h1>
-        <p class="sub">Enter the parish office password to manage events.</p>
+        <h1>Parish Admin</h1>
+        <p class="sub">Enter the parish office password to manage the website.</p>
         <div class="card">
             <form id="login-form">
                 <label for="password">Password</label>
@@ -107,48 +140,82 @@
         </div>
     </div>
 
-    <!-- Manager -->
-    <main class="wrap" id="manager-view" hidden>
-        <div class="card">
-            <h2 id="form-title">Add an Event</h2>
-            <p class="sub">Fill in the details below. Date and time appear on the event card; the embed code (optional) shows on the event's page.</p>
-            <form id="event-form">
-                <input type="hidden" id="event-id" />
-                <label for="f-title">Event title</label>
-                <input type="text" id="f-title" required maxlength="120" />
+    <!-- Manager (sidebar + content) -->
+    <div class="layout" id="manager-view" hidden>
+        <aside class="sidebar" id="sidebar">
+            <button class="side-link active" data-nav="community">Community Life</button>
+            <div class="side-group">Faith Life Pages</div>
+            <button class="side-link sub" data-nav="faith" data-page="catechesis-good-shepherd">Catechesis (CGS)</button>
+            <button class="side-link sub" data-nav="faith" data-page="youth-formation">Youth Formation</button>
+            <button class="side-link sub" data-nav="faith" data-page="adult-formation">Adult Formation</button>
+            <button class="side-link sub" data-nav="faith" data-page="small-groups">Small Groups</button>
+        </aside>
 
-                <label for="f-desc">Short description</label>
-                <textarea id="f-desc" maxlength="400" placeholder="One or two sentences shown on the event card."></textarea>
+        <div class="content">
+            <!-- ============ Community Life ============ -->
+            <section id="view-community">
+                <div class="card">
+                    <h2 id="form-title">Add an Event</h2>
+                    <p class="sub">Date and time appear on the event card; the embed code (optional) shows on the event's page.</p>
+                    <form id="event-form">
+                        <input type="hidden" id="event-id" />
+                        <label for="f-title">Event title</label>
+                        <input type="text" id="f-title" required maxlength="120" />
 
-                <div class="row">
-                    <div>
-                        <label for="f-date">Date</label>
-                        <input type="date" id="f-date" required />
-                    </div>
-                    <div>
-                        <label for="f-time">Time <span class="opt">(optional)</span></label>
-                        <input type="text" id="f-time" placeholder="e.g. 11:00 AM – 4:00 PM" />
-                    </div>
+                        <label for="f-desc">Short description</label>
+                        <textarea id="f-desc" maxlength="400" placeholder="One or two sentences shown on the event card."></textarea>
+
+                        <div class="row">
+                            <div>
+                                <label for="f-date">Date</label>
+                                <input type="date" id="f-date" required />
+                            </div>
+                            <div>
+                                <label for="f-time">Time <span class="opt">(optional)</span></label>
+                                <input type="text" id="f-time" placeholder="e.g. 11:00 AM – 4:00 PM" />
+                            </div>
+                        </div>
+
+                        <label for="f-embed">Embed code <span class="opt">(optional)</span></label>
+                        <textarea id="f-embed" class="embed" placeholder="Paste an embed code (Canva, YouTube, Google Maps, …). Leave blank if none."></textarea>
+                        <p class="hint">Tip: in Canva use <strong>Share → More → Embed</strong>. YouTube/Maps offer a "Share → Embed" option too.</p>
+
+                        <div class="actions">
+                            <button class="btn" type="submit" id="save-btn"><i class="fa-solid fa-floppy-disk"></i> Save Event</button>
+                            <button class="btn btn-ghost" type="button" id="cancel-btn" hidden>Cancel</button>
+                        </div>
+                        <div class="msg" id="form-msg"></div>
+                    </form>
                 </div>
 
-                <label for="f-embed">Embed code <span class="opt">(optional)</span></label>
-                <textarea id="f-embed" class="embed" placeholder="Paste an embed code here (Canva, YouTube, Google Maps, etc.). Leave blank if none."></textarea>
-                <p class="hint">Tip: in Canva use <strong>Share → More → Embed</strong> and copy the code. YouTube/Maps offer a "Share → Embed" option too.</p>
-
-                <div class="actions">
-                    <button class="btn" type="submit" id="save-btn"><i class="fa-solid fa-floppy-disk"></i> Save Event</button>
-                    <button class="btn btn-ghost" type="button" id="cancel-btn" hidden>Cancel</button>
+                <div class="card">
+                    <h2>Events</h2>
+                    <p class="sub">Newest first. Edit or remove any event below.</p>
+                    <div id="events-list"><p class="empty">Loading…</p></div>
                 </div>
-                <div class="msg" id="form-msg"></div>
-            </form>
-        </div>
+            </section>
 
-        <div class="card">
-            <h2>Events</h2>
-            <p class="sub">Newest first. Edit or remove any event below.</p>
-            <div id="events-list"><p class="empty">Loading…</p></div>
+            <!-- ============ Faith Formation page editor ============ -->
+            <section id="view-faith" hidden>
+                <div class="card">
+                    <div class="fp-ed-head">
+                        <h2 id="fp-page-title">Edit page</h2>
+                        <div class="actions" style="margin-top:0;">
+                            <a class="btn btn-ghost" id="fp-view-link" href="#" target="_blank" rel="noopener"><i class="fa-solid fa-up-right-from-square"></i> View page</a>
+                            <button class="btn btn-ghost" type="button" id="fp-reset"><i class="fa-solid fa-rotate-left"></i> Load original</button>
+                            <button class="btn" type="button" id="fp-save"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+                        </div>
+                    </div>
+                    <p class="sub">Edit the words, reorder or remove sections, and add new ones. Click <strong>Save</strong> to publish. Markdown is supported in text areas (**bold**, *italic*, [link](url), and "- " for bullet lists).</p>
+                    <div class="msg" id="fp-msg"></div>
+                    <div id="fp-editor"><p class="empty">Loading…</p></div>
+                    <div class="actions">
+                        <button class="btn" type="button" id="fp-save-2"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+                    </div>
+                </div>
+            </section>
         </div>
-    </main>
+    </div>
 
     <script type="module" src="admin.js"></script>
 </body>
