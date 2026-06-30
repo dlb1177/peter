@@ -188,6 +188,30 @@
             margin-top: 1rem;
         }
         .callout strong { color: #0d212a; }
+        .callout a { color: #c5a059; font-weight: 700; text-decoration: underline; }
+        .callout a:hover { color: #0d212a; }
+
+        .emergency {
+            background: #fdecec;
+            border: 2px solid #dc2626;
+            border-left-width: 6px;
+            border-radius: 0.4rem;
+            padding: 1.1rem 1.25rem;
+            margin-top: 1rem;
+            color: #991b1b;
+            font-weight: 700;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .emergency .label {
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-size: 0.72rem;
+            margin-bottom: 0.35rem;
+        }
+        .emergency a { color: #dc2626; text-decoration: underline; }
+        .emergency .phone { font-size: 1.1rem; white-space: nowrap; }
 
         .related {
             border-top: 1px solid #e5e0d5;
@@ -238,6 +262,7 @@
                     <h2>About this Sacrament</h2>
                     <p>The Rite of Anointing tells us there is no need to wait until a person is at the point of death in order to receive the Sacrament. A careful judgment about the serious nature of the illness is sufficient.</p>
                     <p>The Sacrament may be repeated if the sick person recovers after the anointing but then becomes ill once again, or if, during the same illness, the person's condition becomes more serious. A person should be anointed before surgery when a dangerous illness is the reason for the intervention.</p>
+                    <div class="callout"><strong>Questions about the Anointing of the Sick?</strong> If you'd like to learn more about receiving this sacrament at St. Peter's, <a href="contact.html#contact-form">reach out through our contact form</a> and a member of our staff will be glad to help.</div>
                 </div>
 
                 <aside class="info-card">
@@ -246,7 +271,10 @@
                     <h4>Contact</h4>
                     <p class="contact-name">Church of St. Peter</p>
                     <p class="contact-line">(651) 905-4305</p>
-                    <div class="callout"><strong>In case of emergency</strong> or for an urgent visit to the hospital or home, please call the parish office.</div>
+                    <div class="emergency">
+                        <span class="label"><i class="fa-solid fa-triangle-exclamation"></i> Need an Emergency Anointing?</span>
+                        If you need an emergency anointing, please phone <a class="phone" href="tel:6519054305">651-905-4305</a> and select <strong>option 2</strong>.
+                    </div>
                 </aside>
             </div>
 
