@@ -13,13 +13,13 @@ const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
 
 /* ---------- helpers ---------- */
 
-function escapeHtml(s) {
+export function escapeHtml(s) {
   return String(s == null ? '' : s)
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
-function parseDate(str) {
+export function parseDate(str) {
   if (!str) return null;
   const m = String(str).slice(0, 10).split('-');
   if (m.length < 3) return null;
@@ -27,11 +27,11 @@ function parseDate(str) {
   return isNaN(d.getTime()) ? null : d;
 }
 
-function fmtDate(d) {
+export function fmtDate(d) {
   return d ? MONTHS[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear() : '';
 }
 
-function eventStatus(ev) {
+export function eventStatus(ev) {
   const ref = parseDate(ev.date);
   if (!ref) return 'upcoming';
   const today = new Date();
@@ -70,7 +70,7 @@ function getDb() {
   return _dbPromise;
 }
 
-function fetchEvents() {
+export function fetchEvents() {
   return getDb().then(function (ctx) {
     return ctx.fs.getDocs(ctx.fs.collection(ctx.db, 'events')).then(function (snap) {
       const list = [];
@@ -82,7 +82,7 @@ function fetchEvents() {
 
 /* ---------- grid page ---------- */
 
-function sortForGrid(events) {
+export function sortForGrid(events) {
   return events.map(function (e) {
     return { e: e, status: eventStatus(e), d: parseDate(e.date) };
   }).sort(function (a, b) {

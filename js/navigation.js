@@ -18,8 +18,8 @@
         label: 'Mass & Prayer',
         submenu: [
           { label: 'Mass Times & Confession', href: 'pages/mass-prayer.html' },
-          { label: 'Adoration Chapel', href: 'pages/mass-prayer.html#adoration' },
-          { label: 'Liturgical Ministries', href: 'pages/mass-prayer.html#liturgy' }
+          { label: 'Adoration Chapel', href: 'pages/adoration.html' },
+          { label: 'Liturgical Ministries', href: 'pages/liturgical-ministries.html' }
         ]
       },
       {
@@ -285,7 +285,7 @@
                 <h4 class="text-white font-display font-bold uppercase text-xs tracking-widest mb-3">Mass & Prayer</h4>
                 <p><a href="${this.basePath}pages/mass-prayer.html" class="hover:text-church-gold transition-colors" style="text-decoration:none;color:inherit;">Mass Times</a></p>
                 <p><a href="${this.basePath}pages/mass-prayer.html#confession" class="hover:text-church-gold transition-colors" style="text-decoration:none;color:inherit;">Confession</a></p>
-                <p><a href="${this.basePath}pages/mass-prayer.html#adoration" class="hover:text-church-gold transition-colors" style="text-decoration:none;color:inherit;">Adoration Chapel</a></p>
+                <p><a href="${this.basePath}pages/adoration.html" class="hover:text-church-gold transition-colors" style="text-decoration:none;color:inherit;">Adoration Chapel</a></p>
               </div>
 
               <!-- Community Links -->
