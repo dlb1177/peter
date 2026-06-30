@@ -14,9 +14,22 @@ files plus a third-party form backend.
 
 - Informational pages grouped under **Mass & Prayer, Sacraments, Faith Life,
   About, News & Events**. Nav + footer are defined once and injected everywhere.
-- **Sacraments** — an overview hub plus a separate page per sacrament.
-- **Faith Formation** — separate pages for Catechesis of the Good Shepherd,
-  Youth Formation, and Adult Formation, plus a dedicated Alpha page.
+- **Home page** — hero + mission statement, an at-a-glance Mass/Confession/
+  Adoration bar, a **Community Life preview** (auto-shows up to three events —
+  soonest upcoming first, backfilled with the most recent past events), the
+  parish calendar, a Safe Environment / abuse-reporting link, and three
+  quick-link buttons (Bulletins, Homilies & Resources, Sacraments).
+- **Mass & Prayer** — three separate pages: **Mass Times & Confession**, the
+  **Perpetual Adoration Chapel** (with an online hour sign-up via the parish's
+  AdorationPro scheduler), and **Liturgical Ministries**.
+- **Sacraments** — an overview hub plus a separate page per sacrament. Copy
+  matches the parish's current descriptions; each page links to the contact form
+  for questions, and **Anointing of the Sick** carries a prominent
+  emergency-anointing notice.
+- **Faith Life** — pages for Catechesis of the Good Shepherd, Youth Formation,
+  Adult Formation, and Small Groups; a dedicated **Alpha** page; and **Faith
+  Enrichment Resources** (homilies, recorded talk/video series, and parish
+  resources).
 - **Forms** — Contact, New Parishioner, and Baptism Registration, delivered by
   [Web3Forms](https://web3forms.com) (no mail server needed).
 - **Calendar** — embeds a ParishSoft calendar (shows a "coming soon" placeholder
@@ -24,7 +37,8 @@ files plus a third-party form backend.
 - **Bulletins & Newsletters** and a **Uganda Mission** page ("coming soon").
 - **Community Life** — a "living" events section with a **password-protected
   admin** where parish staff add/edit/delete events (title, description, date,
-  time, and an optional pasted embed code). Backed by Firebase.
+  time, and an optional pasted embed code). Backed by Firebase. The home page
+  shows a live preview of the next few events.
 - **Editable Faith Life pages** — the same admin has a **Faith Life Pages**
   section where staff edit four pages (Catechesis/CGS, Youth Formation, Adult
   Formation, Small Groups) as reorderable content sections. Those pages render
@@ -35,8 +49,11 @@ files plus a third-party form backend.
 
 ```
 .
-├── index.html              # Home page
+├── index.html              # Home page (incl. Community Life preview + quick links)
 ├── pages/                  # All interior pages (one .html per page)
+│   ├── mass-prayer.html        # Mass times & confession
+│   ├── adoration.html          # Perpetual Adoration Chapel (AdorationPro sign-up)
+│   ├── liturgical-ministries.html  # Liturgical ministries
 │   ├── community-life.html     # Community Life — grid of event panes
 │   └── community-event.html    # One template renders any event by ?id=
 ├── admin/                  # Password-protected Community Life admin
@@ -53,6 +70,7 @@ files plus a third-party form backend.
 │   ├── animations.js       # Intersection-observer entrance animations
 │   ├── calendar.js         # Calendar embed/placeholder controller (ParishSoft)
 │   ├── community.js        # Community Life renderer (reads events from Firebase)
+│   ├── community-preview.js    # Home-page preview of the next few events
 │   ├── faith-pages.js      # Renders the editable Faith Life pages from data
 │   ├── faith-pages-defaults.js  # Baked-in default content for those pages
 │   ├── firebase-config.js  # Firebase project keys + shared admin email
@@ -149,10 +167,13 @@ through this checklist to hand ownership over. (Cross-check
 - **`js/firebase-config.js`** → `ADMIN_EMAIL = "dylan@dylanbrowncpa.com"` is the
   **test login**. Replace with the parish office email (and its account in the
   parish Firebase project).
-- **`pages/alpha.html`** → two "Register for Alpha" buttons link to
-  **`https://dylanbrowncpa.com/alpha`** (developer's domain). Point them at the
-  parish's Alpha registration page.
 - The Web3Forms key and GitHub/Pages URLs above are likewise developer-owned.
+
+> ✅ **Resolved:** the Alpha page's "Register for Alpha" buttons now point at the
+> parish-owned **`https://alphastpeter.com`** (previously the developer's
+> `dylanbrowncpa.com/alpha` placeholder). The Adoration page's hour sign-up links
+> to the parish's **AdorationPro** scheduler (`adorationpro.org/petermendota`) — a
+> parish-owned external service, nothing to migrate.
 
 ### 4. Externally hosted assets to bring in-house
 
